@@ -6,13 +6,10 @@ const initialState = {}
 
 const store = configureStore(initialState)
 
-export default class Main extends Component {
-    render() {
-        const { App } = this.props;
-        return (
-            <Provider store={store}>
-                <App />
-            </Provider>
-        )
-    }
-}
+const Main = ({ App }) => (
+    <Provider store={store}>
+        <App />
+    </Provider>
+)
+
+export default Main
