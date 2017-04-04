@@ -4,11 +4,9 @@ import { Button, Card, Toolbar, Drawer } from 'react-native-material-design';
 
 class App extends Component {
     render () {
-        const { drawer, navigator } = this.state;
-		const navView = React.createElement(Navigation);
-
         return (
             <View style={styles.container}>
+                <Toolbar title="JavaZone 2017" />
                 <Text style={styles.welcome}>
                     Welcome to React Native!
                 </Text>
