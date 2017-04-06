@@ -1,10 +1,29 @@
-import { combineReducers } from 'redux'
+// @flow
 
-// temporary reducer, remove once an actual exist
-const temp = (state = false, action) => state;
+import { combineReducers } from 'redux';
+import { CONFERENCES } from '../actions/conference';
+import { SESSIONS } from '../actions/session';
+import type { Sessions } from '../types/SleepingPill';
 
-const reducers = combineReducers({
-    temp
-})
+const conferenceInit = {all: [], selected: "javazone_2016"};
+const conferences = (state = conferenceInit, action) => {
+  switch (action.type) {
+    case CONFERENCES.FETCH_SUCCESS:
+      return {all: action.conferences};
+    default:
+      return state
+  }
+};
+
+const sessions = (state: Sessions = [], action) => {
+  switch (action.type) {
+    case SESSIONS.FETCH_SUCCESS:
+      return action.sessions;
+    default:
+      return state
+  }
+};
+
+const reducers = combineReducers({conferences, sessions});
 
 export default reducers
