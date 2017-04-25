@@ -3,7 +3,8 @@ import App from '../components/App'
 
 function mapStateToProps (state) {
     return {
-        something: true
+        conferences: state.conferences,
+        sessions: state.sessions
     }
 }
 
