@@ -5,8 +5,8 @@ import sagas from '../sagas';
 import reducer from '../reducers';
 
 const sagaMiddleware = createSagaMiddleware();
-
-const store = createStore(reducer, composeWithDevTools(
+const composeEnhancers = composeWithDevTools({ name: 'appZone', realtime: true, port: 8082 });
+const store = createStore(reducer, composeEnhancers(
     applyMiddleware(sagaMiddleware)
 ))
 
