@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 const ListConferences = (props) => (
   <View>
+    <Text>Konferanseliste</Text>
     {props.conferences.map((c) => (
       <Text key={c.slug}>
         {c.name}
