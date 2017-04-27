@@ -6,7 +6,4 @@ export type Feedback {
     content: int;
     quality: int;
     comment: string;
-
 }
-
-
