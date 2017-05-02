@@ -5,7 +5,7 @@ class Request {
     this.url = resource;
     this.options = {
       headers: {
-        'Content-Type': options.contentType
+        'Content-Type': options.contentType,
       }
     };
 
@@ -17,15 +17,13 @@ class Request {
     return this.makeRequest('POST', data);
   }
 
-  makeRequest(method, data) {
+  makeRequestFeedback(method, data) {
     this.options.method = method;
     console.log("Begin", data);
 
     if (method != 'GET') {
       this.options.body = JSON.stringify(data);
     }
-
-
 
     return fetch(this.url, this.options)
       .then(response => {

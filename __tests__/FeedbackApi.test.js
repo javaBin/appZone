@@ -1,8 +1,7 @@
-import { postFeedbackTest } from '../src/sagas/FeedbackApi';
+import { postFeedbackTest } from '../src/common/feedback/FeedbackApi';
 
 function postFeedback(feedback) {
   var test= postFeedbackTest(feedback);
-  console.log(test);
   return feedback;
 }
 
