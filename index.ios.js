@@ -3,7 +3,7 @@ import { AppRegistry, View, StatusBar } from 'react-native';
 import Main from './src/Main';
 import RatingScreen from './src/components/rating/RatingScreen';
 import Navigator from './src/common/Navigator';
-import { postFeedbackTest } from './src/common/feedback/FeedbackApi';
+import { postFeedbackTest } from './src/common/rating/RatingApi';
 
 export default class appZone extends Component {
 
