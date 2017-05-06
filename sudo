@@ -1,0 +1,6 @@
+export PATH=$PATH:/Users/kkho/Library/Developer/Xamarin/android-sdk-macosx /Users/kkho/.bash_profile
+export PATH=$PATH:/Users/kkho/Library/Developer/Xamarin/android-sdk-macosx /Users/kkho/.bash_profile
+export ANDROID_HOME=/Users/kkho/Library/Developer/Xamarin/android-sdk-macosx /Users/kkho/.bash_profile
+export PATH=$PATH:$ANDROID_HOME/platform-tools /Users/kkho/.bash_profile
+export ANDROID_HOME=/Users/kkho/Library/Developer/Xamarin/android-sdk-macosx /Users/kkho/.bash_profile
+export PATH=$PATH:$ANDROID_HOME/platform-tools /Users/kkho/.bash_profile
