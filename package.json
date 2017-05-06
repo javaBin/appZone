@@ -9,7 +9,11 @@
   "dependencies": {
     "react": "~15.4.1",
     "react-native": "0.42.3",
+<<<<<<< c504c7f38ef59cf19c848ff216e3b11c3dcf228a
     "react-native-device-info": "^0.10.2",
+=======
+    "react-native-maps": "^0.14.0",
+>>>>>>> added a fully working map and also videoscreen that renders webview, both will need more adjustments
     "react-native-material-design": "^0.3.7",
     "react-native-vector-icons": "^4.0.0",
     "react-redux": "^5.0.3",
