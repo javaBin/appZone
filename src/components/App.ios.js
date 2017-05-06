@@ -4,9 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import SettingsScreen from './settings/SettingsScreen';
 
 const App = () => (
-  <View style={styles.container}>
-    <SettingsScreen />
-  </View>
+    <TabBarNavigation style={styles.container}/>
 )
 
 const styles = StyleSheet.create({
