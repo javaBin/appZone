@@ -5,20 +5,7 @@ import { Button, Toolbar } from 'react-native-material-design';
 class App extends Component {
     render () {
         return (
-            <View style={styles.container}>
-                <Toolbar title="JavaZone 2017" />
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit index.android.js
-                </Text>
-                <Text style={styles.instructions}>
-                    Double tap R on your keyboard to reload,{'\n'}
-                    Shake or press menu button for dev menu
-                </Text>
-                <Button text="Hello" />
-            </View>
+            <TabBarNavigation style={styles.container}/>
         )
     }
 }

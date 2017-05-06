@@ -20,10 +20,14 @@ import { StyleSheet, View } from 'react-native';
 import SettingsScreen from './settings/SettingsScreen';
 
 const App = () => (
+<<<<<<< 37e1b4a0047fe66caacc1a763585e2780d6b0588
   <View style={styles.container}>
     <SettingsScreen />
   </View>
 >>>>>>> added small function to settings, will add asynstorage
+=======
+    <TabBarNavigation style={styles.container}/>
+>>>>>>> added router for android
 )
 
 const styles = StyleSheet.create({
