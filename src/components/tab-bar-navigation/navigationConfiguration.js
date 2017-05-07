@@ -1,7 +1,7 @@
 import { TabNavigator } from 'react-navigation'
 
-import { HomeNavigatorTab } from '../home/navigationConfigutation'
-import { SessionNavigatorTab } from '../sessions/navigationConfigutation';
+import { HomeNavigatorTab } from '../home/navigationConfiguration'
+import { SessionNavigatorTab } from '../sessions/navigationConfiguration';
 //import FeedbackTab from '../feedback/FeedbackScreen';
 
 const routeConfiguration  = ({
