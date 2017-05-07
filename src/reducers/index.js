@@ -8,9 +8,9 @@ import type { Sessions } from '../types/SleepingPill';
 
 
 //Navigation
-import { SessionNavigatorTab } from '../components/sessions/navigationConfigutation'
-import { HomeNavigatorTab } from '../components/home/navigationConfigutation';
-import { TabBar } from '../components/tab-bar-navigation/navigationConfigutation';
+import { SessionNavigatorTab } from '../components/sessions/navigationConfiguration'
+import { HomeNavigatorTab } from '../components/home/navigationConfiguration';
+import { TabBar } from '../components/tab-bar-navigation/navigationConfiguration';
 
 const conferenceInit = {all: [], selected: "javazone_2016"};
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import {
   AppRegistry
 } from 'react-native';
@@ -22,4 +22,16 @@ export default class appZone extends Component {
 AppRegistry.registerComponent('appZone', () => appZone);
 
 
-//https://medium.com/@parkerdan/react-navigation-with-complete-redux-state-management-tab-bar-and-multiple-navigators-ed30a69d9a4d
+//https://medium.com/@parkerdan/react-navigation-with-complete-redux-state-management-tab-bar-and-multiple-navigators-ed30a69d9a4d*/
+
+import React, {Component} from 'react';
+import { AppRegistry } from 'react-native';
+import Main from './src/Main';
+
+export default class appZone extends Component {
+    render() {
+        return <Main />
+    }
+}
+
+AppRegistry.registerComponent('appZone', () => appZone);

@@ -10,6 +10,6 @@ const routeConfiguration = {
 // going to disable the header for now
 const stackNavigatorConfiguration = {
   headerMode: 'none',
-  initialRouteName: 'SessionScreen'
+  initialRoute: 'SessionScreen'
 }
 export const SessionNavigatorTab = StackNavigator(routeConfiguration,stackNavigatorConfiguration)
