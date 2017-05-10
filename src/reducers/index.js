@@ -3,6 +3,7 @@
 import { combineReducers } from 'redux';
 import { CONFERENCES } from '../actions/conference';
 import { SESSIONS } from '../actions/session';
+import settings from './settings';
 import type { Sessions } from '../types/SleepingPill';
 
 const conferenceInit = {all: [], selected: "javazone_2016"};
@@ -24,6 +25,6 @@ const sessions = (state: Sessions = [], action) => {
   }
 };
 
-const reducers = combineReducers({conferences, sessions});
+const reducers = combineReducers({conferences, sessions, settings});
 
 export default reducers

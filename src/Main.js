@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import configureStore from './store'
 import App from './containers/App'
 
+
 const initialState = {}
 
 const store = configureStore(initialState)
