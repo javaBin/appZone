@@ -4,29 +4,49 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {
   Platform,
+  StatusBar,
   Switch,
   Text,
   View,
   StyleSheet,
-  StatusBar
+  AsyncStorage
 } from 'react-native';
 
 import * as settings from '../../actions/settings';
 
+var STORE_SETTINGS_KEY = 'SETTINGSKEY';
+
 class SettingsScreen extends React.Component {
+  componentWillMount() {
+    AsyncStorage.getItem(STORE_SETTINGS_KEY).then((settingsStr) => {
+      var settingsJson = JSON.parse(settingsStr);
+      this.loadSettings(settingsJson);
+    });
+  }
+
   render() {
+    console.log(this.props);
     return (
       <View style={styles.container}>
-        <StatusBar
-          translucent={true}
-          barStyle="default"
-        />
-        <Switch
-          accessibilityLabel="Notify me about sessions that are about to begin"
-          style={styles.switch}
-          value={!!this.props.notificationSession}
-          onValueChange={(enabled) => this.setNotificationSessionSwitch(enabled)}
-        />
+        <StatusBar />
+        <View style={styles.switchWrapper}>
+          <Text style={styles.option}>Notify me about sessions that are about to begin</Text>
+          <Switch
+            accessibilityLabel="Notify me about sessions that are about to begin"
+            style={styles.switch}
+            value={!!this.props.notificationSession}
+            onValueChange={(enabled) => this.setNotificationSessionSwitch(enabled)}
+          />
+        </View>
+        <View style={styles.switchWrapper}>
+          <Text style={styles.option}>Notify me to send feedback</Text>
+          <Switch
+            accessibilityLabel="Notify me to send feedback"
+            style={styles.switch}
+            value={!!this.props.notificationFeedback}
+            onValueChange={(enabled) => this.setNotificationFeedbackSwitch(enabled)}
+          />
+        </View>
       </View>
     )
   }
@@ -34,15 +54,24 @@ class SettingsScreen extends React.Component {
   setNotificationSessionSwitch(enabled) {
     this.props.dispatch(settings.setNotificationSession(enabled));
   }
+
+  setNotificationFeedbackSwitch(enabled) {
+    this.props.dispatch(settings.setNotificationFeedback(enabled));
+  }
+
+  loadSettings(settingsJson) {
+      this.props.dispatch(settings.loadSettings(settingsJson));
+  }
 }
 
 var styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'white',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingBottom: 49
+    position: 'absolute',
+    flexDirection: 'column',
+    left: 0,
+    right: 0,
+    top: 0,
+    alignItems: 'center'
   },
   switchWrapper: {
     flexDirection: 'row',
@@ -52,7 +81,10 @@ var styles = StyleSheet.create({
     margin: 10
   },
   option: {
-    fontSize: 12
+    fontSize: 16,
+    flexWrap: 'wrap',
+    flex: 0.8,
+
   }
 });
 
