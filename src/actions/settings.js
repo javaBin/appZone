@@ -6,10 +6,9 @@ export const SETTINGS = {
   GET_NOTIFICATION_CONFIG: 'GET_NOTIFICATION_CONFIG'
 };
 
-var STORE_SETTINGS_KEY = '@Settings:key';
+var STORE_SETTINGS_KEY = 'SETTINGSKEY';
 
 export function setNotificationSession(enabled) {
-  console.warn("Inside Notification");
   return {
     type: SETTINGS.SET_NOTIFICATION_SESSION,
     payload: enabled
@@ -23,13 +22,10 @@ export function setNotificationFeedback(enabled) {
   }
 }
 
-export async function loadSettings() {
-  const config = await AsyncStorage.getItem(STORE_SETTINGS_KEY, (err, result) => {
-    console.log(result);
-  });
+export function loadSettings(settingsLoaded) {
   return {
     type: SETTINGS.GET_NOTIFICATION_CONFIG,
-    config
+    payload: settingsLoaded
   }
 }
 
