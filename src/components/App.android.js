@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, DrawerLayoutAndroid } from 'react-native';
-import { Button, Card, Toolbar, Drawer } from 'react-native-material-design';
+import { StyleSheet, Text, View } from 'react-native';
+import { Button, Toolbar } from 'react-native-material-design';
 
 class App extends Component {
     render () {
