@@ -12,6 +12,8 @@ import { SessionNavigatorTab } from '../components/sessions/navigationConfigurat
 import { HomeNavigatorTab } from '../components/home/navigationConfiguration';
 import { TabBar } from '../components/tab-bar-navigation/navigationConfiguration';
 
+import navigation from './navigation';
+
 const conferenceInit = {all: [], selected: "javazone_2016"};
 
 const conferences = (state = conferenceInit, action) => {
@@ -35,6 +37,7 @@ const sessions = (state: Sessions = [], action) => {
 const reducers = combineReducers({
   conferences, 
   sessions,
+  navigation,
   tabBar: (state, action) => 
   TabBar.router.getStateForAction(action,state),
 

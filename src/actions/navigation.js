@@ -1,5 +1,4 @@
 // @flow
-// @flow
 export const NAVIGATION = {
   SWITCH_TAB: 'SWITCH_TAB',
   SWITCH_DAY: 'SWITCH_DAY'
@@ -7,8 +6,9 @@ export const NAVIGATION = {
 
 
 
-export const switch_tab =
-  {
+export function switchTab(selectedTab) {
+  return {
     type: NAVIGATION.SWITCH_TAB,
-    tab: 'schedule' | 'my-schedule' | 'map' | 'notifications' | 'info'
-  };
+    selectedTab
+  }
+}

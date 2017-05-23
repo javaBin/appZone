@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, DrawerLayoutAndroid } from 'react-native';
 import { Button, Card, Toolbar, Drawer } from 'react-native-material-design';
-import TabBarView from './tab-bar-navigation/TabBarView'
+import JZNavigator from './tab-bar-navigation/JZNavigator'
 
 class App extends Component {
     render() {
         return (
-            <TabBarView style={styles.container} />
+            <JZNavigator style={styles.container} />
         )
     }
 }
