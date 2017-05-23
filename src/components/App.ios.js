@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
@@ -24,6 +25,27 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5
   }
+=======
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, DrawerLayoutAndroid } from 'react-native';
+import { Button, Card, Toolbar, Drawer } from 'react-native-material-design';
+import TabBarView from './tab-bar-navigation/TabBarView'
+
+class App extends Component {
+    render() {
+        return (
+            <TabBarView style={styles.container} />
+        )
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+>>>>>>> added a working tab for ios
 });
 
 export default App
