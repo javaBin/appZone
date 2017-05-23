@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 // TODO add switchTab
+import { switchTab } from '../../actions/navigation';
 import { connect } from 'react-redux';
 
 class TabBarView extends React.Component {
@@ -18,29 +19,16 @@ class TabBarView extends React.Component {
   static description = 'Tab-based navigation.';
   static displayName = 'TabBarExample';
 
-  state = {
-    selectedTab: 'redTab',
-    notifCount: 0,
-    presses: 0,
-  };
-
-    props: {
-    tab: Tab;
-    day: Day;
-    onTabSelect: (tab: Tab) => void;
-    navigator: Navigator;
-  };
-
-  onTabSelect(tab: Tab) {
-    if (this.props.tab !== tab) {
-      this.props.onTabSelect(tab);
+  onTabSelect(selectedTab) {
+    if (this.props.selectedTab !== selectedTab) {
+      this.props.onTabSelect(selectedTab);
     }
   }
 
 
-  _renderContent = (color: string, pageText: string, num?: number) => {
+  _renderContent = (color, pageText, num) => {
     return (
-      <View style={[styles.tabContent, {backgroundColor: color}]}>
+      <View style={[styles.tabContent, { backgroundColor: color }]}>
         <Text style={styles.tabText}>{pageText}</Text>
         <Text style={styles.tabText}>{num} re-renders of the {pageText}</Text>
       </View>
@@ -56,38 +44,17 @@ class TabBarView extends React.Component {
         barTintColor="darkslateblue">
         <TabBarIOS.Item
           title="Blue Tab"
-          selected={this.state.selectedTab === 'blueTab'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'blueTab',
-            });
-          }}>
+          selected={this.props.selectedTab === 'schedule'}
+          onPress={this.onTabSelect.bind(this, 'schedule')}>
           {this._renderContent('#414A8C', 'Blue Tab')}
         </TabBarIOS.Item>
         <TabBarIOS.Item
           systemIcon="history"
-          badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
           badgeColor="black"
-          selected={this.state.selectedTab === 'redTab'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'redTab',
-              notifCount: this.state.notifCount + 1,
-            });
-          }}>
-          {this._renderContent('#783E33', 'Red Tab', this.state.notifCount)}
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-          renderAsOriginal
-          title="More"
-          selected={this.state.selectedTab === 'greenTab'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'greenTab',
-              presses: this.state.presses + 1
-            });
-          }}>
-          {this._renderContent('#21551C', 'Green Tab', this.state.presses)}
+          selected={this.props.selectedTab === 'my-schedule'}
+          onPress={this.onTabSelect.bind(this, 'my-schedule')}
+          >
+          {this._renderContent('#783E33', 'Red Tab')}
         </TabBarIOS.Item>
       </TabBarIOS>
     );
@@ -107,16 +74,15 @@ var styles = StyleSheet.create({
 
 function select(store) {
   return {
-    tab: store.navigation.tab,
-    day: store.navigation.day
+    selectedTab: store.navigation.selectedTab
   };
 }
 
 function actions(dispatch) {
   return {
-    onTabSelect: (tab) => dispatch(switchTab(tab)),
+    onTabSelect: (selectedTab) => dispatch(switchTab(selectedTab)),
   };
 }
 
-module.exports = TabBarView;
+module.exports = connect(select, actions)(TabBarView);
 
