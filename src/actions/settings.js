@@ -1,12 +1,8 @@
-import { AsyncStorage } from 'react-native';
-
 export const SETTINGS = {
   SET_NOTIFICATION_SESSION: 'SET_NOTIFICATION_SESSION',
   SET_NOTIFICATION_FEEDBACK: 'SET_NOTIFICATION_FEEDBACK',
   GET_NOTIFICATION_CONFIG: 'GET_NOTIFICATION_CONFIG'
 };
-
-var STORE_SETTINGS_KEY = 'SETTINGSKEY';
 
 export function setNotificationSession(enabled) {
   return {
