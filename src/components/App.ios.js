@@ -1,3 +1,4 @@
+<<<<<<< 55255650cd5d9c2dd5625f97fd421b780896abc4
 <<<<<<< ff05c1e5cc0b1b65a441d7f53bf4491edc643e7f
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
@@ -11,6 +12,10 @@ const App = () => (
 =======
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+=======
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+>>>>>>> fixed lint errors
 
 import SettingsScreen from './settings/SettingsScreen';
 
