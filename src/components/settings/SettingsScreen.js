@@ -1,0 +1,96 @@
+'use strict';
+
+import React from 'react';
+import { connect } from 'react-redux';
+import {
+  StatusBar,
+  Switch,
+  Text,
+  View,
+  StyleSheet,
+  AsyncStorage
+} from 'react-native';
+
+import * as settings from '../../actions/settings';
+
+var STORE_SETTINGS_KEY = 'SETTINGSKEY';
+
+class SettingsScreen extends React.Component {
+  componentWillMount() {
+    AsyncStorage.getItem(STORE_SETTINGS_KEY).then((settingsStr) => {
+      var settingsJson = JSON.parse(settingsStr);
+      this.loadSettings(settingsJson);
+    });
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <StatusBar />
+        <View style={styles.switchWrapper}>
+          <Text style={styles.option}>Notify me about sessions that are about to begin</Text>
+          <Switch
+            accessibilityLabel="Notify me about sessions that are about to begin"
+            style={styles.switch}
+            value={!!this.props.notificationSession}
+            onValueChange={(enabled) => this.setNotificationSessionSwitch(enabled)}
+          />
+        </View>
+        <View style={styles.switchWrapper}>
+          <Text style={styles.option}>Notify me to send feedback</Text>
+          <Switch
+            accessibilityLabel="Notify me to send feedback"
+            style={styles.switch}
+            value={!!this.props.notificationFeedback}
+            onValueChange={(enabled) => this.setNotificationFeedbackSwitch(enabled)}
+          />
+        </View>
+      </View>
+    )
+  }
+
+  setNotificationSessionSwitch(enabled) {
+    this.props.dispatch(settings.setNotificationSession(enabled));
+  }
+
+  setNotificationFeedbackSwitch(enabled) {
+    this.props.dispatch(settings.setNotificationFeedback(enabled));
+  }
+
+  loadSettings(settingsJson) {
+      this.props.dispatch(settings.loadSettings(settingsJson));
+  }
+}
+
+var styles = StyleSheet.create({
+  container: {
+    position: 'absolute',
+    flexDirection: 'column',
+    left: 0,
+    right: 0,
+    top: 0,
+    alignItems: 'center'
+  },
+  switchWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  switch: {
+    margin: 10
+  },
+  option: {
+    fontSize: 16,
+    flexWrap: 'wrap',
+    flex: 0.8,
+
+  }
+});
+
+function select(store) {
+  return {
+    notificationSession: store.settings.notificationSession,
+    notificationFeedback: store.settings.notificationFeedback
+  };
+}
+
+export default connect(select)(SettingsScreen);
