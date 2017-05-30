@@ -14,6 +14,8 @@ import {
 import { switchTab } from '../../actions/navigation';
 import { connect } from 'react-redux';
 
+import SettingsScreen from '../settings/SettingsScreen';
+
 class TabBarView extends React.Component {
   static title = '<TabBarIOS>';
   static description = 'Tab-based navigation.';
@@ -28,12 +30,18 @@ class TabBarView extends React.Component {
 
   _renderContent = (color, pageText, num) => {
     return (
-      <View style={[styles.tabContent, { backgroundColor: color }]}>
+      <View style={[styles.tabContent]}>
         <Text style={styles.tabText}>{pageText}</Text>
         <Text style={styles.tabText}>{num} re-renders of the {pageText}</Text>
       </View>
     );
   };
+
+  renderScreenSettingsScreen = () => {
+    return (
+      <SettingsScreen style={styles.tabContent}/>
+    )
+  }
 
   render() {
     return (
@@ -52,10 +60,16 @@ class TabBarView extends React.Component {
           systemIcon="history"
           badgeColor="black"
           selected={this.props.selectedTab === 'my-schedule'}
-          onPress={this.onTabSelect.bind(this, 'my-schedule')}
-          >
+          onPress={this.onTabSelect.bind(this, 'my-schedule')}>
           {this._renderContent('#783E33', 'Red Tab')}
         </TabBarIOS.Item>
+        <TabBarIOS.Item
+          title="Settings"
+          selected={this.props.selectedTab === 'settings'}
+          onPress={this.onTabSelect.bind(this, 'settings')}>
+          {this.renderScreenSettingsScreen()}
+        </TabBarIOS.Item>
+
       </TabBarIOS>
     );
   }
@@ -65,6 +79,8 @@ var styles = StyleSheet.create({
   tabContent: {
     flex: 1,
     alignItems: 'center',
+    backgroundColor: 'white',
+    
   },
   tabText: {
     color: 'white',
