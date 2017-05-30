@@ -55,12 +55,12 @@ const styles = StyleSheet.create({
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, DrawerLayoutAndroid } from 'react-native';
 import { Button, Card, Toolbar, Drawer } from 'react-native-material-design';
-import JZNavigator from './tab-bar-navigation/JZNavigator'
+import TabBarNavigation from './tab-bar-navigation/TabBarNavigation'
 
 class App extends Component {
     render() {
         return (
-            <JZNavigator style={styles.container} />
+            <TabBarNavigation style={styles.container} />
         )
     }
 }

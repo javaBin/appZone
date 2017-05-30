@@ -10,9 +10,7 @@ import type { Sessions } from '../types/SleepingPill';
 //Navigation
 import { SessionNavigatorTab } from '../components/sessions/navigationConfiguration'
 import { HomeNavigatorTab } from '../components/home/navigationConfiguration';
-import { TabBar } from '../components/tab-bar-navigation/navigationConfiguration';
-
-import navigation from './navigation';
+import { TabBar, tabBarReducer } from '../components/tab-bar-navigation/navigationConfiguration';
 
 const conferenceInit = {all: [], selected: "javazone_2016"};
 
@@ -37,9 +35,14 @@ const sessions = (state: Sessions = [], action) => {
 const reducers = combineReducers({
   conferences, 
   sessions,
+<<<<<<< HEAD
   navigation,
   tabBar: (state, action) => 
   TabBar.router.getStateForAction(action,state),
+=======
+  settings,
+  tabBar: tabBarReducer,
+>>>>>>> removed unneccessary navigator and added reducer example to tabview navigator
 
   tabSession: (state, action) =>
   SessionNavigatorTab.router.getStateForAction(action,state),
