@@ -1,4 +1,4 @@
-import { TabNavigator } from 'react-navigation'
+import { addNavigationHelpers, TabNavigator } from 'react-navigation'
 
 import { HomeNavigatorTab } from '../home/navigationConfiguration'
 import { SessionNavigatorTab } from '../sessions/navigationConfiguration';
@@ -19,6 +19,15 @@ const tabBarConfiguration = {
     activeBackgroundColor: 'blue',
     inactiveBackgroundColor: 'white',
     }
+}
+
+export const tabBarReducer = (state, action) => {
+  console.warn("in here");
+  if (action.type === 'JUMP_TO_TAB') {
+    return { ...state, ...action.payload }
+  } else {
+    return TabBar.router.getStateForAction(action,state)
+  }
 }
 
 export const TabBar = TabNavigator(routeConfiguration,tabBarConfiguration)

@@ -10,4 +10,5 @@ const stackNavigatorConfiguration = {
   headerMode: 'none',
   initialRouteName: 'HomeScreen'
 }
+
 export const HomeNavigatorTab = StackNavigator(routeConfiguration,stackNavigatorConfiguration)

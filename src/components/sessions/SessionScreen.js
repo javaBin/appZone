@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux';
 
 export default class SessionScreen extends React.Component {
@@ -11,10 +11,20 @@ export default class SessionScreen extends React.Component {
     return (
       <View>
         <Text>Her er den ene taben</Text>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.goBack()}
+          style={{
+            padding: 20,
+            borderRadius: 20,
+            backgroundColor: 'yellow',
+            marginTop: 20
+          }}>
+          <Text>{'Go back a screen this tab'}</Text>
+        </TouchableOpacity>
       </View>
     )
   }
-} 
+}
 // export default connect(
 //   (state) => ({sessions: state.sessions})
 // )(SessionScreen)
