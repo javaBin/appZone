@@ -3,8 +3,7 @@
 import { NAVIGATION } from '../actions/navigation';
 
 export type Tab = {
-  schedule: string,
-  mySchedule: string
+  selectedTab: string
 };
 
 const initialState: Tab = {

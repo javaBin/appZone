@@ -25,7 +25,6 @@ export default function settings(state = initialState, action) {
       return { ...state, notificationFeedback: action.payload };
     case SETTINGS.GET_NOTIFICATION_CONFIG:
       var config = action.payload;
-      console.warn("CONFIG", config);
       return {
         ...state,
         notificationSession: config.notificationSession,
@@ -42,7 +41,6 @@ function storeSettings(type, enabled) {
     notificationFeedback: false
   };
   AsyncStorage.getItem(STORE_SETTINGS_KEY).then((settingsStr) => {
-    console.warn(settingsStr);
     settings = JSON.parse(settingsStr);
     if (settings != null) {
       switch (type) {
