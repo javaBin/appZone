@@ -2,11 +2,13 @@ import { addNavigationHelpers, TabNavigator } from 'react-navigation'
 
 import { HomeNavigatorTab } from '../home/navigationConfiguration'
 import { SessionNavigatorTab } from '../sessions/navigationConfiguration';
+import { SettingsNavigatorTab } from '../settings/navigationConfiguration';
 //import FeedbackTab from '../feedback/FeedbackScreen';
 
 const routeConfiguration  = ({
     HomeNavigatorTab: { screen: HomeNavigatorTab },
     SessionNavigatorTab: { screen: SessionNavigatorTab }, 
+    SettingsNavigatorTab : { screen: SettingsNavigatorTab }
     //FeedbackTab: { screen: FeedbackScreen }
 });
 
@@ -22,7 +24,6 @@ const tabBarConfiguration = {
 }
 
 export const tabBarReducer = (state, action) => {
-  console.warn("in here");
   if (action.type === 'JUMP_TO_TAB') {
     return { ...state, ...action.payload }
   } else {
