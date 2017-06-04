@@ -32,4 +32,4 @@ class TabHomeNavigation extends React.Component {
 }
 
 
-export default connect(mapStateToProps)(TabThreeNavigation)
+export default connect(mapStateToProps)(TabHomeNavigation)
