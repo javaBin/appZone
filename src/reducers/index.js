@@ -6,7 +6,15 @@ import { SESSIONS } from '../actions/session';
 import settings from './settings';
 import type { Sessions } from '../types/SleepingPill';
 
+
+//Navigation
+import { SessionNavigatorTab } from '../components/sessions/navigationConfiguration';
+import { HomeNavigatorTab } from '../components/home/navigationConfiguration';
+import { SettingsNavigatorTab } from '../components/settings/navigationConfiguration';
+import { TabBar, tabBarReducer } from '../components/tab-bar-navigation/navigationConfiguration';
+
 const conferenceInit = {all: [], selected: "javazone_2016"};
+
 const conferences = (state = conferenceInit, action) => {
   switch (action.type) {
     case CONFERENCES.FETCH_SUCCESS:
@@ -25,6 +33,20 @@ const sessions = (state: Sessions = [], action) => {
   }
 };
 
-const reducers = combineReducers({conferences, sessions, settings});
+const reducers = combineReducers({
+  conferences, 
+  sessions,
+  settings,
+  tabBar: tabBarReducer,
+
+  tabSession: (state, action) =>
+  SessionNavigatorTab.router.getStateForAction(action,state),
+
+  tabSettings : (state, action) =>
+  SettingsNavigatorTab.router.getStateForAction(action,state),
+
+  tabHome: (state, action) =>
+  HomeNavigatorTab.router.getStateForAction(action,state)
+});
 
 export default reducers
