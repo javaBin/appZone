@@ -11,6 +11,7 @@ const initialState = {}
 const store = configureStore(initialState)
 
 store.dispatch(fetchConferences())
+store.dispatch(fetchSessions('javazone_2016'));
 
 const Main = () => (
     <Provider store={store}>

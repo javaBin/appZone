@@ -1,30 +1,63 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, AppRegistry, View, Text, TouchableOpacity, ListView } from 'react-native'
 import { connect } from 'react-redux';
 
-export default class SessionScreen extends React.Component {
-  // static navigationOptions = ({ navigation }) => ({
-  //     sessions: navigation.state.params,
-  // })
+import * as session from '../../actions/session';
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: 20,
+  },
+});
+
+class SessionScreen extends React.Component {
+  static propTypes = {
+
+  }; 
+
+  constructor(props) {
+    super(props);    
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}); 
+    this.state = {
+      allSessions: []
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+  }
+
+  componentDidMount() {
+
+  }
   render() {
-    // const { params } = this.props.navigation.state;
+    let output = [];
+
     return (
       <View>
-        <Text>Her er den ene taben</Text>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.goBack()}
-          style={{
-            padding: 20,
-            borderRadius: 20,
-            backgroundColor: 'yellow',
-            marginTop: 20
-          }}>
-          <Text>{'Go back a screen this tab'}</Text>
-        </TouchableOpacity>
+        <Text>Sessions will be here...</Text>
       </View>
     )
   }
 }
-// export default connect(
-//   (state) => ({sessions: state.sessions})
-// )(SessionScreen)
+
+//const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}); 
+
+
+const mapStateToProps = (state) => { 
+  return {  
+    sessionsData: state.sessions
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchAllSessions : () => {
+
+    }
+  }; 
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SessionScreen);
+
