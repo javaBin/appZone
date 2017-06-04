@@ -36,14 +36,8 @@ const sessions = (state: Sessions = [], action) => {
 const reducers = combineReducers({
   conferences, 
   sessions,
-<<<<<<< HEAD
-  navigation,
-  tabBar: (state, action) => 
-  TabBar.router.getStateForAction(action,state),
-=======
   settings,
   tabBar: tabBarReducer,
->>>>>>> removed unneccessary navigator and added reducer example to tabview navigator
 
   tabSession: (state, action) =>
   SessionNavigatorTab.router.getStateForAction(action,state),
