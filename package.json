@@ -33,7 +33,9 @@
     "eslint-plugin-react-native": "^2.3.2",
     "jest": "19.0.2",
     "react-test-renderer": "~15.4.1",
-    "remote-redux-devtools": "^0.5.10"
+    "remote-redux-devtools": "^0.5.10",
+    "remote-redux-devtools-on-debugger": "^0.7.1",
+    "remotedev-server": "^0.2.2"
   },
   "jest": {
     "preset": "react-native"
