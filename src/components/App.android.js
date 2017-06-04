@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, DrawerLayoutAndroid } from 'react-native';
-import { Button, Card, Toolbar, Drawer } from 'react-native-material-design';
+import { StyleSheet } from 'react-native';
 import TabBarNavigation from './tab-bar-navigation/TabBarNavigation'
 
 class App extends Component {

@@ -1,4 +1,4 @@
-import { addNavigationHelpers, TabNavigator } from 'react-navigation'
+import { TabNavigator } from 'react-navigation'
 
 import { HomeNavigatorTab } from '../home/navigationConfiguration'
 import { SessionNavigatorTab } from '../sessions/navigationConfiguration';

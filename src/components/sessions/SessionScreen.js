@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, AppRegistry, View, Text, TouchableOpacity, ListView } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
 import { connect } from 'react-redux';
 
 import * as session from '../../actions/session';
