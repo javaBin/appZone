@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
 
+
 const ListConferences = (props) => (
   <View>
     {props.conferences.map((c) => (
@@ -13,5 +14,7 @@ const ListConferences = (props) => (
 );
 
 export default connect(
-  (state) => ({conferences: state.conferences.all})
+  (state) => (
+    {conferences: state.conferences.all
+    })
 )(ListConferences)

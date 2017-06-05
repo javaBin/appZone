@@ -5,13 +5,15 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "lint": "eslint src",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "remotedev-debugger --hostname localhost --port 8083 --injectserver"
   },
   "dependencies": {
     "react": "~15.4.1",
     "react-native": "0.42.3",
     "react-native-material-design": "^0.3.7",
     "react-native-vector-icons": "^4.0.0",
+    "react-navigation": "^1.0.0-beta.7",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
     "redux-saga": "^0.14.4"
@@ -27,7 +29,9 @@
     "eslint-plugin-react-native": "^2.3.2",
     "jest": "19.0.2",
     "react-test-renderer": "~15.4.1",
-    "remote-redux-devtools": "^0.5.10"
+    "remote-redux-devtools": "0.5.0",
+    "remote-redux-devtools-on-debugger": "^0.7.1",
+    "remotedev-server": "^0.2.2"
   },
   "jest": {
     "preset": "react-native"

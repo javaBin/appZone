@@ -1,31 +1,21 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet } from 'react-native';
+import TabBarNavigation from './tab-bar-navigation/TabBarNavigation'
 
-import SettingsScreen from './settings/SettingsScreen';
-
-const App = () => (
-  <View style={styles.container}>
-    <SettingsScreen />
-  </View>
-)
+class App extends Component {
+    render() {
+        return (
+            <TabBarNavigation style={styles.container} />
+        )
+    }
+}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5
-  }
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
 });
 
 export default App

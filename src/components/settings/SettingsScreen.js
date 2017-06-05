@@ -8,8 +8,11 @@ import {
   Text,
   View,
   StyleSheet,
-  AsyncStorage
+  AsyncStorage,
+  Dimensions
 } from 'react-native';
+
+let ScreenHeight = Dimensions.get("window").height;
 
 import * as settings from '../../actions/settings';
 
@@ -64,12 +67,16 @@ class SettingsScreen extends React.Component {
 
 var styles = StyleSheet.create({
   container: {
+    flex: 1,
     position: 'absolute',
     flexDirection: 'column',
     left: 0,
     right: 0,
     top: 0,
-    alignItems: 'center'
+    marginTop: 16,
+    alignItems: 'center',
+    backgroundColor: 'white',
+    height: ScreenHeight
   },
   switchWrapper: {
     flexDirection: 'row',
