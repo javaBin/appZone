@@ -21,8 +21,14 @@ var STORE_SETTINGS_KEY = 'SETTINGSKEY';
 class SettingsScreen extends React.Component {
   componentWillMount() {
     AsyncStorage.getItem(STORE_SETTINGS_KEY).then((settingsStr) => {
-      var settingsJson = JSON.parse(settingsStr);
-      this.loadSettings(settingsJson);
+      if (settingsStr == undefined) {
+        let settings = {}
+        AsyncStorage.setItem(STORE_SETTINGS_KEY, JSON.stringify(settings), () => {
+        });
+      } else {
+        var settingsJson = JSON.parse(settingsStr);
+        this.loadSettings(settingsJson);
+      }
     });
   }
 
@@ -61,7 +67,7 @@ class SettingsScreen extends React.Component {
   }
 
   loadSettings(settingsJson) {
-      this.props.dispatch(settings.loadSettings(settingsJson));
+    this.props.dispatch(settings.loadSettings(settingsJson));
   }
 }
 
