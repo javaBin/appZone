@@ -6,10 +6,10 @@ export const SESSIONS = {
 };
 
 export const sessionsFetchSuccess =
-  (json) => ( {type: SESSIONS.FETCH_SUCCESS, sessions: json.sessions} );
+  (json) => ({ type: SESSIONS.FETCH_SUCCESS, sessions: json.sessions });
 
 export const sessionsFetchError =
-  (errorMsg) => ({type: SESSIONS.FETCH_ERROR, errorMsg});
+  (errorMsg) => ({ type: SESSIONS.FETCH_ERROR, errorMsg });
 
 export const fetchSessions =
-  (slug) => ({type: SESSIONS.FETCH_REQUEST, conferenceSlug: slug});
+  (slug) => ({ type: SESSIONS.FETCH_REQUEST, conferenceSlug: slug });
