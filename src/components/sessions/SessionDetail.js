@@ -19,11 +19,10 @@ export default class SessionDetail extends React.Component {
         <Text>{fromTime} - {toTime}</Text>
         <Text>Publikum: {params.sessionData.intendedAudience}</Text>
         <Text>Sammendrag: {params.sessionData.abstract}</Text>
-        <Text>{}</Text>
         { 
-          params.sessionData.speakers.map( (speaker) => {
+          params.sessionData.speakers.map( (speaker, index) => {
             return (
-              <View key={speaker.key}>
+              <View key={index}>
                 <Text>Speaker: { speaker.name }</Text>
                 <Text>Bio: { speaker.bio }</Text>
               </View>);

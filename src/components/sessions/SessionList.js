@@ -47,9 +47,12 @@ class SessionList extends React.Component {
 
   render() {
     let output = [];
+
+    if(!this.state.ds) return null;
+
     return (
       <View style={ styles.container }>
-        <ListView style={ styles.list }
+        <ListView enableEmptySections={true} style={ styles.list }
           dataSource={ this.state.ds }
           renderRow={this.renderRow.bind(this)} />
       </View>
