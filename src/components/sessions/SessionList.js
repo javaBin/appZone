@@ -10,7 +10,8 @@ import {
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import SessionDetail from './SessionDetail';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
+import style from '../../common/style';
 import moment from 'moment';
 
 const styles = StyleSheet.create({
@@ -18,6 +19,10 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 5,
   },
+  SessionTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+  }
 });
 
 class SessionList extends React.Component {
@@ -88,6 +93,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
   }; 
+};
+
+SessionList.navigationOptions = {
+  showLabel: false,
+  showIcon: true,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionList);
