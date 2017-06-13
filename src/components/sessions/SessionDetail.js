@@ -7,10 +7,13 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import style from '../../common/style.js'
 
 const styles = StyleSheet.create({
-  sessionHeader: {
+  sessionHeaderWrapper: {
     flex: 1,
     padding: 5,
     backgroundColor: style.colors.background,
+    paddingBottom: 10,
+    borderBottomWidth: 2,
+    borderBottomColor: style.colors.color2,
   },
   heading1: {
     color: style.colors.color1,
@@ -18,12 +21,13 @@ const styles = StyleSheet.create({
     fontFamily: style.fonts.juraBold,
   },
   heading2: {
+    color: style.colors.color4,
     fontSize: style.fontSizes.heading2,
     fontFamily: style.fonts.juraBold,
     padding: 5,
   },
   headingSpeakerName: {
-    color: style.colors.color2,
+    color: style.colors.primary,
     fontWeight: "500",
     padding: 5,
   },
@@ -38,6 +42,10 @@ const styles = StyleSheet.create({
     backgroundColor: style.colors.backgroundSecondary,
   },
   keywordContainer: {
+    borderWidth: 1,
+    borderColor: style.colors.color3,
+    borderRadius: 4,
+    color: style.colors.primary,
     fontFamily: style.fonts.juraLight,
     padding: 3, 
     margin: 5, 
@@ -52,7 +60,7 @@ export default class SessionDetail extends React.Component {
     let toTime = moment (new Date(params.sessionData.endTime)).format('HH:mm');
     return (
       <ScrollView>
-        <View style={ styles.sessionHeader }>
+        <View style={ styles.sessionHeaderWrapper }>
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <Icon name="arrow-left" style={{padding: 15}} size={40} color={style.colors.color4} 
               onPress={() => this.props.navigation.navigate('SessionList')}/>   
@@ -68,8 +76,9 @@ export default class SessionDetail extends React.Component {
         </View>
         <View style={ styles.container }>
           <Text style={ styles.textStyle }>{ params.sessionData.abstract }</Text>
+          <Text style={ styles.heading2 }>INTENDED AUDIENCE:</Text>  
           <Text style={ styles.textStyle }>{ params.sessionData.intendedAudience }</Text>
-          <Text style={ styles.heading2 }>SPEAKER:</Text>
+          <Text style={ styles.heading2 }>{params.sessionData.speakers.length === 1 ? "SPEAKER:" : "SPEAKERS:"}</Text>
           { 
             params.sessionData.speakers.map( (speaker, index) => {
               return (
@@ -80,13 +89,13 @@ export default class SessionDetail extends React.Component {
             })
           }
           <Text style={ styles.heading2 }>KEYWORDS:</Text>        
-          <View>
-          {
-            params.sessionData.keywords.map( (keyword, index) => {
-              return <Text style={ styles.keywordContainer } key={index}>{keyword}</Text>
-            })
-          }
-          </View>
+            <View style={{flex: 1, flexDirection: 'row'}}>
+              {
+                params.sessionData.keywords.map( (keyword, index) => {
+                  return <Text style={ styles.keywordContainer } key={index}>{keyword}</Text>
+                })
+              }
+            </View>
         </View>
       </ScrollView>
     )
