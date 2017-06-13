@@ -8,5 +8,17 @@ module.exports = {
     color2: '#b63d9d', // purple
     color3: '#30a74d', // green
     color4: '#f28e31', // orange
+  },
+  fonts: {
+    juraBold: 'jura-bold',
+    juraLight: 'jura-light',
+    juraMedium: 'jura-medium',
+    juraRegular: 'jura-regular',
+    tron: 'tron',
+  },
+  fontSizes: {
+    heading1: 30,
+    heading2: 25,
+
   }
 };
