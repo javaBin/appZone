@@ -14,13 +14,12 @@ const styles = StyleSheet.create({
   },
   heading1: {
     color: style.colors.color1,
-    fontSize: 30,
-    fontFamily: 'jura-bold',
+    fontSize: style.fontSizes.heading1,
+    fontFamily: style.fonts.juraBold,
   },
   heading2: {
-    color: style.colors.color2,
-    fontSize: 25,
-    fontFamily: 'jura-bold',
+    fontSize: style.fontSizes.heading2,
+    fontFamily: style.fonts.juraBold,
     padding: 5,
   },
   headingSpeakerName: {
@@ -39,9 +38,7 @@ const styles = StyleSheet.create({
     backgroundColor: style.colors.backgroundSecondary,
   },
   keywordContainer: {
-    backgroundColor: style.colors.color3,
-    color: style.colors.backgroundSecondary,
-    fontFamily: 'jura-bold',
+    fontFamily: style.fonts.juraLight,
     padding: 3, 
     margin: 5, 
   }
