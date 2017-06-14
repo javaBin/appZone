@@ -16,6 +16,7 @@ const mapStateToProps = (state) => {
 class TabSessionNavigation extends React.Component {
     static navigationOptions = {
         tabBarLabel: 'Session',
+        title: 'i am the title'
     }
 
     render() {
