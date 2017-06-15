@@ -51,8 +51,6 @@ class SessionList extends React.Component {
   }
 
   render() {
-    let output = [];
-
     if(!this.state.ds) return null;
 
     return (
@@ -95,10 +93,6 @@ const mapDispatchToProps = (dispatch) => {
   }; 
 };
 
-SessionList.navigationOptions = {
-  showLabel: false,
-  showIcon: true,
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionList);
 

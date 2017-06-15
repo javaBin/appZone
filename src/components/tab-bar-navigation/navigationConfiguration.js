@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { TabNavigator } from 'react-navigation'
 
 import { HomeNavigatorTab } from '../home/navigationConfiguration'
@@ -5,20 +7,55 @@ import { SessionNavigatorTab } from '../sessions/navigationConfiguration';
 import { SettingsNavigatorTab } from '../settings/navigationConfiguration';
 
 import style from '../../common/style.js'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const routeConfiguration  = ({
-    HomeNavigatorTab: { screen: HomeNavigatorTab },
-    SessionNavigatorTab: { screen: SessionNavigatorTab }, 
-    SettingsNavigatorTab : { screen: SettingsNavigatorTab }
+    HomeNavigatorTab: { 
+      screen: HomeNavigatorTab,
+      navigationOptions: {            
+        tabBar: {
+          icon: ({ tintColor }) => {
+            return (
+              <FontAwesome size={ 30 } name='home' color={tintColor}/>
+            );            
+          },
+        },
+      },
+      
+     },
+    SessionNavigatorTab: { 
+      screen: SessionNavigatorTab,
+      navigationOptions: {            
+        tabBar: {
+          icon: ({ tintColor }) => {
+            return (
+              <FontAwesome size={ 30 } name='lightbulb-o' color={tintColor}/>
+            );            
+          },
+        },
+      },
+    }, 
+    SettingsNavigatorTab : { 
+      screen: SettingsNavigatorTab,
+      navigationOptions: {            
+        tabBar: {
+          icon: ({ tintColor }) => {
+            return (
+              <FontAwesome size={ 30 } name='cog' color={tintColor}/>
+            );            
+          },
+        },
+      },
+    }
 });
 
 const tabBarConfiguration = {
     tabBarPosition: 'bottom',
     tabBarOptions: {
-      showIcon: false,
-      showLabel: true,
+      showIcon: true,
+      showLabel: false,
   // tint color is passed to text and icons (if enabled) on the tab bar
-      activeTintColor: style.colors.primary,
+      activeTintColor: style.colors.color3,
       inactiveTintColor: style.colors.secondary,
   // background color is for the tab component
       activeBackgroundColor: style.colors.background,
@@ -31,6 +68,11 @@ const tabBarConfiguration = {
       },
       indicatorStyle: {
         backgroundColor: style.colors.color4,
+      },
+      iconStyle: {
+        width: 100,
+        height: 100,
+        paddingBottom: 10,
       }
    }
 }
