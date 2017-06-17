@@ -6,7 +6,7 @@ import { HomeNavigatorTab } from '../home/navigationConfiguration'
 import { SessionNavigatorTab } from '../sessions/navigationConfiguration';
 import { SettingsNavigatorTab } from '../settings/navigationConfiguration';
 
-import style from '../../common/style.js'
+import style from '../../common/style'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const routeConfiguration  = ({

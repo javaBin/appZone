@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import moment from 'moment';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import style from '../../common/style.js'
+import style from '../../common/style'
 
 const styles = StyleSheet.create({
   sessionHeaderWrapper: {
