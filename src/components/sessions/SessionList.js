@@ -5,23 +5,58 @@ import {
   Text, 
   ListView, 
   Button,
-  TouchableOpacity 
-} from 'react-native'
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+  TouchableOpacity,
+} from 'react-native';
 import SessionDetail from './SessionDetail';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import style from '../../common/style';
 import moment from 'moment';
 
 const styles = StyleSheet.create({
-  container: {
+  listContainer: {
     flex: 1,
-    marginTop: 5,
+    backgroundColor: style.colors.background,
   },
-  SessionTitle: {
+  constainer: {
+    margin: 10,
+  },
+  sessionTitle: {
+    color: style.colors.primary,    
     fontSize: 16,
     fontWeight: '600',
+  },
+  textStyle: {
+    color: style.colors.primary,
+  },
+  listItemWrapper: {
+    padding: 10,
+    flexDirection: 'row',
+  },
+  filterButtonWrapper: {
+    flexDirection: 'row', 
+    justifyContent: 'space-between',
+    // alignItems: 'center'
+  },
+  filterButton: {
+    flexGrow: 2,
+    backgroundColor: style.colors.backgroundColor,
+    borderColor: style.colors.backgroundSecondary,
+    borderWidth: 3,
+  },
+  filterButtonText: {
+    alignSelf: 'center',
+    paddingTop: 10,
+    fontSize: 15,
+    color: style.colors.color3,
+  },
+  formatPresentation: {
+    color: style.colors.color1,
+  },
+  formatLightningTalk: {
+    color: style.colors.color4,
+  },
+  formatWorkshop: {
+    color: style.colors.color3,
   }
 });
 
@@ -30,18 +65,48 @@ class SessionList extends React.Component {
     sessionsData: PropTypes.array
   }; 
 
-  formatTime = (dateString) => {
-    return new Date(dateString).toLocaleTimeString();
+  getHeader() {
+    return (
+      <View style= { styles.filterButtonWrapper }>
+        <TouchableOpacity
+          style={ styles.filterButton }
+          onPress={this.filterSessionDay.bind(1)}
+          title="Day 1"
+          accessibilityLabel="List sessions, day one">
+            <Text style={styles.filterButtonText}>DAY 1</Text></TouchableOpacity>
+        <TouchableOpacity
+          style={ styles.filterButton }
+          onPress={this.filterSessionDay.bind(1)}
+          title="Day 1"
+          accessibilityLabel="List sessions, day one"
+        ><Text style={styles.filterButtonText}>DAY 2</Text></TouchableOpacity>
+        <Icon.Button 
+          borderRadius={0}
+          backgroundColor={style.colors.backgroundSecondary}
+          name="filter" 
+          size={30}
+          onPress={this.filterSessions()}>         
+        </Icon.Button>
+      </View>
+    );
   }
 
-  constructor(props) {
-    super(props);    
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}); 
+  getTimeSpan(fromTime, endTime) {
+    let from = (moment(new Date(fromTime)).format('dddd, DD MMM HH:mm'));
+    let end = (moment (new Date(endTime)).format('HH:mm'));
+    return (from + ' - ' + end); 
+  }
 
-    this.state = {
-      ds: ds.cloneWithRows(this.props.sessionsData)
+  getSessionFormat(format) {
+    if (format === 'presentation') {
+      return <Text style={ styles.formatPresentation }>{format}</Text>      
+    } else if(format === 'lightning-talk') {
+      return <Text style={ styles.formatLightningTalk }>{format}</Text>            
+    } else {
+      return <Text style={ styles.formatWorkshop }>{format}</Text>                  
     }
   }
+
   componentWillReceiveProps(nextProps) {
     if(this.props.sessionsData !== nextProps.sessionsData) {
       this.setState(()=> {
@@ -54,25 +119,30 @@ class SessionList extends React.Component {
     if(!this.state.ds) return null;
 
     return (
-      <View style={ styles.container }>
-        <ListView enableEmptySections={true} style={ styles.list }
+      <View style={ styles.listContainer }>
+        {this.getHeader()}
+        <ListView 
+          enableEmptySections={true} style={ styles.list }
           dataSource={ this.state.ds }
           renderRow={this.renderRow.bind(this)} />
       </View>
     );
   }
 
+
   renderRow(rowData, rowID) {   
     return (
-      <TouchableOpacity onPress={() => this._onRowPressed(rowData)} key={rowID}>
-        <View key={ rowData.sessionId }>
-          <Text>{ rowData.title }</Text>
-          <Text>{ rowData.format }&nbsp;
-          { moment(new Date(rowData.startTime)).format('dddd, MMMM DD HH:mm') } -&nbsp;
-          { moment (new Date(rowData.endTime)).format('HH:mm') }&nbsp;
-          { rowData.room }</Text>
+        <View style={ styles.listItemWrapper} key={ rowData.sessionId }>
+          <View>
+            <Icon name="star-o" style={{paddingRight: 10}}size={30} color={style.colors.color4}/> 
         </View>
+          <TouchableOpacity style={{paddingRight: 40}} onPress={() => this._onRowPressed(rowData)} key={rowID}>
+            <Text style={ styles.sessionTitle }>{rowData.title}</Text>
+            {this.getSessionFormat(rowData.format)}
+            <Text style={ styles.textStyle }>{this.getTimeSpan(rowData.startTime, rowData.endTime)}</Text>
+            <Text style={ styles.textStyle }>{rowData.room}</Text>
       </TouchableOpacity>
+        </View>
     );
   }
 
