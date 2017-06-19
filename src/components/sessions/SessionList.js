@@ -9,6 +9,9 @@ import {
 } from 'react-native';
 import SessionDetail from './SessionDetail';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import style from '../../common/style';
 import moment from 'moment';
 
@@ -61,10 +64,33 @@ const styles = StyleSheet.create({
 });
 
 class SessionList extends React.Component {
+
+  constructor(props) {
+    super(props);
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}); 
+    this.state = {
+      ds: ds.cloneWithRows(this.props.sessionsData)
+    }
+  }
   static propTypes = {
     sessionsData: PropTypes.array
-  }; 
+  };
 
+  formatArray(array) {
+    
+    return array.sort((a,b) => {
+      return b.startTime > a.startTime ? -1
+            :b.startTime > a.startTime ? 1
+            :0
+    })
+  }
+  filterSessionDay() {
+
+  }
+
+  filterSessions() {
+    
+  }
   getHeader() {
     return (
       <View style= { styles.filterButtonWrapper }>
@@ -110,7 +136,7 @@ class SessionList extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(this.props.sessionsData !== nextProps.sessionsData) {
       this.setState(()=> {
-        return {ds: this.state.ds.cloneWithRows(nextProps.sessionsData)}
+        return {ds: this.state.ds.cloneWithRows(this.formatArray(nextProps.sessionsData))}
       });
     }
   }
@@ -130,18 +156,18 @@ class SessionList extends React.Component {
   }
 
 
-  renderRow(rowData, rowID) {   
+  renderRow(rowData, rowID) {       
     return (
         <View style={ styles.listItemWrapper} key={ rowData.sessionId }>
           <View>
             <Icon name="star-o" style={{paddingRight: 10}}size={30} color={style.colors.color4}/> 
-        </View>
+          </View>
           <TouchableOpacity style={{paddingRight: 40}} onPress={() => this._onRowPressed(rowData)} key={rowID}>
             <Text style={ styles.sessionTitle }>{rowData.title}</Text>
             {this.getSessionFormat(rowData.format)}
             <Text style={ styles.textStyle }>{this.getTimeSpan(rowData.startTime, rowData.endTime)}</Text>
             <Text style={ styles.textStyle }>{rowData.room}</Text>
-      </TouchableOpacity>
+          </TouchableOpacity>
         </View>
     );
   }
