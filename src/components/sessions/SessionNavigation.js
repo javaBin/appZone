@@ -7,9 +7,6 @@ import { SessionNavigatorTab } from '../navigationConfiguration'
 //Redux
 import { connect } from 'react-redux'
 
-// Icon
-import Icon from 'react-native-vector-icons/FontAwesome'
-
 const mapStateToProps = (state) => {
   return {
     navigationState: state.sessions
