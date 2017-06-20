@@ -10,12 +10,12 @@ module.exports = {
     color4: '#f28e31', // orange
   },
   fonts: {
-    headerBold: 'jura-bold', // juraBold
-    headerLight: 'jura-light', // juraLight
-    header: 'jura-medium', // juraMedium
+    headerBold: 'jura-bold', 
+    headerLight: 'jura-light',
+    header: 'jura-medium', 
     headerItalic: 'jura-regular',
-    headerRegular: 'jura-regular', // juraRegular
-    special: 'tron', // special
+    headerRegular: 'jura-regular', 
+    special: 'tron',
   },
   fontSizes: {
     heading1: 30,

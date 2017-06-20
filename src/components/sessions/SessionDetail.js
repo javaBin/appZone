@@ -18,12 +18,12 @@ const styles = StyleSheet.create({
   heading1: {
     color: style.colors.color1,
     fontSize: style.fontSizes.heading1,
-    fontFamily: style.fonts.juraBold,
+    fontFamily: style.fonts.headerBold,
   },
   heading2: {
     color: style.colors.color4,
     fontSize: style.fontSizes.heading2,
-    fontFamily: style.fonts.juraBold,
+    fontFamily: style.fonts.headerBold,
     padding: 5,
   },
   headingSpeakerName: {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     borderColor: style.colors.color3,
     borderRadius: 4,
     color: style.colors.primary,
-    fontFamily: style.fonts.juraLight,
+    fontFamily: style.fonts.headerLight,
     padding: 3, 
     margin: 5, 
   }
