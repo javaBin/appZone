@@ -1,6 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, View, Button, ScrollView } from 'react-native';
-import { connect } from 'react-redux';
+import { Text, StyleSheet, View, ScrollView } from 'react-native';
 
 import moment from 'moment';
 import Icon from 'react-native-vector-icons/FontAwesome';

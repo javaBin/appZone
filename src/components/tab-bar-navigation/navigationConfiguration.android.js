@@ -23,7 +23,7 @@ const routeConfiguration  = ({
       },
       
      },
-    SessionNavigatorTab: { 
+    SessionNavigatorTab: {
       screen: SessionNavigatorTab,
       navigationOptions: {            
         tabBar: {
@@ -37,7 +37,7 @@ const routeConfiguration  = ({
     }, 
     SettingsNavigatorTab : { 
       screen: SettingsNavigatorTab,
-      navigationOptions: {            
+      navigationOptions: {
         tabBar: {
           icon: ({ tintColor }) => {
             return (
