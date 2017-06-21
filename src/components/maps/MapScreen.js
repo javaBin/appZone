@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 export default class MapScreen extends React.Component {
@@ -31,7 +31,7 @@ export default class MapScreen extends React.Component {
     );
   }
 
-};
+}
 
 const styles = StyleSheet.create({
   container: {

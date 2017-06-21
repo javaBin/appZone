@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, WebView, Dimensions, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, WebView, Dimensions } from 'react-native';
 
 const vimeoUrl = 'https://vimeo.com/javazone';
 
@@ -31,7 +31,7 @@ export default class VideoScreen extends React.Component {
         </View>
     );
   }
-};
+}
 
 const styles = StyleSheet.create({
   container: {

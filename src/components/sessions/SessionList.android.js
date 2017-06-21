@@ -4,10 +4,8 @@ import {
   View, 
   Text, 
   ListView, 
-  Button,
   TouchableOpacity,
 } from 'react-native';
-import SessionDetail from './SessionDetail';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { connect } from 'react-redux';

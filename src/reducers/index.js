@@ -11,7 +11,7 @@ import type { Sessions } from '../types/SleepingPill';
 import { SessionNavigatorTab } from '../components/sessions/navigationConfiguration';
 import { HomeNavigatorTab } from '../components/home/navigationConfiguration';
 import { SettingsNavigatorTab } from '../components/settings/navigationConfiguration';
-import { TabBar, tabBarReducer } from '../components/tab-bar-navigation/navigationConfiguration';
+import { tabBarReducer } from '../components/tab-bar-navigation/navigationConfiguration';
 
 const conferenceInit = {all: [], selected: "javazone_2016"};
 
