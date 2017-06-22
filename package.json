@@ -16,7 +16,7 @@
     "react-native": "0.42.3",
     "react-native-maps": "^0.14.0",
     "react-native-material-design": "^0.3.7",
-    "react-native-vector-icons": "^4.0.0",
+    "react-native-vector-icons": "^4.2.0",
     "react-navigation": "^1.0.0-beta.7",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
@@ -41,6 +41,9 @@
     "remotedev-server": "^0.2.2"
   },
   "jest": {
-    "preset": "react-native"
-  }
+		"preset": "react-native",
+		"transformIgnorePatterns": [
+			"node_modules/?!(react-native|native-base)"
+		]
+	}
 }
