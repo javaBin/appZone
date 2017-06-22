@@ -70,8 +70,6 @@
 		50173E001EBDD70400B6EB54 /* AIRMapUrlTileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50173DDA1EBDD70300B6EB54 /* AIRMapUrlTileManager.m */; };
 		50173E011EBDD70400B6EB54 /* SMCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50173DDD1EBDD70300B6EB54 /* SMCalloutView.m */; };
 		50173E021EBDD70400B6EB54 /* RCTConvert+AirMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 50173DDF1EBDD70400B6EB54 /* RCTConvert+AirMap.m */; };
-		508C36711EBE17DD009D7B94 /* AIRGoogleMapGroundOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 508C366E1EBE17DD009D7B94 /* AIRGoogleMapGroundOverlay.m */; };
-		508C36721EBE17DD009D7B94 /* AIRGoogleMapGroundOverlayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 508C36701EBE17DD009D7B94 /* AIRGoogleMapGroundOverlayManager.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		BAFCF63CC8C4D157885820FF /* libPods-appZone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0EDDFDDBFE08309478E8718 /* libPods-appZone.a */; };
@@ -365,10 +363,6 @@
 		50173DDD1EBDD70300B6EB54 /* SMCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCalloutView.m; sourceTree = "<group>"; };
 		50173DDE1EBDD70400B6EB54 /* RCTConvert+AirMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+AirMap.h"; sourceTree = "<group>"; };
 		50173DDF1EBDD70400B6EB54 /* RCTConvert+AirMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+AirMap.m"; sourceTree = "<group>"; };
-		508C366D1EBE17DD009D7B94 /* AIRGoogleMapGroundOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIRGoogleMapGroundOverlay.h; path = ../../../../../../../Downloads/AIRGoogleMapGroundOverlay.h; sourceTree = "<group>"; };
-		508C366E1EBE17DD009D7B94 /* AIRGoogleMapGroundOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIRGoogleMapGroundOverlay.m; path = ../../../../../../../Downloads/AIRGoogleMapGroundOverlay.m; sourceTree = "<group>"; };
-		508C366F1EBE17DD009D7B94 /* AIRGoogleMapGroundOverlayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIRGoogleMapGroundOverlayManager.h; path = ../../../../../../../Downloads/AIRGoogleMapGroundOverlayManager.h; sourceTree = "<group>"; };
-		508C36701EBE17DD009D7B94 /* AIRGoogleMapGroundOverlayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIRGoogleMapGroundOverlayManager.m; path = ../../../../../../../Downloads/AIRGoogleMapGroundOverlayManager.m; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6D5C505E57BC08065CC3017C /* libPods-appZoneTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appZoneTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DCD3E42B847B6F4480FDE18 /* Pods-appZone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appZone.release.xcconfig"; path = "Pods/Target Support Files/Pods-appZone/Pods-appZone.release.xcconfig"; sourceTree = "<group>"; };
@@ -564,10 +558,6 @@
 		50173D961EBDD70300B6EB54 /* AirGoogleMaps */ = {
 			isa = PBXGroup;
 			children = (
-				508C366D1EBE17DD009D7B94 /* AIRGoogleMapGroundOverlay.h */,
-				508C366E1EBE17DD009D7B94 /* AIRGoogleMapGroundOverlay.m */,
-				508C366F1EBE17DD009D7B94 /* AIRGoogleMapGroundOverlayManager.h */,
-				508C36701EBE17DD009D7B94 /* AIRGoogleMapGroundOverlayManager.m */,
 				50173D971EBDD70300B6EB54 /* AIRGMSMarker.h */,
 				50173D981EBDD70300B6EB54 /* AIRGMSMarker.m */,
 				50173D991EBDD70300B6EB54 /* AIRGMSPolygon.h */,
@@ -1270,8 +1260,6 @@
 				50173DF61EBDD70400B6EB54 /* AIRMapCircleManager.m in Sources */,
 				50173DF51EBDD70400B6EB54 /* AIRMapCircle.m in Sources */,
 				50173DFD1EBDD70400B6EB54 /* AIRMapPolyline.m in Sources */,
-				508C36721EBE17DD009D7B94 /* AIRGoogleMapGroundOverlayManager.m in Sources */,
-				508C36711EBE17DD009D7B94 /* AIRGoogleMapGroundOverlay.m in Sources */,
 				50173DF11EBDD70400B6EB54 /* RCTConvert+GMSMapViewType.m in Sources */,
 				50173DF31EBDD70400B6EB54 /* AIRMapCallout.m in Sources */,
 				50173DFA1EBDD70400B6EB54 /* AIRMapMarkerManager.m in Sources */,
