@@ -1,29 +1,18 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, DrawerLayoutAndroid } from 'react-native';
-import { Button, Card, Toolbar, Drawer } from 'react-native-material-design';
+import { StyleSheet } from 'react-native';
+import TabBarNavigation from './tab-bar-navigation/TabBarNavigation'
+
+var moment = require('moment');
+var nbLocale = require('moment/locale/nb');
 
 class App extends Component {
     render () {
+        moment.updateLocale('nb', nbLocale);
         return (
-            <View style={styles.container}>
-                <Toolbar title="JavaZone 2017" />
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit index.android.js
-                </Text>
-                <Text style={styles.instructions}>
-                    Double tap R on your keyboard to reload,{'\n'}
-                    Shake or press menu button for dev menu
-                </Text>
-                <Button text="Hello" />
-            </View>
+            <TabBarNavigation style={styles.container}/>
         )
     }
 }
-
-
 
 const styles = StyleSheet.create({
     container: {

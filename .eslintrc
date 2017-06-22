@@ -1,14 +1,29 @@
 {
   "parser": "babel-eslint",
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "react",
+    "react-native"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
   "rules": {
     "default-case": "warn",
     "max-len": ["warn", 140, 4],
     "no-case-declarations": "warn",
     "no-console": "warn",
     "no-debugger": "warn",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "state|dispatch"}],
     "object-curly-spacing": ["warn", "always"],
     "padded-blocks": ["warn", "never"],
-    "semi": ["warn", "never"]
+    "semi": ["warn", "never"],
+    "react/prop-types": "warn",
+    "react/display-name": [ "off", { "ignoreTranspilerName": true }]
   }
 }

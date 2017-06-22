@@ -4,14 +4,20 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "lint": "eslint src",
+    "test": "jest",
+    "postinstall": "remotedev-debugger --hostname localhost --port 8083 --injectserver"
   },
   "dependencies": {
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
     "react": "~15.4.1",
+    "react-moment": "^0.2.4",
     "react-native": "0.42.3",
     "react-native-maps": "^0.15.2",
     "react-native-material-design": "^0.3.7",
-    "react-native-vector-icons": "^4.0.0",
+    "react-native-vector-icons": "^4.2.0",
+    "react-navigation": "^1.0.0-beta.7",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
     "redux-saga": "^0.14.4"
@@ -21,12 +27,23 @@
     "babel-jest": "19.0.0",
     "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "babel-preset-react-native": "1.9.1",
+    "babel-preset-stage-2": "^6.24.1",
     "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.0.0",
+    "eslint-plugin-react-native": "^2.3.2",
     "jest": "19.0.2",
-    "react-test-renderer": "~15.4.1"
+    "react-test-renderer": "~15.4.1",
+    "remote-redux-devtools": "0.5.0",
+    "remote-redux-devtools-on-debugger": "^0.7.1",
+    "remotedev-server": "^0.2.2"
   },
   "jest": {
-    "preset": "react-native"
-  }
+		"preset": "react-native",
+		"transformIgnorePatterns": [
+			"node_modules/?!(react-native|native-base)"
+		]
+	}
 }
