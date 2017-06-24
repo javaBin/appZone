@@ -13,6 +13,8 @@ import PropTypes from 'prop-types'
 import style from '../../common/style'
 import moment from 'moment'
 
+import { setSelectedDay } from '../../actions/conferenceDays'
+
 const styles = StyleSheet.create({
   listContainer: {
     flex: 1,
@@ -64,6 +66,7 @@ class SessionList extends React.Component {
 
   constructor(props) {
     super(props)
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
     this.state = {
       ds: ds.cloneWithRows(this.props.sessionsData)
     }
@@ -77,33 +80,21 @@ class SessionList extends React.Component {
     navigation: PropTypes.object
   };
 
-  formatArray(list) {
-    return list.sort((a,b) => {
-      return b.startTime > a.startTime ? -1
-            :b.startTime > a.startTime ? 1
-            :0
-    })
-  }
-  filterSessionDay() {
-
-  }
-
   filterSessions() {
-    
   }
   getHeader() {
     return (
       <View style= { styles.filterButtonWrapper }>
         <TouchableOpacity
           style={ styles.filterButton }
-          onPress={this.filterSessionDay.bind(1)}
+          onPress={ ()=> this.props.filterSessionDay(this.props.day1) }
           title="Day 1"
           accessibilityLabel="List sessions, day one">
             <Text style={styles.filterButtonText}>DAY 1</Text></TouchableOpacity>
         <TouchableOpacity
           style={ styles.filterButton }
-          onPress={this.filterSessionDay.bind(1)}
-          title="Day 1"
+          onPress={() => this.props.filterSessionDay(this.props.day2)}
+          title="Day 2"
           accessibilityLabel="List sessions, day one"
         ><Text style={styles.filterButtonText}>DAY 2</Text></TouchableOpacity>
         <Icon.Button 
@@ -136,8 +127,8 @@ class SessionList extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(this.props.sessionsData !== nextProps.sessionsData) {
       this.setState(()=> {
-        return {ds: this.state.ds.cloneWithRows(this.formatArray(nextProps.sessionsData))}
-      });
+        return { ds: this.state.ds.cloneWithRows(nextProps.sessionsData) }
+      })
     }
   }
 
@@ -178,13 +169,26 @@ class SessionList extends React.Component {
   }
 
 const mapStateToProps = (state) => { 
+  let fSessions = (state.sessions)
+    .filter( ses => ses.startTime.slice(0,10) === state.conferenceDays.selectedDay)
+    .sort((a,b) => {
+      return b.startTime > a.startTime ? -1
+            :b.startTime > a.startTime ? 1
+            :0
+    })
+  
   return {  
-    sessionsData: state.sessions
-  };
-};
+    sessionsData: fSessions,
+    selectedDay: state.conferenceDays.selectedDay,
+    day1: state.conferenceDays.days.day1,
+    day2: state.conferenceDays.days.day2,
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
+      filterSessionDay: (day) => { dispatch(setSelectedDay(day)) }
     }
   }
 
+export default connect(mapStateToProps, mapDispatchToProps)(SessionList)
