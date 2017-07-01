@@ -41,13 +41,15 @@ const daysInit = {
 const conferenceDays = (state = daysInit, action) => {
   switch (action.type) {
     case DAY.SET_DAYS:
-      return Object.assign({}, state, {
+      return { 
+        ...state, 
         days: action.days
       })
     case DAY.SET_SELECTED_DAY:
-    return Object.assign({}, state, {
-        selectedDay: action.day
-    })
+    return  {
+      ...state,
+      selectedDay: action.day
+    }
     default: 
       return state
   }
