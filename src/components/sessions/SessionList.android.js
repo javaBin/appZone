@@ -13,7 +13,7 @@ import PropTypes from 'prop-types'
 import style from '../../common/style'
 import moment from 'moment'
 
-import { setSelectedDay } from '../../actions/conferenceDays'
+import { setSelectedDay } from '../../actions/filter'
 
 const styles = StyleSheet.create({
   listContainer: {
@@ -170,7 +170,7 @@ class SessionList extends React.Component {
 
 const mapStateToProps = (state) => { 
   let fSessions = (state.sessions)
-    .filter( ses => ses.startTime.slice(0,10) === state.conferenceDays.selectedDay)
+    .filter( ses => ses.startTime.slice(0,10) === state.filter.selectedDay)
     .sort((a,b) => {
       return b.startTime > a.startTime ? -1
             :b.startTime > a.startTime ? 1
@@ -179,9 +179,9 @@ const mapStateToProps = (state) => {
   
   return {  
     sessionsData: fSessions,
-    selectedDay: state.conferenceDays.selectedDay,
-    day1: state.conferenceDays.days.day1,
-    day2: state.conferenceDays.days.day2,
+    selectedDay: state.filter.selectedDay,
+    day1: state.filter.days.day1,
+    day2: state.filter.days.day2,
   }
 }
 

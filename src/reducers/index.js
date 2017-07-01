@@ -3,7 +3,7 @@
 import { combineReducers } from 'redux'
 import { CONFERENCES } from '../actions/conference'
 import { SESSIONS } from '../actions/session'
-import { DAY } from '../actions/conferenceDays'
+import { DAY } from '../actions/filter'
 import settings from './settings'
 import type { Sessions } from '../types/SleepingPill'
 
@@ -38,13 +38,13 @@ const daysInit = {
   selectedDay: null,
 }
 
-const conferenceDays = (state = daysInit, action) => {
+const filter = (state = daysInit, action) => {
   switch (action.type) {
     case DAY.SET_DAYS:
       return { 
         ...state, 
         days: action.days
-      })
+      }
     case DAY.SET_SELECTED_DAY:
     return  {
       ...state,
@@ -59,7 +59,7 @@ const reducers = combineReducers({
   conferences, 
   sessions,
   settings,
-  conferenceDays,
+  filter,
   tabBar: tabBarReducer,
 
   tabSession: (state, action) =>

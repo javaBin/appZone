@@ -4,7 +4,7 @@ import configureStore from './store'
 import App from './containers/App'
 import { fetchConferences } from './actions/conference';
 import { fetchSessions } from './actions/session';
-import { setDays, setSelectedDay } from './actions/conferenceDays';
+import { setDays, setSelectedDay } from './actions/filter';
 import { getDays, getSelectedDayBySlug } from './util';
 
 
