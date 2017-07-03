@@ -1,17 +1,19 @@
-import React from 'react';
+import React from 'react'
 import { 
   StyleSheet, 
   View, 
   Text, 
   ListView, 
   TouchableOpacity,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+} from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import style from '../../common/style';
-import moment from 'moment';
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import style from '../../common/style'
+import moment from 'moment'
+
+import { setSelectedDay } from '../../actions/filter'
 
 const styles = StyleSheet.create({
   listContainer: {
@@ -36,7 +38,6 @@ const styles = StyleSheet.create({
   filterButtonWrapper: {
     flexDirection: 'row', 
     justifyContent: 'space-between',
-    // alignItems: 'center'
   },
   filterButton: {
     flexGrow: 2,
@@ -59,49 +60,41 @@ const styles = StyleSheet.create({
   formatWorkshop: {
     color: style.colors.color3,
   }
-});
+})
 
 class SessionList extends React.Component {
 
   constructor(props) {
-    super(props);
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}); 
+    super(props)
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
     this.state = {
       ds: ds.cloneWithRows(this.props.sessionsData)
     }
   }
   static propTypes = {
-    sessionsData: PropTypes.array
+    sessionsData: PropTypes.array,
+    selectedDay: PropTypes.string,
+    day1: PropTypes.string,
+    day2: PropTypes.string,
+    filterSessionDay: PropTypes.func,
+    navigation: PropTypes.object
   };
 
-  formatArray(array) {
-    
-    return array.sort((a,b) => {
-      return b.startTime > a.startTime ? -1
-            :b.startTime > a.startTime ? 1
-            :0
-    })
-  }
-  filterSessionDay() {
-
-  }
-
   filterSessions() {
-    
   }
   getHeader() {
     return (
       <View style= { styles.filterButtonWrapper }>
         <TouchableOpacity
           style={ styles.filterButton }
-          onPress={this.filterSessionDay.bind(1)}
+          onPress={ ()=> this.props.filterSessionDay(this.props.day1) }
           title="Day 1"
           accessibilityLabel="List sessions, day one">
             <Text style={styles.filterButtonText}>DAY 1</Text></TouchableOpacity>
         <TouchableOpacity
           style={ styles.filterButton }
-          onPress={this.filterSessionDay.bind(1)}
-          title="Day 1"
+          onPress={() => this.props.filterSessionDay(this.props.day2)}
+          title="Day 2"
           accessibilityLabel="List sessions, day one"
         ><Text style={styles.filterButtonText}>DAY 2</Text></TouchableOpacity>
         <Icon.Button 
@@ -112,13 +105,13 @@ class SessionList extends React.Component {
           onPress={this.filterSessions()}>         
         </Icon.Button>
       </View>
-    );
+    )
   }
 
   getTimeSpan(fromTime, endTime) {
-    let from = (moment(new Date(fromTime)).format('dddd, DD MMM HH:mm'));
-    let end = (moment (new Date(endTime)).format('HH:mm'));
-    return (from + ' - ' + end); 
+    let from = (moment(new Date(fromTime)).format('dddd, DD MMM HH:mm'))
+    let end = (moment (new Date(endTime)).format('HH:mm'))
+    return (from + ' - ' + end)
   }
 
   getSessionFormat(format) {
@@ -134,14 +127,13 @@ class SessionList extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(this.props.sessionsData !== nextProps.sessionsData) {
       this.setState(()=> {
-        return {ds: this.state.ds.cloneWithRows(this.formatArray(nextProps.sessionsData))}
-      });
+        return { ds: this.state.ds.cloneWithRows(nextProps.sessionsData) }
+      })
     }
   }
 
   render() {
-    if(!this.state.ds) return null;
-
+    if(!this.state.ds) return null
     return (
       <View style={ styles.listContainer }>
         {this.getHeader()}
@@ -150,7 +142,7 @@ class SessionList extends React.Component {
           dataSource={ this.state.ds }
           renderRow={this.renderRow.bind(this)} />
       </View>
-    );
+    )
   }
 
 
@@ -158,16 +150,16 @@ class SessionList extends React.Component {
     return (
         <View style={ styles.listItemWrapper} key={ rowData.sessionId }>
           <View>
-            <Icon name="star-o" style={{paddingRight: 10}}size={30} color={style.colors.color4}/> 
+            <Icon name="star-o" style={{ paddingRight: 10 }}size={ 30 } color={style.colors.color4}/> 
           </View>
-          <TouchableOpacity style={{paddingRight: 40}} onPress={() => this._onRowPressed(rowData)} key={rowID}>
+          <TouchableOpacity style={{ paddingRight: 40 }} onPress={ () => this._onRowPressed(rowData) } key={ rowID }>
             <Text style={ styles.sessionTitle }>{rowData.title}</Text>
-            {this.getSessionFormat(rowData.format)}
-            <Text style={ styles.textStyle }>{this.getTimeSpan(rowData.startTime, rowData.endTime)}</Text>
-            <Text style={ styles.textStyle }>{rowData.room}</Text>
+            { this.getSessionFormat(rowData.format) }
+            <Text style={ styles.textStyle }>{ this.getTimeSpan(rowData.startTime, rowData.endTime) }</Text>
+            <Text style={ styles.textStyle }>{ rowData.room }</Text>
           </TouchableOpacity>
         </View>
-    );
+    )
   }
 
     _onRowPressed(rowData) {
@@ -177,16 +169,26 @@ class SessionList extends React.Component {
   }
 
 const mapStateToProps = (state) => { 
+  let fSessions = (state.sessions)
+    .filter( ses => ses.startTime.slice(0,10) === state.filter.selectedDay)
+    .sort((a,b) => {
+      return b.startTime > a.startTime ? -1
+            :b.startTime > a.startTime ? 1
+            :0
+    })
+  
   return {  
-    sessionsData: state.sessions
-  };
-};
+    sessionsData: fSessions,
+    selectedDay: state.filter.selectedDay,
+    day1: state.filter.days.day1,
+    day2: state.filter.days.day2,
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
-  }; 
-};
+      filterSessionDay: (day) => { dispatch(setSelectedDay(day)) }
+    }
+  }
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(SessionList);
-
+export default connect(mapStateToProps, mapDispatchToProps)(SessionList)
