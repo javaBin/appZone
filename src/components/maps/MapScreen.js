@@ -3,15 +3,6 @@ import { StyleSheet, View } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 export default class MapScreen extends React.Component {
-  constructor() {
-    super();
-
-  }
-
-  componentDidMount() {
-    
-  }
-
   render() {
     return (
       <View style ={styles.container}>
