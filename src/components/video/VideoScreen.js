@@ -3,7 +3,7 @@ import { View, StyleSheet, WebView, Dimensions } from 'react-native';
 
 const vimeoUrl = 'https://vimeo.com/javazone';
 
-export default class VideoScreen extends React.Component {
+class VideoScreen extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -12,23 +12,20 @@ export default class VideoScreen extends React.Component {
       forwardButtonEnabled: false,
       loading: true
     }
-
-
   }
-
 
   render() {
     return (
       <View style={styles.container}>
-      <WebView
-        source={{ uri: vimeoUrl }}
-        style={styles.videoWeb}
-        javaScriptEnabled={true}
-        domStorageEnabled={true}
-        decelerationRate="normal"
-        startInLoadingState={true}
-        scalesPageToFit={true} />
-        </View>
+        <WebView
+          source={{ uri: vimeoUrl }}
+          style={styles.videoWeb}
+          javaScriptEnabled={true}
+          domStorageEnabled={true}
+          decelerationRate="normal"
+          startInLoadingState={true}
+          scalesPageToFit={true} />
+      </View>
     );
   }
 }
@@ -40,7 +37,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerBarRow: {
-    flexDirection:'row',
+    flexDirection: 'row',
     padding: 8,
   },
   videoWeb: {
@@ -51,3 +48,5 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width
   }
 });
+
+export default VideoScreen;
