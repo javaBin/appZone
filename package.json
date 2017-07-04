@@ -48,7 +48,9 @@
     "react-navigation": "^1.0.0-beta.11",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
-    "redux-saga": "^0.14.4"
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.14.4",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -75,6 +77,7 @@
   },
   "jest": {
     "preset": "react-native",
+<<<<<<< 348faa40e9f47f4cfdbb6d32e572a613d0023405
 <<<<<<< aceee3b55e2e5388c5edd555226796ccff21ad2c
 <<<<<<< ed76f0ae8cf37402152a6753250f42959abe420a
     "setupFiles": ["./jest-setup.js"],
@@ -85,6 +88,8 @@
       "./jest-setup.js"
     ],
 >>>>>>> merged
+=======
+>>>>>>> Session feedback. WIP
     "transformIgnorePatterns": [
       "node_modules/?!(react-native|native-base)"
     ]
