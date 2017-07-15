@@ -154,7 +154,14 @@ class SessionList extends React.Component {
   renderRow(rowData, rowID) {       
     return (
         <View style={ styles.listItemWrapper} key={ rowData.sessionId }>
+<<<<<<< 148f61031c2d6768e4a1eddcd3a5bd9186a2f6b4:src/components/sessions/SessionList.ios.js
           <TouchableOpacity style={{ paddingRight: 40 }} onPress={() => this._onRowPressed(rowData)} key={rowID}>
+=======
+          <View>
+            <Icon name="star-o" style={{ paddingRight: 10 }} size={ 30 } color={style.colors.color4}/>
+          </View>
+          <TouchableOpacity style={{ paddingRight: 40 }} onPress={ () => this._onRowPressed(rowData) } key={ rowID }>
+>>>>>>> chore: add PropTypes to validate react props:src/components/sessions/SessionList.android.js
             <Text style={ styles.sessionTitle }>{rowData.title}</Text>
             {this.getSessionFormat(rowData.format)}
             <Text style={ styles.textStyle }>{this.getTimeSpan(rowData.startTime, rowData.endTime)}</Text>

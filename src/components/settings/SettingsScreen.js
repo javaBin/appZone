@@ -1,6 +1,7 @@
 'use strict'
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import {
   StatusBar,
@@ -28,6 +29,12 @@ class SettingsScreen extends React.Component {
         this.loadSettings(settingsJson)
       }
     })
+  }
+
+  static propTypes = {
+    dispatch: PropTypes.func,
+    notificationSession: PropTypes.bool,
+    notificationFeedback: PropTypes.bool
   }
 
   render() {
