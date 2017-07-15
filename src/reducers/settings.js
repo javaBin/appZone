@@ -30,6 +30,8 @@ export default function settings(state = initialState, action) {
         notificationSession: config.notificationSession,
         notificationFeedback: config.notificationFeedback
       }
+    default:
+      break
   }
 
 return state
@@ -50,6 +52,8 @@ function storeSettings(type, enabled) {
         case SETTINGS.SET_NOTIFICATION_FEEDBACK:
           settings.notificationFeedback = enabled
           break
+        default:
+          break
       }
 
       AsyncStorage.setItem(STORE_SETTINGS_KEY, JSON.stringify(settings), () => {
@@ -63,6 +67,9 @@ function storeSettings(type, enabled) {
         case SETTINGS.SET_NOTIFICATION_FEEDBACK:
           settings.notificationFeedback = enabled
           break
+        default:
+          break
+
       }
 
       AsyncStorage.setItem(STORE_SETTINGS_KEY, JSON.stringify(settings), () => {
