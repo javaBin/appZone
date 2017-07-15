@@ -9,6 +9,20 @@ target 'appZone' do
 
   pod 'GoogleMaps', '2.1.1'
 
+  # React stuff
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'Core',
+    'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
+    'RCTText',
+    'RCTNetwork',
+    'RCTWebSocket', # needed for debugging
+    # Add any other subspecs you want to use in your project
+  ]
+  pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+
+  # Fonts
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'appZoneTests' do
     inherit! :search_paths
     # Pods for testing
