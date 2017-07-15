@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { StyleSheet } from 'react-native'
 import TabBarNavigation from './tab-bar-navigation/TabBarNavigation'
 
-var moment = require('moment')
-var nbLocale = require('moment/locale/nb')
+import moment from 'moment'
+import nbLocale  from 'moment/locale/nb'
 
 class App extends Component {
     render () {
