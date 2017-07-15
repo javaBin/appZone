@@ -1,8 +1,19 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 
 export default class MapScreen extends React.Component {
+<<<<<<< ca9981bd380f0eddbbe779b61fc459b7dbd2d56a
+=======
+  constructor() {
+    super()
+  }
+
+  componentDidMount() {
+    
+  }
+
+>>>>>>> chore: fix lint warning
   render() {
     return (
       <View style ={styles.container}>
@@ -19,7 +30,7 @@ export default class MapScreen extends React.Component {
           <MapView.GroundOverlay imagePath="Hello" />
         </MapView>
       </View>
-    );
+    )
   }
 
 }
@@ -34,4 +45,4 @@ const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject
   }
-});
+})

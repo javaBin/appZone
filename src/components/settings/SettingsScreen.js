@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
 import {
   StatusBar,
   Switch,
@@ -10,13 +10,13 @@ import {
   StyleSheet,
   AsyncStorage,
   Dimensions
-} from 'react-native';
+} from 'react-native'
 
-let ScreenHeight = Dimensions.get("window").height;
+let ScreenHeight = Dimensions.get("window").height
 
-import * as settings from '../../actions/settings';
+import * as settings from '../../actions/settings'
 
-var STORE_SETTINGS_KEY = 'SETTINGSKEY';
+var STORE_SETTINGS_KEY = 'SETTINGSKEY'
 
 class SettingsScreen extends React.Component {
   componentWillMount() {
@@ -24,12 +24,12 @@ class SettingsScreen extends React.Component {
       if (settingsStr == undefined) {
         let settings = {}
         AsyncStorage.setItem(STORE_SETTINGS_KEY, JSON.stringify(settings), () => {
-        });
+        })
       } else {
-        var settingsJson = JSON.parse(settingsStr);
-        this.loadSettings(settingsJson);
+        var settingsJson = JSON.parse(settingsStr)
+        this.loadSettings(settingsJson)
       }
-    });
+    })
   }
 
   render() {
@@ -59,15 +59,15 @@ class SettingsScreen extends React.Component {
   }
 
   setNotificationSessionSwitch(enabled) {
-    this.props.dispatch(settings.setNotificationSession(enabled));
+    this.props.dispatch(settings.setNotificationSession(enabled))
   }
 
   setNotificationFeedbackSwitch(enabled) {
-    this.props.dispatch(settings.setNotificationFeedback(enabled));
+    this.props.dispatch(settings.setNotificationFeedback(enabled))
   }
 
   loadSettings(settingsJson) {
-    this.props.dispatch(settings.loadSettings(settingsJson));
+    this.props.dispatch(settings.loadSettings(settingsJson))
   }
 }
 
@@ -97,13 +97,13 @@ var styles = StyleSheet.create({
     flex: 0.8,
 
   }
-});
+})
 
 function select(store) {
   return {
     notificationSession: store.settings.notificationSession,
     notificationFeedback: store.settings.notificationFeedback
-  };
+  }
 }
 
-export default connect(select)(SettingsScreen);
+export default connect(select)(SettingsScreen)

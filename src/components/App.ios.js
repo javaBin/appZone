@@ -1,3 +1,4 @@
+<<<<<<< ca9981bd380f0eddbbe779b61fc459b7dbd2d56a
 <<<<<<< ce5f8afe16e30d80131a7678ce420cd3f9df164c
 <<<<<<< 206eb96f24538de88755b6fca0c4e9a4b7dc9eec
 <<<<<<< 55255650cd5d9c2dd5625f97fd421b780896abc4
@@ -57,6 +58,10 @@ const styles = StyleSheet.create({
 >>>>>>> fixed some travis issues
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
+=======
+import React, { Component } from 'react'
+import { StyleSheet } from 'react-native'
+>>>>>>> chore: fix lint warning
 import TabBarNavigation from './tab-bar-navigation/TabBarNavigation'
 
 class App extends Component {
@@ -73,6 +78,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     }
-});
+})
 
 export default App
