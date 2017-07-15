@@ -21,4 +21,4 @@ module.exports = {
     heading1: 30,
     heading2: 25,
   }
-};
+}

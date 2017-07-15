@@ -18,5 +18,4 @@ describe('utils', () => {
     expect(days.day1).toBeNull()
     expect(days.day2).toBeNull()
   })
-
 })
