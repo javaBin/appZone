@@ -3,7 +3,7 @@
 import { AsyncStorage } from 'react-native'
 import { SETTINGS } from '../actions/settings'
 
-var STORE_SETTINGS_KEY = 'SETTINGSKEY'
+const STORE_SETTINGS_KEY = 'SETTINGSKEY'
 
 export type Settings = {
   notificationSession: boolean,
@@ -23,13 +23,14 @@ export default function settings(state = initialState, action) {
     case SETTINGS.SET_NOTIFICATION_FEEDBACK:
       storeSettings(action.type, action.payload)
       return { ...state, notificationFeedback: action.payload }
-    case SETTINGS.GET_NOTIFICATION_CONFIG:
-      var config = action.payload
+    case SETTINGS.GET_NOTIFICATION_CONFIG: {
+      const config = action.payload
       return {
         ...state,
         notificationSession: config.notificationSession,
         notificationFeedback: config.notificationFeedback
       }
+    }
     default:
       break
   }
