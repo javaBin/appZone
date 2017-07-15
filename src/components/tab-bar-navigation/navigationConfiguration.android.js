@@ -9,7 +9,7 @@ import { SettingsNavigatorTab } from '../settings/navigationConfiguration'
 import style from '../../common/style'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
-const routeConfiguration  = ({
+const routeConfiguration = {
     HomeNavigatorTab: { 
       screen: HomeNavigatorTab,
       navigationOptions: {            
@@ -47,7 +47,7 @@ const routeConfiguration  = ({
         },
       },
     }
-})
+}
 
 const tabBarConfiguration = {
     tabBarPosition: 'bottom',
@@ -81,8 +81,8 @@ export const tabBarReducer = (state, action) => {
   if (action.type === 'JUMP_TO_TAB') {
     return { ...state, ...action.payload }
   } else {
-    return TabBar.router.getStateForAction(action,state)
+    return TabBar.router.getStateForAction(action, state)
   }
 }
 
-export const TabBar = TabNavigator(routeConfiguration,tabBarConfiguration)
+export const TabBar = TabNavigator(routeConfiguration, tabBarConfiguration)

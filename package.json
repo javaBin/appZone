@@ -11,6 +11,7 @@
   "dependencies": {
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
+    "prop-types": "^15.5.10",
     "react": "~15.4.1",
     "react-moment": "^0.2.4",
     "react-native": "0.42.3",
@@ -41,9 +42,9 @@
     "remotedev-server": "^0.2.2"
   },
   "jest": {
-		"preset": "react-native",
-		"transformIgnorePatterns": [
-			"node_modules/?!(react-native|native-base)"
-		]
-	}
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/?!(react-native|native-base)"
+    ]
+  }
 }

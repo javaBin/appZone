@@ -150,7 +150,7 @@ class SessionList extends React.Component {
     return (
         <View style={ styles.listItemWrapper} key={ rowData.sessionId }>
           <View>
-            <Icon name="star-o" style={{ paddingRight: 10 }}size={ 30 } color={style.colors.color4}/> 
+            <Icon name="star-o" style={{ paddingRight: 10 }} size={ 30 } color={style.colors.color4}/>
           </View>
           <TouchableOpacity style={{ paddingRight: 40 }} onPress={ () => this._onRowPressed(rowData) } key={ rowID }>
             <Text style={ styles.sessionTitle }>{rowData.title}</Text>
