@@ -16,17 +16,15 @@ let ScreenHeight = Dimensions.get("window").height
 
 import * as settings from '../../actions/settings'
 
-var STORE_SETTINGS_KEY = 'SETTINGSKEY'
+const STORE_SETTINGS_KEY = 'SETTINGSKEY'
 
 class SettingsScreen extends React.Component {
   componentWillMount() {
     AsyncStorage.getItem(STORE_SETTINGS_KEY).then((settingsStr) => {
-      if (settingsStr == undefined) {
-        let settings = {}
-        AsyncStorage.setItem(STORE_SETTINGS_KEY, JSON.stringify(settings), () => {
-        })
+      if (!settingsStr) {
+        AsyncStorage.setItem(STORE_SETTINGS_KEY, JSON.stringify({}))
       } else {
-        var settingsJson = JSON.parse(settingsStr)
+        const settingsJson = JSON.parse(settingsStr)
         this.loadSettings(settingsJson)
       }
     })
@@ -71,7 +69,7 @@ class SettingsScreen extends React.Component {
   }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     position: 'absolute',
