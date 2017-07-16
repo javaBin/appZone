@@ -4,27 +4,27 @@ PODS:
   - GoogleMaps/Base (2.1.1)
   - GoogleMaps/Maps (2.1.1):
     - GoogleMaps/Base
-  - React (0.42.3):
-    - React/Core (= 0.42.3)
-  - React/Core (0.42.3):
-    - React/cxxreact
-    - Yoga (= 0.42.3.React)
-  - React/cxxreact (0.42.3):
-    - React/jschelpers
-  - React/jschelpers (0.42.3)
-  - React/RCTNetwork (0.42.3):
+  - React (0.46.3):
+    - React/Core (= 0.46.3)
+  - React/Core (0.46.3):
+    - Yoga (= 0.46.3.React)
+  - React/DevSupport (0.46.3):
     - React/Core
-  - React/RCTText (0.42.3):
+    - React/RCTWebSocket
+  - React/RCTNetwork (0.46.3):
     - React/Core
-  - React/RCTWebSocket (0.42.3):
+  - React/RCTText (0.46.3):
+    - React/Core
+  - React/RCTWebSocket (0.46.3):
     - React/Core
   - RNVectorIcons (4.2.0):
     - React
-  - Yoga (0.42.3.React)
+  - Yoga (0.46.3.React)
 
 DEPENDENCIES:
   - GoogleMaps (= 2.1.1)
   - React/Core (from `../node_modules/react-native`)
+  - React/DevSupport (from `../node_modules/react-native`)
   - React/RCTNetwork (from `../node_modules/react-native`)
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
@@ -41,10 +41,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
-  React: 35e039680feacd0563677d49ba410112d2748559
+  React: c6559d70350c38f4cde7f66e3f483d6cce815ae3
   RNVectorIcons: 6d98d83e944d15014d8071dd9819beb094c61133
-  Yoga: 86ce777665c8259b94ef8dbea76b84634237f4ea
+  Yoga: 6f09f11a4ab92e5afb4869268167f8c01c6ae906
 
-PODFILE CHECKSUM: d32a96083dde13dc1c5641a76e8d8ddad5927729
+PODFILE CHECKSUM: 2399ce069af8de13075cb80a289fa3008437c853
 
 COCOAPODS: 1.2.1
