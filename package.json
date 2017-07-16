@@ -11,6 +11,7 @@
   "dependencies": {
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
+<<<<<<< ed76f0ae8cf37402152a6753250f42959abe420a
     "prop-types": "^15.5.10",
     "react": "~15.4.1",
     "react-moment": "^0.2.4",
@@ -18,6 +19,11 @@
 <<<<<<< c504c7f38ef59cf19c848ff216e3b11c3dcf228a
     "react-native-device-info": "^0.10.2",
 =======
+=======
+    "react": "^16.6.1",
+    "react-moment": "^0.2.4",
+    "react-native": "^0.46.3",
+>>>>>>> chore: upgrade react-native
     "react-native-maps": "^0.14.0",
 >>>>>>> added a fully working map and also videoscreen that renders webview, both will need more adjustments
     "react-native-material-design": "^0.3.7",
@@ -47,7 +53,10 @@
   },
   "jest": {
     "preset": "react-native",
+<<<<<<< ed76f0ae8cf37402152a6753250f42959abe420a
     "setupFiles": ["./jest-setup.js"],
+=======
+>>>>>>> chore: upgrade react-native
     "transformIgnorePatterns": [
       "node_modules/?!(react-native|native-base)"
     ]
