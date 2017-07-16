@@ -12,7 +12,7 @@ target 'appZone' do
   # React stuff
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'Core',
-    #'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
+    'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
     'RCTText',
     'RCTNetwork',
     'RCTWebSocket', # needed for debugging
