@@ -106,8 +106,11 @@ const feedback = (state = feedbackInit, action) => {
     case FEEDBACK.SUBMIT:
       return {...state}
     case FEEDBACK.FETCH_SUCCESS:
-      console.log('posted feedback', action.body);
+      console.log('posted feedback', action);
+      console.log('posted feedback', state);
       return {...state}
+    case FEEDBACK.FETCH_ERROR:
+        return action.error;
     default:
       return state
   }

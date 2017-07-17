@@ -38,6 +38,7 @@ export const submitFeedback =
   (feedback) => {
     //return (dispatch, getState) => {
     //  postFeedback(feedback);
+    console.log('action submit feedback')
       return ({ type: FEEDBACK.SUBMIT, payload : feedback});
     //}
   };
@@ -46,7 +47,10 @@ export const submitFeedback =
 //  (feedback) => ({type: FEEDBACK.FETCH_POST, feedback: feedback});
 
 export const feedbackFetchSuccess =
-  (json) => ( {type: FEEDBACK.FETCH_SUCCESS, response: json} );
+  (json) => {
+    console.log('feedbackFetchSuccess', json)
+    return {type: FEEDBACK.FETCH_SUCCESS, response: json};
+  }
 
 export const feedbackFetchError =
   (errorMsg) => ({type: FEEDBACK.FETCH_ERROR, error: errorMsg});
