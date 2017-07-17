@@ -142,8 +142,6 @@ class SessionList extends React.Component {
     return (
       <View style={ styles.listContainer }>
         {this.getHeader()}
-        <Button title="Feedback" 
-              onPress={() => this.props.navigation.navigate('Feedback')}/>
         <ListView 
           enableEmptySections={true} style={ styles.list }
           dataSource={ this.state.ds }

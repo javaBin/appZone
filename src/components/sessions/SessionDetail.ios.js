@@ -70,7 +70,7 @@ export default class SessionDetail extends React.Component {
               <Text style={ styles.textStyleHeder }>{ params.sessionData.room } { params.sessionData.format }</Text>
               <Text style={{color: style.colors.color1}}>{ fromTime } - { toTime }</Text>
             </View>
-            <Button title="feedback" onPress={() => this.props.navigation.navigate('Feedback', { sessionTitle: params.sessionData.title })}></Button>
+            <Button title="feedback" {...this.props} onPress={() => this.props.navigation.navigate('Feedback', { sessionData: params.sessionData })}></Button>
           </View>
         </View>
         <View style={ styles.container }>
