@@ -24,8 +24,11 @@
     "react": "^16.6.1",
 =======
     "react": "16.0.0-alpha.12",
+<<<<<<< 832a8d555a2f177129b73428fd2c3f02b6e5649a
 >>>>>>> chore: using right version of react
     "react-moment": "^0.2.4",
+=======
+>>>>>>> chore: remove react-moment dependency
     "react-native": "^0.46.3",
 >>>>>>> chore: upgrade react-native
     "react-native-maps": "^0.14.0",
