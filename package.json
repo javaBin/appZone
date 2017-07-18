@@ -11,6 +11,7 @@
   "dependencies": {
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
+<<<<<<< 82d3f1fb42801c8f439fe38a53ceecf7c1becb96
 <<<<<<< ed76f0ae8cf37402152a6753250f42959abe420a
     "prop-types": "^15.5.10",
     "react": "~15.4.1",
@@ -21,6 +22,9 @@
 =======
 =======
     "react": "^16.6.1",
+=======
+    "react": "16.0.0-alpha.12",
+>>>>>>> chore: using right version of react
     "react-moment": "^0.2.4",
     "react-native": "^0.46.3",
 >>>>>>> chore: upgrade react-native
