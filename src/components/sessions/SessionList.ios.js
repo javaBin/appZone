@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 import { 
   StyleSheet, 
   View, 
   Text, 
   ListView, 
   TouchableOpacity,
-} from 'react-native';
+} from 'react-native'
 
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import style from '../../common/style';
-import moment from 'moment';
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import style from '../../common/style'
+import moment from 'moment'
 
 const styles = StyleSheet.create({
   listContainer: {
@@ -58,13 +58,13 @@ const styles = StyleSheet.create({
   formatWorkshop: {
     color: style.colors.color3,
   }
-});
+})
 
 class SessionList extends React.Component {
 
   constructor(props) {
-    super(props);
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}); 
+    super(props)
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 }) 
     this.state = {
       ds: ds.cloneWithRows(this.props.sessionsData)
     }
@@ -74,7 +74,6 @@ class SessionList extends React.Component {
   };
 
   formatArray(array) {
-    
     return array.sort((a,b) => {
       return b.startTime > a.startTime ? -1
             :b.startTime > a.startTime ? 1
@@ -110,13 +109,13 @@ class SessionList extends React.Component {
           accessibilityLabel="Filter sessions"
         ><Text style={styles.filterButtonText}>Filter</Text></TouchableOpacity>     
       </View>
-    );
+    )
   }
 
   getTimeSpan(fromTime, endTime) {
-    let from = (moment(new Date(fromTime)).format('dddd, DD MMM HH:mm'));
-    let end = (moment (new Date(endTime)).format('HH:mm'));
-    return (from + ' - ' + end); 
+    let from = (moment(new Date(fromTime)).format('dddd, DD MMM HH:mm'))
+    let end = (moment (new Date(endTime)).format('HH:mm'))
+    return (from + ' - ' + end) 
   }
 
   getSessionFormat(format) {
@@ -132,13 +131,13 @@ class SessionList extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(this.props.sessionsData !== nextProps.sessionsData) {
       this.setState(()=> {
-        return {ds: this.state.ds.cloneWithRows(this.formatArray(nextProps.sessionsData))}
-      });
+        return { ds: this.state.ds.cloneWithRows(this.formatArray(nextProps.sessionsData)) }
+      })
     }
   }
 
   render() {
-    if(!this.state.ds) return null;
+    if(!this.state.ds) return null
 
     return (
       <View style={ styles.listContainer }>
@@ -148,21 +147,21 @@ class SessionList extends React.Component {
           dataSource={ this.state.ds }
           renderRow={this.renderRow.bind(this)} />
       </View>
-    );
+    )
   }
 
 
   renderRow(rowData, rowID) {       
     return (
         <View style={ styles.listItemWrapper} key={ rowData.sessionId }>
-          <TouchableOpacity style={{paddingRight: 40}} onPress={() => this._onRowPressed(rowData)} key={rowID}>
+          <TouchableOpacity style={{ paddingRight: 40 }} onPress={() => this._onRowPressed(rowData)} key={rowID}>
             <Text style={ styles.sessionTitle }>{rowData.title}</Text>
             {this.getSessionFormat(rowData.format)}
             <Text style={ styles.textStyle }>{this.getTimeSpan(rowData.startTime, rowData.endTime)}</Text>
             <Text style={ styles.textStyle }>{rowData.room}</Text>
           </TouchableOpacity>
         </View>
-    );
+    )
   }
 
     _onRowPressed(rowData) {
@@ -174,14 +173,14 @@ class SessionList extends React.Component {
 const mapStateToProps = (state) => { 
   return {  
     sessionsData: state.sessions
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
-  }; 
-};
+  } 
+}
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(SessionList);
+export default connect(mapStateToProps, mapDispatchToProps)(SessionList)
 

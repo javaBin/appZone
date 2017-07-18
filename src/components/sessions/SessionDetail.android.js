@@ -1,8 +1,8 @@
-import React from 'react';
-import { Text, StyleSheet, View, ScrollView } from 'react-native';
+import React from 'react'
+import { Text, StyleSheet, View, ScrollView } from 'react-native'
 
-import moment from 'moment';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import moment from 'moment'
+import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
 
 const styles = StyleSheet.create({
@@ -49,27 +49,27 @@ const styles = StyleSheet.create({
     padding: 3, 
     margin: 5, 
   }
-});
+})
 
 export default class SessionDetail extends React.Component {  
   
   render() {
-    const { params } = this.props.navigation.state;
-    let fromTime = moment(new Date(params.sessionData.startTime)).format('dddd, MMMM DD HH:mm');
-    let toTime = moment (new Date(params.sessionData.endTime)).format('HH:mm');
+    const { params } = this.props.navigation.state
+    let fromTime = moment(new Date(params.sessionData.startTime)).format('dddd, MMMM DD HH:mm')
+    let toTime = moment (new Date(params.sessionData.endTime)).format('HH:mm')
     return (
       <ScrollView>
         <View style={ styles.sessionHeaderWrapper }>
           <View style={{ flex: 1, flexDirection: 'row' }}>
-            <Icon name="arrow-left" style={{padding: 15}} size={40} color={style.colors.color4} 
+            <Icon name="arrow-left" style={{ padding: 15 }} size={40} color={style.colors.color4} 
               onPress={() => this.props.navigation.navigate('SessionList')}/>   
-            <Icon name="star-o" style={{padding: 15}}size={40} color={style.colors.color4}/>   
+            <Icon name="star-o" style={{ padding: 15 }}size={40} color={style.colors.color4}/>   
           </View>
           <Text style={ styles.heading1 }>{ (params.sessionData.title).toUpperCase() }</Text>
-          <View style={{flex: 1, flexDirection: 'row'}}>
+          <View style={{ flex: 1, flexDirection: 'row' }}>
             <View>
               <Text style={ styles.textStyleHeder }>{ params.sessionData.room } { params.sessionData.format }</Text>
-              <Text style={{color: style.colors.color1}}>{ fromTime } - { toTime }</Text>
+              <Text style={{ color: style.colors.color1 }}>{ fromTime } - { toTime }</Text>
             </View>
           </View>
         </View>
@@ -84,11 +84,11 @@ export default class SessionDetail extends React.Component {
                 <View key={index}>
                   <Text style={ styles.headingSpeakerName }>{ speaker.name }</Text>
                   <Text style={ styles.textStyle }>{ speaker.bio }</Text>
-                </View>);
+                </View>)
             })
           }
           <Text style={ styles.heading2 }>KEYWORDS:</Text>        
-            <View style={{flex: 1, flexDirection: 'row'}}>
+            <View style={{ flex: 1, flexDirection: 'row' }}>
               {
                 params.sessionData.keywords.map( (keyword, index) => {
                   return <Text style={ styles.keywordContainer } key={index}>{keyword}</Text>

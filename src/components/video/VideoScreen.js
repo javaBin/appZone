@@ -1,19 +1,17 @@
-import React from 'react';
-import { View, StyleSheet, WebView, Dimensions } from 'react-native';
+import React from 'react'
+import { View, StyleSheet, WebView, Dimensions } from 'react-native'
 
-const vimeoUrl = 'https://vimeo.com/javazone';
+const vimeoUrl = 'https://vimeo.com/javazone'
 
 export default class VideoScreen extends React.Component {
   constructor() {
-    super();
+    super()
     this.state = {
       status: 'No Page Loaded',
       backButtonEnabled: false,
       forwardButtonEnabled: false,
       loading: true
     }
-
-
   }
 
 
@@ -29,7 +27,7 @@ export default class VideoScreen extends React.Component {
         startInLoadingState={true}
         scalesPageToFit={true} />
         </View>
-    );
+    )
   }
 }
 
@@ -50,4 +48,4 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height,
     width: Dimensions.get('window').width
   }
-});
+})
