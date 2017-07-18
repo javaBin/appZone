@@ -1,3 +1,4 @@
+<<<<<<< aceee3b55e2e5388c5edd555226796ccff21ad2c
 <<<<<<< ca9981bd380f0eddbbe779b61fc459b7dbd2d56a
 <<<<<<< ce5f8afe16e30d80131a7678ce420cd3f9df164c
 <<<<<<< 206eb96f24538de88755b6fca0c4e9a4b7dc9eec
@@ -62,6 +63,10 @@ import { StyleSheet } from 'react-native';
 import React, { Component } from 'react'
 import { StyleSheet } from 'react-native'
 >>>>>>> chore: fix lint warning
+=======
+import React, { Component } from 'react'
+import { StyleSheet } from 'react-native'
+>>>>>>> merged
 import TabBarNavigation from './tab-bar-navigation/TabBarNavigation'
 
 class App extends Component {

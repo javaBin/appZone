@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react';
 import { TabNavigator } from 'react-navigation'
 
@@ -8,7 +6,7 @@ import { SessionNavigatorTab } from '../sessions/navigationConfiguration'
 import { SettingsNavigatorTab } from '../settings/navigationConfiguration'
 
 import style from '../../common/style'
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
 const routeConfiguration = ({
   HomeNavigatorTab: {
@@ -18,8 +16,12 @@ const routeConfiguration = ({
         return (
           <FontAwesome size={30} name='home' color={tintColor} />)
       }
+<<<<<<< aceee3b55e2e5388c5edd555226796ccff21ad2c
     }
 <<<<<<< ca9981bd380f0eddbbe779b61fc459b7dbd2d56a
+=======
+    },
+>>>>>>> merged
   },
   SessionNavigatorTab: {
     screen: SessionNavigatorTab,
@@ -36,12 +38,17 @@ const routeConfiguration = ({
       tabBarIcon: ({ tintColor }) => {
         return (
           <FontAwesome size={30} name='cog' color={tintColor} />)
-      }    },
+      }
+    },
   }
+<<<<<<< aceee3b55e2e5388c5edd555226796ccff21ad2c
 });
 =======
 })
 >>>>>>> chore: fix lint warning
+=======
+})
+>>>>>>> merged
 
 const tabBarConfiguration = {
   tabBarPosition: 'bottom',

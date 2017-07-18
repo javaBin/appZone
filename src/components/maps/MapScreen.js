@@ -3,8 +3,11 @@ import { StyleSheet, View } from 'react-native'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 
 export default class MapScreen extends React.Component {
+<<<<<<< aceee3b55e2e5388c5edd555226796ccff21ad2c
 <<<<<<< ca9981bd380f0eddbbe779b61fc459b7dbd2d56a
 =======
+=======
+>>>>>>> merged
   constructor() {
     super()
   }
@@ -13,7 +16,10 @@ export default class MapScreen extends React.Component {
     
   }
 
+<<<<<<< aceee3b55e2e5388c5edd555226796ccff21ad2c
 >>>>>>> chore: fix lint warning
+=======
+>>>>>>> merged
   render() {
     return (
       <View style ={styles.container}>

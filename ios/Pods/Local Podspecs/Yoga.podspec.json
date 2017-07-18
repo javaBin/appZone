@@ -1,6 +1,10 @@
 {
   "name": "Yoga",
+<<<<<<< aceee3b55e2e5388c5edd555226796ccff21ad2c
   "version": "0.46.3.React",
+=======
+  "version": "0.46.4.React",
+>>>>>>> merged
   "license": {
     "type": "BSD"
   },
@@ -11,7 +15,11 @@
   "authors": "Facebook",
   "source": {
     "git": "https://github.com/facebook/react-native.git",
+<<<<<<< aceee3b55e2e5388c5edd555226796ccff21ad2c
     "tag": "v0.46.3"
+=======
+    "tag": "v0.46.4"
+>>>>>>> merged
   },
   "module_name": "yoga",
   "requires_arc": false,

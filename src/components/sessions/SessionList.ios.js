@@ -154,6 +154,7 @@ class SessionList extends React.Component {
   renderRow(rowData, rowID) {       
     return (
         <View style={ styles.listItemWrapper} key={ rowData.sessionId }>
+<<<<<<< aceee3b55e2e5388c5edd555226796ccff21ad2c
 <<<<<<< 148f61031c2d6768e4a1eddcd3a5bd9186a2f6b4:src/components/sessions/SessionList.ios.js
           <TouchableOpacity style={{ paddingRight: 40 }} onPress={() => this._onRowPressed(rowData)} key={rowID}>
 =======
@@ -162,6 +163,9 @@ class SessionList extends React.Component {
           </View>
           <TouchableOpacity style={{ paddingRight: 40 }} onPress={ () => this._onRowPressed(rowData) } key={ rowID }>
 >>>>>>> chore: add PropTypes to validate react props:src/components/sessions/SessionList.android.js
+=======
+          <TouchableOpacity style={{ paddingRight: 40 }} onPress={() => this._onRowPressed(rowData)} key={rowID}>
+>>>>>>> merged
             <Text style={ styles.sessionTitle }>{rowData.title}</Text>
             {this.getSessionFormat(rowData.format)}
             <Text style={ styles.textStyle }>{this.getTimeSpan(rowData.startTime, rowData.endTime)}</Text>

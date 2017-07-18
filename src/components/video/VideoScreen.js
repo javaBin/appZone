@@ -3,7 +3,7 @@ import { View, StyleSheet, WebView, Dimensions } from 'react-native'
 
 const vimeoUrl = 'https://vimeo.com/javazone'
 
-class VideoScreen extends React.Component {
+export default class VideoScreen extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -14,9 +14,11 @@ class VideoScreen extends React.Component {
     }
   }
 
+
   render() {
     return (
       <View style={styles.container}>
+<<<<<<< aceee3b55e2e5388c5edd555226796ccff21ad2c
 <<<<<<< ca9981bd380f0eddbbe779b61fc459b7dbd2d56a
         <WebView
           source={{ uri: vimeoUrl }}
@@ -29,6 +31,8 @@ class VideoScreen extends React.Component {
       </View>
     );
 =======
+=======
+>>>>>>> merged
       <WebView
         source={{ uri: vimeoUrl }}
         style={styles.videoWeb}
@@ -39,7 +43,10 @@ class VideoScreen extends React.Component {
         scalesPageToFit={true} />
         </View>
     )
+<<<<<<< aceee3b55e2e5388c5edd555226796ccff21ad2c
 >>>>>>> chore: fix lint warning
+=======
+>>>>>>> merged
   }
 }
 
@@ -50,7 +57,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerBarRow: {
-    flexDirection: 'row',
+    flexDirection:'row',
     padding: 8,
   },
   videoWeb: {
@@ -60,6 +67,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height,
     width: Dimensions.get('window').width
   }
+<<<<<<< aceee3b55e2e5388c5edd555226796ccff21ad2c
 <<<<<<< ca9981bd380f0eddbbe779b61fc459b7dbd2d56a
 });
 
@@ -67,3 +75,6 @@ export default VideoScreen;
 =======
 })
 >>>>>>> chore: fix lint warning
+=======
+})
+>>>>>>> merged
