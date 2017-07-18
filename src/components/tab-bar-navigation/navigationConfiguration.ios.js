@@ -1,14 +1,12 @@
-'use strict'
-
 import React from 'react';
 import { TabNavigator } from 'react-navigation'
 
 import { HomeNavigatorTab } from '../home/navigationConfiguration'
-import { SessionNavigatorTab } from '../sessions/navigationConfiguration';
-import { SettingsNavigatorTab } from '../settings/navigationConfiguration';
+import { SessionNavigatorTab } from '../sessions/navigationConfiguration'
+import { SettingsNavigatorTab } from '../settings/navigationConfiguration'
 
 import style from '../../common/style'
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
 const routeConfiguration = ({
   HomeNavigatorTab: {
@@ -18,7 +16,7 @@ const routeConfiguration = ({
         return (
           <FontAwesome size={30} name='home' color={tintColor} />)
       }
-    }
+    },
   },
   SessionNavigatorTab: {
     screen: SessionNavigatorTab,
@@ -35,9 +33,10 @@ const routeConfiguration = ({
       tabBarIcon: ({ tintColor }) => {
         return (
           <FontAwesome size={30} name='cog' color={tintColor} />)
-      }    },
+      }
+    },
   }
-});
+})
 
 const tabBarConfiguration = {
   tabBarPosition: 'bottom',

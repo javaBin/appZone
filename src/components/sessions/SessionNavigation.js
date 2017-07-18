@@ -1,6 +1,7 @@
 'use strict'
 // React
 import React from 'react'
+import PropTypes from 'prop-types'
 // Navigation
 import { addNavigationHelpers } from 'react-navigation'
 import { SessionNavigatorTab } from '../navigationConfiguration'
@@ -18,6 +19,11 @@ class TabSessionNavigation extends React.Component {
     tabBarLabel: 'Session Title',
   };
 
+  static propTypes = {
+    dispatch: PropTypes.func,
+    navigationState: PropTypes.object
+  }
+
   render() {
     const { dispatch, navigationState } = this.props
     return (
@@ -30,6 +36,5 @@ class TabSessionNavigation extends React.Component {
     )
   }
 }
-
 
 export default connect(mapStateToProps)(TabSessionNavigation)

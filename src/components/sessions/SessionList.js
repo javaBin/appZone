@@ -1,9 +1,9 @@
 import React from 'react'
-import {
-  StyleSheet,
-  View,
-  Text,
-  ListView,
+import { 
+  StyleSheet, 
+  View, 
+  Text, 
+  ListView, 
   TouchableOpacity,
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   sessionTitle: {
-    color: style.colors.primary,
+    color: style.colors.primary,    
     fontSize: 16,
     fontWeight: '600',
   },
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   filterButtonWrapper: {
-    flexDirection: 'row',
+    flexDirection: 'row', 
     justifyContent: 'space-between',
   },
   filterButton: {
@@ -84,25 +84,25 @@ class SessionList extends React.Component {
   }
   getHeader() {
     return (
-      <View style={styles.filterButtonWrapper}>
+      <View style= { styles.filterButtonWrapper }>
         <TouchableOpacity
-          style={styles.filterButton}
-          onPress={() => this.props.filterSessionDay(this.props.day1)}
+          style={ styles.filterButton }
+          onPress={ ()=> this.props.filterSessionDay(this.props.day1) }
           title="Day 1"
           accessibilityLabel="List sessions, day one">
-          <Text style={styles.filterButtonText}>DAY 1</Text></TouchableOpacity>
+            <Text style={styles.filterButtonText}>DAY 1</Text></TouchableOpacity>
         <TouchableOpacity
-          style={styles.filterButton}
+          style={ styles.filterButton }
           onPress={() => this.props.filterSessionDay(this.props.day2)}
           title="Day 2"
           accessibilityLabel="List sessions, day one"
         ><Text style={styles.filterButtonText}>DAY 2</Text></TouchableOpacity>
-        <Icon.Button
+        <Icon.Button 
           borderRadius={0}
           backgroundColor={style.colors.backgroundSecondary}
-          name="filter"
+          name="filter" 
           size={30}
-          onPress={this.filterSessions()}>
+          onPress={this.filterSessions()}>         
         </Icon.Button>
       </View>
     )
@@ -110,74 +110,74 @@ class SessionList extends React.Component {
 
   getTimeSpan(fromTime, endTime) {
     let from = (moment(new Date(fromTime)).format('dddd, DD MMM HH:mm'))
-    let end = (moment(new Date(endTime)).format('HH:mm'))
+    let end = (moment (new Date(endTime)).format('HH:mm'))
     return (from + ' - ' + end)
   }
 
   getSessionFormat(format) {
     if (format === 'presentation') {
-      return <Text style={styles.formatPresentation}>{format}</Text>
-    } else if (format === 'lightning-talk') {
-      return <Text style={styles.formatLightningTalk}>{format}</Text>
+      return <Text style={ styles.formatPresentation }>{format}</Text>      
+    } else if(format === 'lightning-talk') {
+      return <Text style={ styles.formatLightningTalk }>{format}</Text>            
     } else {
-      return <Text style={styles.formatWorkshop}>{format}</Text>
+      return <Text style={ styles.formatWorkshop }>{format}</Text>                  
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.sessionsData !== nextProps.sessionsData) {
-      this.setState(() => {
+    if(this.props.sessionsData !== nextProps.sessionsData) {
+      this.setState(()=> {
         return { ds: this.state.ds.cloneWithRows(nextProps.sessionsData) }
       })
     }
   }
 
   render() {
-    if (!this.state.ds) return null
+    if(!this.state.ds) return null
     return (
-      <View style={styles.listContainer}>
+      <View style={ styles.listContainer }>
         {this.getHeader()}
-        <ListView
-          enableEmptySections={true} style={styles.list}
-          dataSource={this.state.ds}
+        <ListView 
+          enableEmptySections={true} style={ styles.list }
+          dataSource={ this.state.ds }
           renderRow={this.renderRow.bind(this)} />
       </View>
     )
   }
 
 
-  renderRow(rowData, rowID) {
+  renderRow(rowData, rowID) {       
     return (
-      <View style={styles.listItemWrapper} key={rowData.sessionId}>
-        <View>
-          <Icon name="star-o" style={{ paddingRight: 10 }} size={30} color={style.colors.color4} />
+        <View style={ styles.listItemWrapper} key={ rowData.sessionId }>
+          <View>
+            <Icon name="star-o" style={{ paddingRight: 10 }} size={ 30 } color={style.colors.color4}/>
+          </View>
+          <TouchableOpacity style={{ paddingRight: 40 }} onPress={ () => this._onRowPressed(rowData) } key={ rowID }>
+            <Text style={ styles.sessionTitle }>{rowData.title}</Text>
+            { this.getSessionFormat(rowData.format) }
+            <Text style={ styles.textStyle }>{ this.getTimeSpan(rowData.startTime, rowData.endTime) }</Text>
+            <Text style={ styles.textStyle }>{ rowData.room }</Text>
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity style={{ paddingRight: 40 }} onPress={() => this._onRowPressed(rowData)} key={rowID}>
-          <Text style={styles.sessionTitle}>{rowData.title}</Text>
-          {this.getSessionFormat(rowData.format)}
-          <Text style={styles.textStyle}>{this.getTimeSpan(rowData.startTime, rowData.endTime)}</Text>
-          <Text style={styles.textStyle}>{rowData.room}</Text>
-        </TouchableOpacity>
-      </View>
     )
   }
 
-  _onRowPressed(rowData) {
-    this.props.navigation.navigate('SessionDetail',
+    _onRowPressed(rowData) {
+      this.props.navigation.navigate('SessionDetail', 
       { sessionData: rowData })
+    }   
   }
-}
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => { 
   let fSessions = (state.sessions)
-    .filter(ses => ses.startTime.slice(0, 10) === state.filter.selectedDay)
-    .sort((a, b) => {
+    .filter( ses => ses.startTime.slice(0,10) === state.filter.selectedDay)
+    .sort((a,b) => {
       return b.startTime > a.startTime ? -1
-        : b.startTime > a.startTime ? 1
-          : 0
+            :b.startTime > a.startTime ? 1
+            :0
     })
-
-  return {
+  
+  return {  
     sessionsData: fSessions,
     selectedDay: state.filter.selectedDay,
     day1: state.filter.days.day1,
@@ -187,8 +187,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    filterSessionDay: (day) => { dispatch(setSelectedDay(day)) }
+      filterSessionDay: (day) => { dispatch(setSelectedDay(day)) }
+    }
   }
-}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionList)

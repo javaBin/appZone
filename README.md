@@ -2,6 +2,16 @@
 The official JavaZone app, written in React Native
 
 
+## Start the application 
+
+> npm install
+
+Start the emulator:
+- Ios
+> react-native run-ios
+- Android
+> react-native run-android
+
 ## Enabling remote debugging on Windows
 
 ### Prerequisite
