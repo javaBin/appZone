@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		00284AEC060CCE9C5E6B35A39BFFBF23 /* RCTPackagerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 471BBCD88275757C459FCD9912900A45 /* RCTPackagerClient.m */; };
 		008EF1E893A6F641426923B376E3F05F /* RCTAsyncLocalStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = B464B7AC5109954ABC90F92EF362672E /* RCTAsyncLocalStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0091CC7D0C45655E1AC870D23D0353C3 /* RCTSwitchManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 279260B400CDCF35B683B1070DD61619 /* RCTSwitchManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -348,10 +349,31 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1A5F2A2F61175491C47038C83A9ACA53;
 			remoteInfo = React;
+=======
+		1B6053DB4F426B47C4A91E97990824D3 /* GoogleToolboxForMac-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D62B8CC4492D542FB74A845586595A2 /* GoogleToolboxForMac-dummy.m */; };
+		2AA7525C7D8A4B55DDD3B9D2B13F7FE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		32F53C61014F6AFCD3491CEDC881B10E /* Pods-appZoneTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F5EEEE95516A4A20494C2022409C6 /* Pods-appZoneTests-dummy.m */; };
+		3D5A8358B3CE03D143C39C4BF52B34D3 /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A208E68D80B9070305145FF97659983 /* GTMNSData+zlib.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6B02824B166AF4649072CAB930283EEA /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 3040B69D4691F3A07F4DDCC8248B8642 /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D90607F37714FE5553DB16FA1995265 /* Pods-appZone-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 387C41DD36DCB6EFF8269EBFAEEB17A1 /* Pods-appZone-dummy.m */; };
+		AE40968E45EB75088481466E4E7671A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		CBC7548501161D689ACF033CA42AA1AB /* GTMNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F17FA5CD5DD6FEACF4F3B0E10CE1FE2 /* GTMNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D67F36659A4068FF72B5EA7184915384 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		63339B60AD52A24CAB276DC4267CC9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1BBB76ADBF2EF4EF2CE5DF6BBC77296;
+			remoteInfo = GoogleToolboxForMac;
+>>>>>>> first initial setup for both ios and android
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 		019CA2D81496A844D8CC841EFF73B18D /* RCTTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTTextView.m; sourceTree = "<group>"; };
 		02011C7FBCDF2B38CFE2C695889F2D49 /* RCTDatePicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTDatePicker.h; sourceTree = "<group>"; };
 		02600AEBE090564AB9B5EA5748365BE1 /* RCTView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTView.m; sourceTree = "<group>"; };
@@ -442,6 +464,15 @@
 		4197A541B11D96E09388FC5CD5B8AAE1 /* RCTRootViewInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTRootViewInternal.h; sourceTree = "<group>"; };
 		41C5AC406C28A8E5A90976B06DD5A50A /* RCTUITextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTUITextField.h; sourceTree = "<group>"; };
 		41C5FE74DDCED6B81FC3EE25A8519C04 /* RCTAppState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTAppState.m; sourceTree = "<group>"; };
+=======
+		1A208E68D80B9070305145FF97659983 /* GTMNSData+zlib.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSData+zlib.m"; path = "Foundation/GTMNSData+zlib.m"; sourceTree = "<group>"; };
+		1CB9F5DFA1F33E78D3744E9E119275F6 /* Pods-appZone-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-appZone-resources.sh"; sourceTree = "<group>"; };
+		1D62B8CC4492D542FB74A845586595A2 /* GoogleToolboxForMac-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GoogleToolboxForMac-dummy.m"; sourceTree = "<group>"; };
+		2EF62AF605322B9EE7664DA284F59CA1 /* Pods-appZoneTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-appZoneTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		3040B69D4691F3A07F4DDCC8248B8642 /* GTMDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		387C41DD36DCB6EFF8269EBFAEEB17A1 /* Pods-appZone-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-appZone-dummy.m"; sourceTree = "<group>"; };
+		3AC20DEE9FE19CE3CC3053ABC18509F3 /* libGoogleToolboxForMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libGoogleToolboxForMac.a; path = libGoogleToolboxForMac.a; sourceTree = BUILT_PRODUCTS_DIR; };
+>>>>>>> first initial setup for both ios and android
 		41D0325DF3380380E502512724ADA23A /* Pods-appZone-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-appZone-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4214711A50C9EFAAFD0DD0514D43C4E9 /* RNVectorIcons-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RNVectorIcons-prefix.pch"; sourceTree = "<group>"; };
 		425456BC6DD954B863D0BE8DEE4690AE /* RCTTextViewManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTTextViewManager.h; sourceTree = "<group>"; };
@@ -456,6 +487,7 @@
 		471BBCD88275757C459FCD9912900A45 /* RCTPackagerClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTPackagerClient.m; sourceTree = "<group>"; };
 		479A9785B7D5F9498B599ABCB009783A /* RCTAccessibilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTAccessibilityManager.h; sourceTree = "<group>"; };
 		47F12915F20C983F866C660F6576EF4E /* Pods-appZoneTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-appZoneTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		4A3CECE9D5FB7955B3CDC0D466370500 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		4DE00FCBB59E79564A9576B63EF8B66C /* RCTWebSocketExecutor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTWebSocketExecutor.h; sourceTree = "<group>"; };
 		4E2901B19AB5745F798517C4CF3D1C13 /* RCTModalHostViewManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTModalHostViewManager.m; sourceTree = "<group>"; };
@@ -485,10 +517,17 @@
 		607A7F19E336452AADB70AC00BD7F818 /* RCTTouchEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTTouchEvent.m; sourceTree = "<group>"; };
 		6163A2D73EBF7834DDD152DB961FED0D /* RCTURLRequestHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTURLRequestHandler.h; sourceTree = "<group>"; };
 		642672FD1499D1BAFB6503A65098DFDE /* RCTTextSelection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTTextSelection.h; sourceTree = "<group>"; };
+=======
+		48B9B83A84F39E6FD9F9D0064953A927 /* libPods-appZone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-appZone.a"; path = "libPods-appZone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CA444BDE2171D7C669FE3011B65B757 /* GoogleToolboxForMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleToolboxForMac.xcconfig; sourceTree = "<group>"; };
+		51C97E9B388487722E77E174000605CB /* Pods-appZone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-appZone.debug.xcconfig"; sourceTree = "<group>"; };
+		5F17FA5CD5DD6FEACF4F3B0E10CE1FE2 /* GTMNSData+zlib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSData+zlib.h"; path = "Foundation/GTMNSData+zlib.h"; sourceTree = "<group>"; };
+>>>>>>> first initial setup for both ios and android
 		645002B1E1EF96B0256108FE22C8B10E /* Pods-appZoneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-appZoneTests.debug.xcconfig"; sourceTree = "<group>"; };
 		64D1217D2E5DAC4740AAB481AEE5389B /* RCTNavItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTNavItem.h; sourceTree = "<group>"; };
 		652CE2938B96487F741E7DCE8FC931AA /* YGNodeList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = YGNodeList.h; sourceTree = "<group>"; };
 		653F5EEEE95516A4A20494C2022409C6 /* Pods-appZoneTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-appZoneTests-dummy.m"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		661F88DE459720065E6C40F6CB6C3FC5 /* RCTReconnectingWebSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTReconnectingWebSocket.m; sourceTree = "<group>"; };
 		67C6632D021AD4705B8EFB08FEC25828 /* RCTAssert.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTAssert.m; sourceTree = "<group>"; };
 		68195DA7B98803EDD84EB11BD0CE77AE /* RCTKeyCommands.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTKeyCommands.h; sourceTree = "<group>"; };
@@ -600,6 +639,18 @@
 		C1B481201B683DE46C9C259A5EA8B413 /* RCTRootView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTRootView.h; sourceTree = "<group>"; };
 		C1E2F6CEBDB0C0B08D6141F6620E2843 /* RCTPerformanceLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTPerformanceLogger.h; sourceTree = "<group>"; };
 		C3EB5961E8F5B787BC9DD9745875D299 /* RCTShadowView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTShadowView.h; sourceTree = "<group>"; };
+=======
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		66C125E293EA7ECC8016E4D60082146B /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		75731F2F34BEBC7B562D1BA547AC0BCE /* GoogleToolboxForMac-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-prefix.pch"; sourceTree = "<group>"; };
+		7AE5FFA3E445069B6B515A7FF96AC06E /* Pods-appZone-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-appZone-acknowledgements.plist"; sourceTree = "<group>"; };
+		849E56D2483E9C81BB59C7A2D0B22170 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		8E4390738BCCE697E15CFC0BB9B5A8F0 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9AAFB097651A3A9E81F88644456C39A8 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
+		A226B939835488CA195854E83AD2A3E2 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		C143D8A03320368AF304336F3C1145FA /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+>>>>>>> first initial setup for both ios and android
 		C4A3431ADB8AFCDAE41C100CF9613BF3 /* Pods-appZoneTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-appZoneTests-resources.sh"; sourceTree = "<group>"; };
 		C5902C4B678936B0F819D1887E318405 /* RCTConvert+CoreLocation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+CoreLocation.h"; sourceTree = "<group>"; };
 		C5EC703110CCC77500F8CB9F8EE05EAC /* RCTSegmentedControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTSegmentedControl.h; sourceTree = "<group>"; };
@@ -636,6 +687,7 @@
 		D86E1E5BAA57398F01AF1E2C95768B0B /* RCTNetInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTNetInfo.m; sourceTree = "<group>"; };
 		DABDC28BBB7440DB5BCCFE604E660375 /* RCTPickerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTPickerManager.m; sourceTree = "<group>"; };
 		DACB4E55CB9F5F0C5E00783013FD21F9 /* Pods-appZone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-appZone.release.xcconfig"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		DCC71F7FDBE0A6FAC0962A743D4F7EAE /* RCTLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTLog.h; sourceTree = "<group>"; };
 		DD96EBEA21831EFDE765C1E9B199C7A1 /* RCTI18nUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTI18nUtil.m; sourceTree = "<group>"; };
 		DEFCEC5CABE343C68DB59040BEE94541 /* RCTSegmentedControlManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTSegmentedControlManager.m; sourceTree = "<group>"; };
@@ -686,6 +738,11 @@
 		FD1172ED56EB74273AA9B5B0FA59F3F2 /* RCTPerfMonitor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTPerfMonitor.m; sourceTree = "<group>"; };
 		FD66F9F2C575B8F5AF52AAEB78F8C3E7 /* RCTNavItemManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTNavItemManager.h; sourceTree = "<group>"; };
 		FD74985DA2F91D954F7EA6CD90EC048E /* RCTAlertManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTAlertManager.h; sourceTree = "<group>"; };
+=======
+		E0AE33018C9F74F996F7A112B570CCA9 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Core/Sources/Firebase.h; sourceTree = "<group>"; };
+		ED1671FA369A4DE3DF629F514B67230E /* libPods-appZoneTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-appZoneTests.a"; path = "libPods-appZoneTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0EF68D06ABBBD36476D4CB6708B9DB3 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+>>>>>>> first initial setup for both ios and android
 		FD851C33FAF3BEC213C174B79ED3C679 /* Pods-appZoneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-appZoneTests.release.xcconfig"; sourceTree = "<group>"; };
 		FDBE4408B7291DEDBB254687D80B5C5D /* RCTFileRequestHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTFileRequestHandler.m; sourceTree = "<group>"; };
 		FE187FD28C628E9641404ED448130A30 /* RCTNavigator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTNavigator.m; sourceTree = "<group>"; };
@@ -693,6 +750,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+<<<<<<< HEAD
 		09483DF3A20336B27DD703378E420DE5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -707,14 +765,29 @@
 			files = (
 				7129AF23E9F579435BC8170733D28E72 /* Foundation.framework in Frameworks */,
 				941AF1FD9C3F9699E201E3820475C492 /* JavaScriptCore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+=======
 		5B52921E252164597E60A975AD4C58FA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D67F36659A4068FF72B5EA7184915384 /* Foundation.framework in Frameworks */,
+>>>>>>> first initial setup for both ios and android
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		736872D0F6BFBDB3F36ED73405DE4E29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE40968E45EB75088481466E4E7671A3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFCCEB3B00694C1A26A337FBDA2725A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AA7525C7D8A4B55DDD3B9D2B13F7FE0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,6 +810,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
 		043EA77916E7D66AD8CDAB4D4FD003F3 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -795,23 +869,38 @@
 			sourceTree = "<group>";
 		};
 		1418B056D31B27EE2CEBA552B5ADFE56 /* Base */ = {
+=======
+		09B88D954A712BB8898E670077A5D4F7 /* Support Files */ = {
+>>>>>>> first initial setup for both ios and android
 			isa = PBXGroup;
 			children = (
-				501562BF592517FC6A65661FF1B35C78 /* Frameworks */,
+				4CA444BDE2171D7C669FE3011B65B757 /* GoogleToolboxForMac.xcconfig */,
+				1D62B8CC4492D542FB74A845586595A2 /* GoogleToolboxForMac-dummy.m */,
+				75731F2F34BEBC7B562D1BA547AC0BCE /* GoogleToolboxForMac-prefix.pch */,
 			);
-			name = Base;
+			name = "Support Files";
+			path = "../Target Support Files/GoogleToolboxForMac";
 			sourceTree = "<group>";
 		};
-		243FAC914C81DCF02EFAD12598762AD5 /* GoogleMaps */ = {
+		1275FEE9D41B6AAEFFF28DEA43EC81B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1418B056D31B27EE2CEBA552B5ADFE56 /* Base */,
-				6BC99F081C91F80679CFA5DDC6213D57 /* Maps */,
+				9AAFB097651A3A9E81F88644456C39A8 /* FirebaseCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		175684D4407A11391AC54F2890D1355A /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				B56732B504C62065A427F98E27449C8B /* Base */,
+				971FEAB98D4B842D5BB60580159F17B9 /* Maps */,
 			);
 			name = GoogleMaps;
 			path = GoogleMaps;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		2E30E17C6CA54441DD180CEB1578FAAE /* RCTNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -864,13 +953,18 @@
 			sourceTree = "<group>";
 		};
 		501562BF592517FC6A65661FF1B35C78 /* Frameworks */ = {
+=======
+		1F3AD86E3C6B908ACB1F1C815E5E0562 /* FirebaseAnalytics */ = {
+>>>>>>> first initial setup for both ios and android
 			isa = PBXGroup;
 			children = (
-				E004374149D836C1256FFFCB38FECB72 /* GoogleMapsBase.framework */,
+				607BB9C38A5819E912B14397B176D259 /* Frameworks */,
 			);
-			name = Frameworks;
+			name = FirebaseAnalytics;
+			path = FirebaseAnalytics;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		5135921EBFDC28A7F4330788C80167F1 /* DevSupport */ = {
 			isa = PBXGroup;
 			children = (
@@ -931,20 +1025,81 @@
 			sourceTree = "<group>";
 		};
 		6B9DDBFD34805D0CECB3FE7AA6B7B594 /* Pods */ = {
+=======
+		2B4E54A8E488FEF25BE4D5F1BCC9D40E /* Core */ = {
+>>>>>>> first initial setup for both ios and android
 			isa = PBXGroup;
 			children = (
-				243FAC914C81DCF02EFAD12598762AD5 /* GoogleMaps */,
+				E0AE33018C9F74F996F7A112B570CCA9 /* Firebase.h */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		3E449F4AF0FEC7072D95F01051E7D866 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				66C125E293EA7ECC8016E4D60082146B /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		47BAB612D9EDD099B8A6DB9E1BA730C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E1E88487982172D91C8C791A0057E82 /* Firebase */,
+				1F3AD86E3C6B908ACB1F1C815E5E0562 /* FirebaseAnalytics */,
+				E1E5E1500AE8E2643BE133536C73EC42 /* FirebaseCore */,
+				AFF41476036333BE9775C0BD810280A5 /* FirebaseInstanceID */,
+				175684D4407A11391AC54F2890D1355A /* GoogleMaps */,
+				5D5BDAEA5510937F8CBB7955F28AC947 /* GoogleToolboxForMac */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		6BC99F081C91F80679CFA5DDC6213D57 /* Maps */ = {
+		48E394DDC6882F350A7E2D145FE31E0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E10253D9A6AF596CDA1C3BBE1F2FBFD6 /* Frameworks */,
-				7679C02ACA204A8841D527A6548CA23E /* Resources */,
+				C143D8A03320368AF304336F3C1145FA /* GoogleMapsBase.framework */,
 			);
-			name = Maps;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E1E88487982172D91C8C791A0057E82 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				2B4E54A8E488FEF25BE4D5F1BCC9D40E /* Core */,
+			);
+			name = Firebase;
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		58BD9AC899FC688BA5277ED7856A1C74 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3AC20DEE9FE19CE3CC3053ABC18509F3 /* libGoogleToolboxForMac.a */,
+				48B9B83A84F39E6FD9F9D0064953A927 /* libPods-appZone.a */,
+				ED1671FA369A4DE3DF629F514B67230E /* libPods-appZoneTests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5D5BDAEA5510937F8CBB7955F28AC947 /* GoogleToolboxForMac */ = {
+			isa = PBXGroup;
+			children = (
+				BC7F3DE98B4CFCC9B8285FA7F4BA9DA5 /* Defines */,
+				86D6A13B4390687C6D6FA3ED01E05354 /* NSData+zlib */,
+				09B88D954A712BB8898E670077A5D4F7 /* Support Files */,
+			);
+			name = GoogleToolboxForMac;
+			path = GoogleToolboxForMac;
+			sourceTree = "<group>";
+		};
+		607BB9C38A5819E912B14397B176D259 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8E4390738BCCE697E15CFC0BB9B5A8F0 /* FirebaseAnalytics.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		75AA419BC4E4D1BC14DFB9DB6BA6D475 /* Pods-appZone */ = {
@@ -962,6 +1117,7 @@
 			path = "Target Support Files/Pods-appZone";
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		75F720AED497CA75EF28BA062EC52606 /* Text */ = {
 			isa = PBXGroup;
 			children = (
@@ -1001,13 +1157,20 @@
 			sourceTree = "<group>";
 		};
 		7679C02ACA204A8841D527A6548CA23E /* Resources */ = {
+=======
+		7DB346D0F39D3F0E887471402A8071AB = {
+>>>>>>> first initial setup for both ios and android
 			isa = PBXGroup;
 			children = (
-				4A3CECE9D5FB7955B3CDC0D466370500 /* GoogleMaps.bundle */,
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				47BAB612D9EDD099B8A6DB9E1BA730C1 /* Pods */,
+				58BD9AC899FC688BA5277ED7856A1C74 /* Products */,
+				F207C9EBF25C5E39619321E7758EC50B /* Targets Support Files */,
 			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		7BF4CF079B562385078FB755C640BB07 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1132,7 +1295,15 @@
 				6B9DDBFD34805D0CECB3FE7AA6B7B594 /* Pods */,
 				DEAE0039D106B3F0272834A3CE45A1E4 /* Products */,
 				F207C9EBF25C5E39619321E7758EC50B /* Targets Support Files */,
+=======
+		86D6A13B4390687C6D6FA3ED01E05354 /* NSData+zlib */ = {
+			isa = PBXGroup;
+			children = (
+				5F17FA5CD5DD6FEACF4F3B0E10CE1FE2 /* GTMNSData+zlib.h */,
+				1A208E68D80B9070305145FF97659983 /* GTMNSData+zlib.m */,
+>>>>>>> first initial setup for both ios and android
 			);
+			name = "NSData+zlib";
 			sourceTree = "<group>";
 		};
 		86638837F061A03BDB87D630D7391A3C /* Libraries */ = {
@@ -1159,6 +1330,7 @@
 			path = "Target Support Files/Pods-appZoneTests";
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		951C1123332075B0554961235B7D7EEC /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -1166,6 +1338,32 @@
 			);
 			name = Libraries;
 			path = Libraries;
+=======
+		971FEAB98D4B842D5BB60580159F17B9 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				FC5F451D151779CD7F2F0C5F6925D8A3 /* Frameworks */,
+				3E449F4AF0FEC7072D95F01051E7D866 /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		AFF41476036333BE9775C0BD810280A5 /* FirebaseInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				CB93FD77ECC1DC1E75C780878677D283 /* Frameworks */,
+			);
+			name = FirebaseInstanceID;
+			path = FirebaseInstanceID;
+			sourceTree = "<group>";
+		};
+		B56732B504C62065A427F98E27449C8B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				48E394DDC6882F350A7E2D145FE31E0A /* Frameworks */,
+			);
+			name = Base;
+>>>>>>> first initial setup for both ios and android
 			sourceTree = "<group>";
 		};
 		A1F1D932E50FA33C30771E6330E60C84 /* Support Files */ = {
@@ -1179,7 +1377,27 @@
 			path = "../../ios/Pods/Target Support Files/React";
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		B82D4D733754AD962C5B85BE0CA4FA69 /* Libraries */ = {
+=======
+		BC7F3DE98B4CFCC9B8285FA7F4BA9DA5 /* Defines */ = {
+			isa = PBXGroup;
+			children = (
+				3040B69D4691F3A07F4DDCC8248B8642 /* GTMDefines.h */,
+			);
+			name = Defines;
+			sourceTree = "<group>";
+		};
+		CB93FD77ECC1DC1E75C780878677D283 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0EF68D06ABBBD36476D4CB6708B9DB3 /* FirebaseInstanceID.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+>>>>>>> first initial setup for both ios and android
 			isa = PBXGroup;
 			children = (
 				134875D9AA256552BEB7566C0CC1E519 /* WebSocket */,
@@ -1282,13 +1500,13 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		E10253D9A6AF596CDA1C3BBE1F2FBFD6 /* Frameworks */ = {
+		E1E5E1500AE8E2643BE133536C73EC42 /* FirebaseCore */ = {
 			isa = PBXGroup;
 			children = (
-				F95DB7ACF73CF03040C57A3D42223A51 /* GoogleMaps.framework */,
-				36DB83CB4279B90D59054691B89501D1 /* GoogleMapsCore.framework */,
+				1275FEE9D41B6AAEFFF28DEA43EC81B4 /* Frameworks */,
 			);
-			name = Frameworks;
+			name = FirebaseCore;
+			path = FirebaseCore;
 			sourceTree = "<group>";
 		};
 		E1DDA15B2A2D4E8E2862682CE1FAB668 /* Profiler */ = {
@@ -1426,6 +1644,7 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		F7BAA29852F41AD7BDE5E1C923326774 /* RCTWebSocket */ = {
 			isa = PBXGroup;
 			children = (
@@ -1440,11 +1659,21 @@
 				86638837F061A03BDB87D630D7391A3C /* Libraries */,
 			);
 			name = RCTText;
+=======
+		FC5F451D151779CD7F2F0C5F6925D8A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A226B939835488CA195854E83AD2A3E2 /* GoogleMaps.framework */,
+				849E56D2483E9C81BB59C7A2D0B22170 /* GoogleMapsCore.framework */,
+			);
+			name = Frameworks;
+>>>>>>> first initial setup for both ios and android
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+<<<<<<< HEAD
 		0442EB42DC696F1B8077730CF2BAC48C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1620,22 +1849,40 @@
 				425D5B36C56BD68955CD518CB8FC7B74 /* RCTWrapperViewController.h in Headers */,
 				837B6DD784D3FA5032576ED2CA35B944 /* UIView+Private.h in Headers */,
 				6B3AE8EEE17D41734D4D491327711221 /* UIView+React.h in Headers */,
+=======
+		34476B01833D8F46D0CEB0D1A2BDEECD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B02824B166AF4649072CAB930283EEA /* GTMDefines.h in Headers */,
+				CBC7548501161D689ACF033CA42AA1AB /* GTMNSData+zlib.h in Headers */,
+>>>>>>> first initial setup for both ios and android
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+<<<<<<< HEAD
 		10D6BFB96B0822F0683C2AEFC9D0F8D7 /* Pods-appZone */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC574C8D1D26E4D32023BC63B9E23043 /* Build configuration list for PBXNativeTarget "Pods-appZone" */;
 			buildPhases = (
 				64F9CCE168A40748683149A4A80BA23C /* Sources */,
 				AFAD5F7386EE889820D7E99698733FEE /* Frameworks */,
+=======
+		53665D3ABD1AF608A09304080A07685F /* Pods-appZone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38A3304D7FBC87544BF0039297C1EBB9 /* Build configuration list for PBXNativeTarget "Pods-appZone" */;
+			buildPhases = (
+				B59CBDE878551A0E0BF63333173D54FC /* Sources */,
+				EFCCEB3B00694C1A26A337FBDA2725A6 /* Frameworks */,
+>>>>>>> first initial setup for both ios and android
 			);
 			buildRules = (
 			);
 			dependencies = (
+<<<<<<< HEAD
 				07BD9EB508D21623AC4A8EEBDAAE71AF /* PBXTargetDependency */,
 				596AFF611CBCD000D8266FEE63AA53AD /* PBXTargetDependency */,
 				A6C84042285E3907034090A1B8E3589A /* PBXTargetDependency */,
@@ -1661,6 +1908,13 @@
 			name = React;
 			productName = React;
 			productReference = 7AFA53B7B3B29EC021A9263D98758D77 /* libReact.a */;
+=======
+				C57B96B7B1447E6ABC452BBD519D7F4B /* PBXTargetDependency */,
+			);
+			name = "Pods-appZone";
+			productName = "Pods-appZone";
+			productReference = 48B9B83A84F39E6FD9F9D0064953A927 /* libPods-appZone.a */;
+>>>>>>> first initial setup for both ios and android
 			productType = "com.apple.product-type.library.static";
 		};
 		56C13CD611FC9B7C608C54E07F0C799F /* Pods-appZoneTests */ = {
@@ -1676,6 +1930,7 @@
 			);
 			name = "Pods-appZoneTests";
 			productName = "Pods-appZoneTests";
+<<<<<<< HEAD
 			productReference = AD66BFE6530EBD656BA0AD7572B35340 /* libPods-appZoneTests.a */;
 			productType = "com.apple.product-type.library.static";
 		};
@@ -1686,11 +1941,24 @@
 				67941088EC7E7A1913BDDE2C4160CFFE /* Sources */,
 				67251F285D450F6AE5F8BFEC72115BAF /* Frameworks */,
 				19E637FE47694363B6D9FC3E9C6E56AA /* Headers */,
+=======
+			productReference = ED1671FA369A4DE3DF629F514B67230E /* libPods-appZoneTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E1BBB76ADBF2EF4EF2CE5DF6BBC77296 /* GoogleToolboxForMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E910B89548204C9E82F8F7CCB1460E /* Build configuration list for PBXNativeTarget "GoogleToolboxForMac" */;
+			buildPhases = (
+				E039C8832DF36C6AA9B398412DBAA4B5 /* Sources */,
+				736872D0F6BFBDB3F36ED73405DE4E29 /* Frameworks */,
+				34476B01833D8F46D0CEB0D1A2BDEECD /* Headers */,
+>>>>>>> first initial setup for both ios and android
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+<<<<<<< HEAD
 			name = Yoga;
 			productName = Yoga;
 			productReference = 3D51026AEB6DB5CC9CEFE8D3D926A652 /* libYoga.a */;
@@ -1712,6 +1980,11 @@
 			name = RNVectorIcons;
 			productName = RNVectorIcons;
 			productReference = 7BF3B141367347C8038E753FA6094B48 /* libRNVectorIcons.a */;
+=======
+			name = GoogleToolboxForMac;
+			productName = GoogleToolboxForMac;
+			productReference = 3AC20DEE9FE19CE3CC3053ABC18509F3 /* libGoogleToolboxForMac.a */;
+>>>>>>> first initial setup for both ios and android
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -1731,11 +2004,20 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+<<<<<<< HEAD
 			productRefGroup = DEAE0039D106B3F0272834A3CE45A1E4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				10D6BFB96B0822F0683C2AEFC9D0F8D7 /* Pods-appZone */,
+=======
+			productRefGroup = 58BD9AC899FC688BA5277ED7856A1C74 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1BBB76ADBF2EF4EF2CE5DF6BBC77296 /* GoogleToolboxForMac */,
+				53665D3ABD1AF608A09304080A07685F /* Pods-appZone */,
+>>>>>>> first initial setup for both ios and android
 				56C13CD611FC9B7C608C54E07F0C799F /* Pods-appZoneTests */,
 				1A5F2A2F61175491C47038C83A9ACA53 /* React */,
 				C1566120AB2E43AB9DFDFE199B80EC50 /* RNVectorIcons */,
@@ -1745,6 +2027,7 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+<<<<<<< HEAD
 		1DA87943EC0E13C848D3A7F9004E4659 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1910,6 +2193,13 @@
 				F7ECFAF30B4E5F71E6C49A68D02FF1B7 /* YGNodeList.c in Sources */,
 				4072C184A108907DC960CA72CAB087A1 /* Yoga-dummy.m in Sources */,
 				424FB1F7D72CC2A956CD08CC45CB487D /* Yoga.c in Sources */,
+=======
+		B59CBDE878551A0E0BF63333173D54FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D90607F37714FE5553DB16FA1995265 /* Pods-appZone-dummy.m in Sources */,
+>>>>>>> first initial setup for both ios and android
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1921,9 +2211,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E039C8832DF36C6AA9B398412DBAA4B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B6053DB4F426B47C4A91E97990824D3 /* GoogleToolboxForMac-dummy.m in Sources */,
+				3D5A8358B3CE03D143C39C4BF52B34D3 /* GTMNSData+zlib.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+<<<<<<< HEAD
 		07BD9EB508D21623AC4A8EEBDAAE71AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RNVectorIcons;
@@ -1953,6 +2253,13 @@
 			name = React;
 			target = 1A5F2A2F61175491C47038C83A9ACA53 /* React */;
 			targetProxy = FAB4659193737C3DF7BDD2FE82FF0467 /* PBXContainerItemProxy */;
+=======
+		C57B96B7B1447E6ABC452BBD519D7F4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleToolboxForMac;
+			target = E1BBB76ADBF2EF4EF2CE5DF6BBC77296 /* GoogleToolboxForMac */;
+			targetProxy = 63339B60AD52A24CAB276DC4267CC9CA /* PBXContainerItemProxy */;
+>>>>>>> first initial setup for both ios and android
 		};
 /* End PBXTargetDependency section */
 
@@ -2047,7 +2354,11 @@
 			};
 			name = Release;
 		};
+<<<<<<< HEAD
 		50E15667558DB9DF639EEB4607DFA40D /* Debug */ = {
+=======
+		5A0FA02F3766187C4B25C1C078935B13 /* Debug */ = {
+>>>>>>> first initial setup for both ios and android
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 51C97E9B388487722E77E174000605CB /* Pods-appZone.debug.xcconfig */;
 			buildSettings = {
@@ -2070,6 +2381,7 @@
 			};
 			name = Debug;
 		};
+<<<<<<< HEAD
 		5F9234461A2FD0A219B1CACFAA70BBE1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 290F3ACF47E3C532CD04972A8605462A /* React.xcconfig */;
@@ -2094,8 +2406,34 @@
 			name = Release;
 		};
 		959AEC4A0CED4F6E59F285BE54C301C7 /* Release */ = {
+=======
+		69EA47D48A139B65FB8350131D6D99D9 /* Debug */ = {
+>>>>>>> first initial setup for both ios and android
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DACB4E55CB9F5F0C5E00783013FD21F9 /* Pods-appZone.release.xcconfig */;
+			baseConfigurationReference = 4CA444BDE2171D7C669FE3011B65B757 /* GoogleToolboxForMac.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7DB7966F2AC9DF99D74D5AFE4973AABB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CA444BDE2171D7C669FE3011B65B757 /* GoogleToolboxForMac.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2103,14 +2441,14 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
+				GCC_PREFIX_HEADER = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -2256,9 +2594,15 @@
 			};
 			name = Debug;
 		};
+<<<<<<< HEAD
 		F11AAF09FA8C140269CF7F4A4F8EBECC /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 941E8A19D0D40EDC280E4342EDCA5E52 /* RNVectorIcons.xcconfig */;
+=======
+		E2384F52FA9472B1211E22E6299E73D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DACB4E55CB9F5F0C5E00783013FD21F9 /* Pods-appZone.release.xcconfig */;
+>>>>>>> first initial setup for both ios and android
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2266,6 +2610,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+<<<<<<< HEAD
 				GCC_PREFIX_HEADER = "Target Support Files/RNVectorIcons/RNVectorIcons-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -2274,6 +2619,16 @@
 				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "";
+=======
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+>>>>>>> first initial setup for both ios and android
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -2309,15 +2664,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+<<<<<<< HEAD
 		463AFE27620C0005D46BACE92C88C310 /* Build configuration list for PBXNativeTarget "RNVectorIcons" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2B1EB8ECACD6F3A043FABDCBCCCFABE9 /* Debug */,
 				F11AAF09FA8C140269CF7F4A4F8EBECC /* Release */,
+=======
+		38A3304D7FBC87544BF0039297C1EBB9 /* Build configuration list for PBXNativeTarget "Pods-appZone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A0FA02F3766187C4B25C1C078935B13 /* Debug */,
+				E2384F52FA9472B1211E22E6299E73D7 /* Release */,
+>>>>>>> first initial setup for both ios and android
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+<<<<<<< HEAD
 		B96209EB937E7CBA9A6BCD554679D6C9 /* Build configuration list for PBXNativeTarget "React" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2332,6 +2696,13 @@
 			buildConfigurations = (
 				50E15667558DB9DF639EEB4607DFA40D /* Debug */,
 				959AEC4A0CED4F6E59F285BE54C301C7 /* Release */,
+=======
+		C8E910B89548204C9E82F8F7CCB1460E /* Build configuration list for PBXNativeTarget "GoogleToolboxForMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69EA47D48A139B65FB8350131D6D99D9 /* Debug */,
+				7DB7966F2AC9DF99D74D5AFE4973AABB /* Release */,
+>>>>>>> first initial setup for both ios and android
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

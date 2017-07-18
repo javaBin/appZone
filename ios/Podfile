@@ -8,6 +8,7 @@ target 'appZone' do
   # Pods for appZone
 
   pod 'GoogleMaps', '2.1.1'
+  pod 'Firebase/Core'
 
   # React stuff
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
