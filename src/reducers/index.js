@@ -5,7 +5,8 @@ import { CONFERENCES } from '../actions/conference'
 import { SESSIONS } from '../actions/session'
 import { DAY } from '../actions/filter'
 import settings from './settings'
-import type { Sessions } from '../types/SleepingPill'
+import type { Session, Conference } from '../types/SleepingPill'
+import type {   PayloadAction } from '../types/Actions'
 
 //Navigation
 import { SessionNavigatorTab } from '../components/sessions/navigationConfiguration'
@@ -15,19 +16,19 @@ import { tabBarReducer } from '../components/tab-bar-navigation/navigationConfig
 
 const conferenceInit = { all: [], selected: "javazone_2016" }
 
-const conferences = (state = conferenceInit, action) => {
+const conferences = (state = conferenceInit, action: PayloadAction<Array<Conference>>) => {
   switch (action.type) {
     case CONFERENCES.FETCH_SUCCESS:
-      return { all: action.conferences }
+      return { all: action.payload }
     default:
       return state
   }
 }
 
-const sessions = (state: Sessions = [], action) => {
+const sessions = (state: Array<Session> = [], action: PayloadAction<Array<Session>>) => {
   switch (action.type) {
     case SESSIONS.FETCH_SUCCESS:
-      return action.sessions
+      return action.payload
     default:
       return state
   }

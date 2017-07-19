@@ -1,4 +1,8 @@
 // @flow
+
+import type { PayloadAction, ErrorAction, Action } from '../types/Actions'
+import type { Conference, ConferenceApiResponse } from '../types/SleepingPill'
+
 export const CONFERENCES = {
   FETCH_SUCCESS: 'CONFERENCES_FETCH_SUCCESS',
   FETCH_ERROR: 'CONFERENCES_FETCH_ERROR',
@@ -6,10 +10,11 @@ export const CONFERENCES = {
 }
 
 export const conferenceFetchSuccess =
-  (json) => ( { type: CONFERENCES.FETCH_SUCCESS, conferences: json.conferences } )
+  (json: ConferenceApiResponse): PayloadAction<Array<Conference>> =>
+    ({ type: CONFERENCES.FETCH_SUCCESS, payload: json.conferences })
 
 export const conferenceFetchError =
-  (errorMsg) => ({ type: CONFERENCES.FETCH_ERROR, errorMsg })
+  (errorMsg: string): ErrorAction => ({ type: CONFERENCES.FETCH_ERROR, errorMsg })
 
 export const fetchConferences =
-  () => ({ type: CONFERENCES.FETCH_REQUEST })
+  (): Action => ({ type: CONFERENCES.FETCH_REQUEST })
