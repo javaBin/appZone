@@ -169,7 +169,7 @@ class SessionList extends React.Component {
   }
 
 const mapStateToProps = (state) => { 
-  let fSessions = (state.sessions)
+  let fSessions = (state.sessions.all)
     .filter( ses => ses.startTime.slice(0,10) === state.filter.selectedDay)
     .sort((a,b) => {
       return b.startTime > a.startTime ? -1

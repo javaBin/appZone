@@ -2,11 +2,9 @@
 
 import { combineReducers } from 'redux'
 import { CONFERENCES } from '../actions/conference'
-import { SESSIONS } from '../actions/session'
 import { DAY } from '../actions/filter'
 import settings from './settings'
-import type { Session, Conference } from '../types/SleepingPill'
-import type {   PayloadAction } from '../types/Actions'
+import sessions from './sessions'
 
 //Navigation
 import { SessionNavigatorTab } from '../components/sessions/navigationConfiguration'
@@ -14,21 +12,15 @@ import { HomeNavigatorTab } from '../components/home/navigationConfiguration'
 import { SettingsNavigatorTab } from '../components/settings/navigationConfiguration'
 import { tabBarReducer } from '../components/tab-bar-navigation/navigationConfiguration'
 
+import type { Conference } from '../types/SleepingPill'
+import type { PayloadAction } from '../types/Actions'
+
 const conferenceInit = { all: [], selected: "javazone_2016" }
 
 const conferences = (state = conferenceInit, action: PayloadAction<Array<Conference>>) => {
   switch (action.type) {
     case CONFERENCES.FETCH_SUCCESS:
       return { all: action.payload }
-    default:
-      return state
-  }
-}
-
-const sessions = (state: Array<Session> = [], action: PayloadAction<Array<Session>>) => {
-  switch (action.type) {
-    case SESSIONS.FETCH_SUCCESS:
-      return action.payload
     default:
       return state
   }
