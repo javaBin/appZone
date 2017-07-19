@@ -3,6 +3,7 @@
 import { DAY } from '../actions/filter'
 
 import type { Action } from '../types/Actions'
+import type { Day, Days } from '../types/filter'
 
 const daysInit = {
   days: { day1: null, day2: null },
@@ -10,18 +11,12 @@ const daysInit = {
 }
 
 export type FilterState = {
-  selectedDay: ?string,
-  days: {
-    day1: ?string,
-    day2: ?string
-  }
+  selectedDay: ?Day,
+  days: Days
 }
 export type FilterAction = Action & {
-  day?: string,
-  days: {
-    day1: ?string,
-    day2: ?string
-  }
+  day?: Day,
+  days: Days
 }
 
 const filter = (state: FilterState = daysInit, action: FilterAction) => {
