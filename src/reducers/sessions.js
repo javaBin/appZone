@@ -13,16 +13,16 @@ export type TimeSlot = {
   }
 }
 
-export type State = {
+export type SessionState = {
   all: Array<Session>,
   slotsBySlots?: TimeSlot
 }
 
-const initState: State = {
+const initState: SessionState = {
   all: []
 }
 
-const sessions = (state: State = initState, action: PayloadAction<Array<Session>>) => {
+const sessions = (state: SessionState = initState, action: PayloadAction<Array<Session>>) => {
   switch (action.type) {
     case SESSIONS.FETCH_SUCCESS: {
       const byDay = groupBy(

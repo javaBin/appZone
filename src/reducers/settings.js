@@ -1,21 +1,34 @@
-'use strict'
+// @flow
 
 import { AsyncStorage } from 'react-native'
 import { SETTINGS } from '../actions/settings'
 
+import type { LoadedSettings } from '../actions/settings'
+
 const STORE_SETTINGS_KEY = 'SETTINGSKEY'
 
-export type Settings = {
+export type SettingsState = {
   notificationSession: boolean,
   notificationFeedback: boolean
 };
 
-const initialState: Settings = {
+const initialState: SettingsState = {
   notificationSession: false,
   notificationFeedback: false
 }
 
-export default function settings(state = initialState, action) {
+type Actions = {
+  type: 'GET_NOTIFICATION_CONFIG',
+  payload: LoadedSettings
+} | {
+  type: 'SET_NOTIFICATION_SESSION',
+  payload: boolean
+} | {
+  type: 'SET_NOTIFICATION_FEEDBACK',
+  payload: boolean
+}
+
+export default function settings(state: SettingsState = initialState, action: Actions) {
   switch (action.type) {
     case SETTINGS.SET_NOTIFICATION_SESSION:
       storeSettings(action.type, action.payload)
@@ -35,17 +48,17 @@ export default function settings(state = initialState, action) {
       break
   }
 
-return state
+  return state
 }
 
 function storeSettings(type, enabled) {
-  let settings = {
+  let settings: LoadedSettings = {
     notificationSession: false,
     notificationFeedback: false
   }
   AsyncStorage.getItem(STORE_SETTINGS_KEY).then((settingsStr) => {
     settings = JSON.parse(settingsStr)
-    if (settings != null) {
+    if (settings !== null) {
       switch (type) {
         case SETTINGS.SET_NOTIFICATION_SESSION:
           settings.notificationSession = enabled
@@ -70,7 +83,6 @@ function storeSettings(type, enabled) {
           break
         default:
           break
-
       }
 
       AsyncStorage.setItem(STORE_SETTINGS_KEY, JSON.stringify(settings), () => {
@@ -78,5 +90,3 @@ function storeSettings(type, enabled) {
     }
   })
 }
-
-module.exports = settings
