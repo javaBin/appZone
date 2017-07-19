@@ -8,26 +8,29 @@ export type LoadedSettings = {
 }
 
 export const SETTINGS = {
-  SET_NOTIFICATION_SESSION: 'SET_NOTIFICATION_SESSION',
-  SET_NOTIFICATION_FEEDBACK: 'SET_NOTIFICATION_FEEDBACK',
-  GET_NOTIFICATION_CONFIG: 'GET_NOTIFICATION_CONFIG'
+  SET_NOTIFICATION_SESSION: 'settings:setNotificationSession',
+  SET_NOTIFICATION_FEEDBACK: 'settings:setNotificationFeedback',
+  GET_NOTIFICATION_CONFIG: 'settings:loadNotificationConfig'
 }
 
-export function setNotificationSession(enabled: boolean): PayloadAction<boolean>  {
+export type SetNotificationSessionAction = PayloadAction<'settings:setNotificationSession', boolean>
+export function setNotificationSession(enabled: boolean): SetNotificationSessionAction  {
   return {
     type: SETTINGS.SET_NOTIFICATION_SESSION,
     payload: enabled
   }
 }
 
-export function setNotificationFeedback(enabled: boolean): PayloadAction<boolean> {
+export type SetNotificationFeedbackAction = PayloadAction<'settings:setNotificationFeedback', boolean>
+export function setNotificationFeedback(enabled: boolean): SetNotificationFeedbackAction {
   return {
     type: SETTINGS.SET_NOTIFICATION_FEEDBACK,
     payload: enabled
   }
 }
 
-export function loadSettings(settingsLoaded: LoadedSettings): PayloadAction<LoadedSettings> {
+export type LoadSettingsAction = PayloadAction<'settings:loadNotificationConfig', LoadedSettings>
+export function loadSettings(settingsLoaded: LoadedSettings): LoadSettingsAction {
   return {
     type: SETTINGS.GET_NOTIFICATION_CONFIG,
     payload: settingsLoaded
