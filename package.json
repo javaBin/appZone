@@ -25,6 +25,7 @@
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-jest": "20.0.3",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
@@ -42,7 +43,9 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFiles": ["./jest-setup.js"],
+    "setupFiles": [
+      "./jest-setup.js"
+    ],
     "transformIgnorePatterns": [
       "node_modules/?!(react-native|native-base)"
     ]
