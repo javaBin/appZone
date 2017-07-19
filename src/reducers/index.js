@@ -1,10 +1,11 @@
 // @flow
 
 import { combineReducers } from 'redux'
-import { CONFERENCES } from '../actions/conference'
-import { DAY } from '../actions/filter'
+
 import settings from './settings'
 import sessions from './sessions'
+import conferences from './conferences'
+import filter from './filter'
 
 //Navigation
 import { SessionNavigatorTab } from '../components/sessions/navigationConfiguration'
@@ -12,42 +13,10 @@ import { HomeNavigatorTab } from '../components/home/navigationConfiguration'
 import { SettingsNavigatorTab } from '../components/settings/navigationConfiguration'
 import { tabBarReducer } from '../components/tab-bar-navigation/navigationConfiguration'
 
-import type { Conference } from '../types/SleepingPill'
-import type { PayloadAction } from '../types/Actions'
-
-const conferenceInit = { all: [], selected: "javazone_2016" }
-
-const conferences = (state = conferenceInit, action: PayloadAction<Array<Conference>>) => {
-  switch (action.type) {
-    case CONFERENCES.FETCH_SUCCESS:
-      return { all: action.payload }
-    default:
-      return state
-  }
-}
-
-const daysInit = {
-  days: { day1: null, day2: null },
-  selectedDay: null,
-}
-
-const filter = (state = daysInit, action) => {
-  switch (action.type) {
-    case DAY.SET_DAYS:
-      return { 
-        ...state, 
-        days: action.days
-      }
-    case DAY.SET_SELECTED_DAY:
-    return  {
-      ...state,
-      selectedDay: action.day
-    }
-    default: 
-      return state
-  }
-}
-
+/**
+ * Each sub reducer will have it's own sub name space. For instance the conferences
+ * reducer will be accessible from `<root>.conferences`.
+ */
 const reducers = combineReducers({
   conferences, 
   sessions,
