@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { TabNavigator } from 'react-navigation'
 
 import { HomeNavigatorTab } from '../home/navigationConfiguration'

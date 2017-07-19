@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Text, StyleSheet, View, ScrollView } from 'react-native';
+import { Text, StyleSheet, View, ScrollView } from 'react-native'
 
-import moment from 'moment';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import moment from 'moment'
+import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
 
 const styles = StyleSheet.create({
@@ -51,16 +51,16 @@ const styles = StyleSheet.create({
     padding: 3,
     margin: 5,
   }
-});
+})
 
 class SessionDetail extends React.Component {
 
   render() {
-    const { navigation, } = this.props;
-    const { params } = navigation.state;
+    const { navigation, } = this.props
+    const { params } = navigation.state
 
-    let fromTime = moment(new Date(params.sessionData.startTime)).format('dddd, MMMM DD HH:mm');
-    let toTime = moment(new Date(params.sessionData.endTime)).format('HH:mm');
+    let fromTime = moment(new Date(params.sessionData.startTime)).format('dddd, MMMM DD HH:mm')
+    let toTime = moment(new Date(params.sessionData.endTime)).format('HH:mm')
     return (
       <ScrollView>
         <View style={styles.sessionHeaderWrapper}>
@@ -87,7 +87,7 @@ class SessionDetail extends React.Component {
                 <View key={index}>
                   <Text style={styles.headingSpeakerName}>{speaker.name}</Text>
                   <Text style={styles.textStyle}>{speaker.bio}</Text>
-                </View>);
+                </View>)
             })
           }
           <Text style={styles.heading2}>KEYWORDS:</Text>
@@ -112,4 +112,4 @@ SessionDetail.defaultProps = {
   navigation: null
 }
 
-export default SessionDetail;
+export default SessionDetail
