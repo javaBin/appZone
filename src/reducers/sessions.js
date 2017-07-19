@@ -5,7 +5,7 @@ import moment from 'moment'
 import groupBy from 'lodash/groupBy'
 
 import type { Session } from '../types/SleepingPill'
-import type { PayloadAction } from '../types/Actions'
+import type { SessionsFetchSuccessAction } from '../actions/session'
 
 export type TimeSlot = {
   [string]: {
@@ -22,7 +22,7 @@ const initState: SessionState = {
   all: []
 }
 
-const sessions = (state: SessionState = initState, action: PayloadAction<Array<Session>>) => {
+const sessions = (state: SessionState = initState, action: SessionsFetchSuccessAction) => {
   switch (action.type) {
     case SESSIONS.FETCH_SUCCESS: {
       const byDay = groupBy(

@@ -3,7 +3,7 @@
 import { CONFERENCES } from '../actions/conference'
 
 import type { Conference } from '../types/SleepingPill'
-import type { PayloadAction } from '../types/Actions'
+import type { ConferenceFetchSuccessAction } from '../actions/conference'
 
 export type ConferencesState = {
   all: Array<Conference>,
@@ -12,7 +12,7 @@ export type ConferencesState = {
 
 const conferenceInit: ConferencesState = { all: [], selected: "javazone_2016" }
 
-const conferences = (state: ConferencesState = conferenceInit, action: PayloadAction<Array<Conference>>) => {
+const conferences = (state: ConferencesState = conferenceInit, action: ConferenceFetchSuccessAction) => {
   switch (action.type) {
     case CONFERENCES.FETCH_SUCCESS:
       return { all: action.payload }
