@@ -109,6 +109,8 @@ class SessionList extends React.Component {
   }
 
   getTimeSpan(fromTime, endTime) {
+    let from = (moment.utc(new Date(fromTime)).format('dddd, DD MMM HH:mm'))
+    let end = (moment.utc(new Date(endTime)).format('HH:mm'))
     return (from + ' - ' + end)
   }
 

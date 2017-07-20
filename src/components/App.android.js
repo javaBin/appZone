@@ -13,7 +13,6 @@ class App extends Component {
     }
 
     render () {
-        moment.updateLocale('nb', nbLocale)
         return (
             <TabBarNavigation style={styles.container}/>
         )
