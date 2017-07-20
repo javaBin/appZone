@@ -1,15 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-
-import { connect } from 'react-redux'
-import * as firebase from '../../actions/firebase'
-
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Text, StyleSheet, View, ScrollView } from 'react-native'
 
 import moment from 'moment'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
-import type { Dispatch } from '../../../types/Actions'
 
 const styles = StyleSheet.create({
   sessionHeaderWrapper: {
@@ -52,82 +46,57 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     color: style.colors.primary,
     fontFamily: style.fonts.headerLight,
-    padding: 3,
-    margin: 5,
+    padding: 3, 
+    margin: 5, 
   }
 })
 
-class SessionDetail extends React.Component {
-  static propTypes = {
-    logScreen: PropTypes.func,
-  }
-
-  componentWillMount() {
-    this.props.logScreen()
-  }
-
+export default class SessionDetail extends React.Component {  
+  
   render() {
-    const { navigation, } = this.props
-    const { params } = navigation.state
-
-    let fromTime = moment(new Date(params.sessionData.startTime)).format('dddd, MMMM DD HH:mm')
-    let toTime = moment(new Date(params.sessionData.endTime)).format('HH:mm')
+    const { params } = this.props.navigation.state;
+    let fromTime = moment.utc(new Date(params.sessionData.startTimeZulu)).format('dddd, MMMM DD HH:mm');
+    let toTime = moment.utc(new Date(params.sessionData.endTimeZulu)).format('HH:mm');
     return (
       <ScrollView>
-        <View style={styles.sessionHeaderWrapper}>
+        <View style={ styles.sessionHeaderWrapper }>
           <View style={{ flex: 1, flexDirection: 'row' }}>
-            <Icon name="arrow-left" style={{ padding: 15 }} size={40} color={style.colors.color4}
-              onPress={() => navigation.goBack()} />
+            <Icon name="arrow-left" style={{ padding: 15 }} size={40} color={style.colors.color4} 
+              onPress={() => this.props.navigation.navigate('SessionList')}/>   
+            <Icon name="star-o" style={{ padding: 15 }}size={40} color={style.colors.color4}/>   
           </View>
-          <Text style={styles.heading1}>{(params.sessionData.title).toUpperCase()}</Text>
+          <Text style={ styles.heading1 }>{ (params.sessionData.title).toUpperCase() }</Text>
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <View>
-              <Text style={styles.textStyleHeder}>{params.sessionData.room} {params.sessionData.format}</Text>
-              <Text style={{ color: style.colors.color1 }}>{fromTime} - {toTime}</Text>
+              <Text style={ styles.textStyleHeder }>{ params.sessionData.room } { params.sessionData.format }</Text>
+              <Text style={{ color: style.colors.color1 }}>{ fromTime } - { toTime }</Text>
             </View>
           </View>
         </View>
-        <View style={styles.container}>
-          <Text style={styles.textStyle}>{params.sessionData.abstract}</Text>
-          <Text style={styles.heading2}>INTENDED AUDIENCE:</Text>
-          <Text style={styles.textStyle}>{params.sessionData.intendedAudience}</Text>
-          <Text style={styles.heading2}>{params.sessionData.speakers.length === 1 ? "SPEAKER:" : "SPEAKERS:"}</Text>
-          {
-            params.sessionData.speakers.map((speaker, index) => {
+        <View style={ styles.container }>
+          <Text style={ styles.textStyle }>{ params.sessionData.abstract }</Text>
+          <Text style={ styles.heading2 }>INTENDED AUDIENCE:</Text>  
+          <Text style={ styles.textStyle }>{ params.sessionData.intendedAudience }</Text>
+          <Text style={ styles.heading2 }>{params.sessionData.speakers.length === 1 ? "SPEAKER:" : "SPEAKERS:"}</Text>
+          { 
+            params.sessionData.speakers.map( (speaker, index) => {
               return (
                 <View key={index}>
-                  <Text style={styles.headingSpeakerName}>{speaker.name}</Text>
-                  <Text style={styles.textStyle}>{speaker.bio}</Text>
+                  <Text style={ styles.headingSpeakerName }>{ speaker.name }</Text>
+                  <Text style={ styles.textStyle }>{ speaker.bio }</Text>
                 </View>)
             })
           }
-          {params.sessionData.keywords &&
-             <View>
-              <Text style={styles.heading2}>KEYWORDS:</Text>
-              <View style={{ flex: 1, flexDirection: 'row' }}>
-                {params.sessionData.keywords.map((keyword, index) => (
-                     <Text style={styles.keywordContainer} key={index}>{keyword}</Text>
-                  ))
-                }
-              </View>
+          <Text style={ styles.heading2 }>KEYWORDS:</Text>        
+            <View style={{ flex: 1, flexDirection: 'row' }}>
+              {
+                params.sessionData.keywords.map( (keyword, index) => {
+                  return <Text style={ styles.keywordContainer } key={index}>{keyword}</Text>
+                })
+              }
             </View>
-          }
         </View>
       </ScrollView>
     )
   }
 }
-
-SessionDetail.propTypes = {
-  navigation: PropTypes.object
-}
-
-SessionDetail.defaultProps = {
-  navigation: null
-}
-
-
-const mapDispatchToProps = (dispatch: Dispatch) =>
-({ logScreen: () => { dispatch(firebase.setCurrentScreen('session_detail', 'SessionDetail')) } })
-
-export default connect(null, mapDispatchToProps)(SessionDetail)

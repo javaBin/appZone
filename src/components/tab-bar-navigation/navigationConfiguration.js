@@ -5,9 +5,9 @@ import { TabNavigator } from 'react-navigation'
 import { HomeNavigatorTab } from '../home/navigationConfiguration'
 import { SessionNavigatorTab } from '../sessions/navigationConfiguration'
 import { SettingsNavigatorTab } from '../settings/navigationConfiguration'
+import { MyScheduleNavigatorTab } from '../myschedule/navigationConfiguration'
 
 import config from '../../config'
-
 import style from '../../common/style'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
