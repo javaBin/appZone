@@ -2,6 +2,9 @@
 
 import { combineReducers } from 'redux'
 
+import { MYSCHEDULE } from '../actions/myschedule'
+import myschedule from './myschedule'
+
 import settings from './settings'
 import sessions from './sessions'
 import conferences from './conferences'
@@ -70,6 +73,7 @@ const reducers = combineReducers({
   settings,
   filter,
   firebaseEvents,
+  myschedule,
   tabBar: tabBarReducer,
 })
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { 
+  AsyncStorage,
   StyleSheet, 
   View, 
   Text, 
@@ -14,6 +15,9 @@ import style from '../../common/style'
 import moment from 'moment'
 
 import { setSelectedDay } from '../../actions/filter'
+import * as myschedule from '../../actions/myschedule'
+
+const STORE_MY_SESSIONS_KEY = 'MYSESSIONSKEY';
 
 const styles = StyleSheet.create({
   listContainer: {
@@ -80,8 +84,38 @@ class SessionList extends React.Component {
     navigation: PropTypes.object
   };
 
+  componentWillMount() {
+    AsyncStorage.getItem(STORE_MY_SESSIONS_KEY).then((sessionId) => {
+      if (!sessionId) {
+        AsyncStorage.setItem(STORE_MY_SESSIONS_KEY, JSON.stringify([]))
+      } else {
+        const myScheduleJson = JSON.parse(sessionId)
+        console.warn(sessionId)
+        console.warn( )
+
+        if(Object.keys(myScheduleJson).length === 0 && myScheduleJson.constructor === Object) {
+          let temp = []
+          this.props.loadMySchedule(temp)      
+        } else {
+          this.props.loadMySchedule(myScheduleJson)                    
+        }
+
+      }
+    })
+  }
+
   filterSessions() {
   }
+
+  removeFavorite() {
+
+  }
+
+  onAddToFavorite(rowData: any) {
+    console.log("add favorite");
+    this.props.addToMySchedule(rowData.sessionId);
+  }
+
   getHeader() {
     return (
       <View style= { styles.filterButtonWrapper }>
@@ -149,6 +183,8 @@ class SessionList extends React.Component {
     return (
         <View style={ styles.listItemWrapper} key={ rowData.sessionId }>
           <View>
+            <Icon name="star-o" style={{ paddingRight: 10 }} size={ 30 } 
+            color={style.colors.color4} onPress={() => this.props.addToMySchedule(rowData.sessionId)}/>
           </View>
           <TouchableOpacity style={{ paddingRight: 40 }} onPress={ () => this._onRowPressed(rowData) } key={ rowID }>
             <Text style={ styles.sessionTitle }>{rowData.title}</Text>
@@ -185,6 +221,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+      filterSessionDay: (day) => { dispatch(setSelectedDay(day)) },
+      loadMySchedule: (myScheduleJson) => { dispatch(myschedule.loadMySchedule(myScheduleJson))},
+      addToMySchedule: (sessionId) => { dispatch( myschedule.addToMySchedule( sessionId ))}, 
     }
   }
 
