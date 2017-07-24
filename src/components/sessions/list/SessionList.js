@@ -1,29 +1,35 @@
+// @flow
+
 import React from 'react'
 import { 
   StyleSheet, 
   View, 
   ListView,
 } from 'react-native'
-
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import style from '../../../common/style'
 import SessionListItem from './SessionListItem'
 import SessionFilter from './SessionFilter'
-
 import { setSelectedDay } from '../../../actions/filter'
 
+import type { Dispatch } from '../../../types/Actions'
+
 const styles = StyleSheet.create({
+  list: {},
   listContainer: {
     flex: 1,
     backgroundColor: style.colors.background,
   },
   textStyle: {
     color: style.colors.primary,
-  },
+  }
 })
 
 class SessionList extends React.Component {
+  state: {
+    ds: ListView.DataSource
+  }
 
   constructor(props) {
     super(props)
@@ -64,12 +70,11 @@ class SessionList extends React.Component {
         <ListView 
           enableEmptySections={true} style={ styles.list }
           dataSource={ this.state.ds }
-          renderRow={(sessionAndSlot) => {
-            return (
-              <SessionListItem
+          renderRow={(sessionAndSlot) =>
+             (<SessionListItem
                 onRowPressed={ (session) => {this.props.navigation.navigate('SessionDetail', { sessionData: session })}}
                 session={sessionAndSlot.session} />)
-          }} />
+          } />
       </View>
     )
   }
@@ -87,10 +92,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-      filterSessionDay: (day) => { dispatch(setSelectedDay(day)) }
-    }
-  }
+const mapDispatchToProps = (dispatch: Dispatch) =>
+  ({ filterSessionDay: (day) => { dispatch(setSelectedDay(day)) } })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionList)
