@@ -1,6 +1,6 @@
 // @flow
 
-import reducer, { findSlotNumber } from '../sessions'
+import reducer, { findSlotNumber, initState } from '../sessions'
 import { sessionsFetchSuccess } from '../../actions/session'
 
 import type { Session, SessionsApiResponse } from '../../types/SleepingPill'
@@ -40,17 +40,18 @@ describe("session reducer", () => {
   })
 
   it("should reduce to timeslots", () => {
-    const state = reducer({ all: [] }, sessionsFetchSuccess(fixture))
+    const state = reducer(initState(), sessionsFetchSuccess(fixture))
 
     expect(state).toEqual({
       all: fixture.sessions,
       slots:
         [{
           day: "2016-09-08",
-          slots: {
-            "1": [session1, session2],
-            "7": [session3]
-          }
+          sessionBySlot: [
+            { slot: 1, session: session1 },
+            { slot: 1, session: session2 },
+            { slot: 7, session: session3 },
+          ]
         }]
       }
     )

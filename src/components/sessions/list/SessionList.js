@@ -64,11 +64,11 @@ class SessionList extends React.Component {
         <ListView 
           enableEmptySections={true} style={ styles.list }
           dataSource={ this.state.ds }
-          renderRow={(session) => {
+          renderRow={(sessionAndSlot) => {
             return (
               <SessionListItem
                 onRowPressed={ (session) => {this.props.navigation.navigate('SessionDetail', { sessionData: session })}}
-                session={session} />)
+                session={sessionAndSlot.session} />)
           }} />
       </View>
     )
@@ -76,16 +76,11 @@ class SessionList extends React.Component {
 }
 
 const mapStateToProps = (state) => { 
-  let fSessions = (state.sessions.all)
-    .filter( ses => ses.startTime.slice(0,10) === state.filter.selectedDay)
-    .sort((a,b) => {
-      return b.startTime > a.startTime ? -1
-            :b.startTime > a.startTime ? 1
-            :0
-    })
-  
+  const sessions = (state.sessions.slots.find(s => s.day === state.filter.selectedDay) ||
+    { day: state.filter.selectedDay, sessionBySlot: [] }).sessionBySlot
+
   return {  
-    sessionsData: fSessions,
+    sessionsData: sessions,
     selectedDay: state.filter.selectedDay,
     day1: state.filter.days.day1,
     day2: state.filter.days.day2,

@@ -3,26 +3,22 @@
 import { SESSIONS } from '../actions/session'
 import moment from 'moment'
 import groupBy from 'lodash/groupBy'
+import flatMap from 'lodash/flatMap'
 
 import type { Session } from '../types/SleepingPill'
 import type { SessionsFetchSuccessAction } from '../actions/session'
 
-export type TimeSlot = {
-  [string]: {
-    [string]: Array<Session>
-  }
-}
-
 export type SessionState = {
   all: Array<Session>,
-  slotsBySlots?: TimeSlot
+  slots: Array<{day: string, sessionBySlot: {slot: number, session: Session}}>
 }
 
-const initState: SessionState = {
-  all: []
-}
+export const initState = (): SessionState => ({
+  all: [],
+  slots: []
+})
 
-const sessions = (state: SessionState = initState, action: SessionsFetchSuccessAction) => {
+const sessions = (state: SessionState = initState(), action: SessionsFetchSuccessAction) => {
   switch (action.type) {
     case SESSIONS.FETCH_SUCCESS: {
       const byDay = groupBy(
@@ -30,10 +26,14 @@ const sessions = (state: SessionState = initState, action: SessionsFetchSuccessA
         (s: Session) => moment(s.startTimeZulu).utc().format("YYYY-MM-DD"))
 
       const slots  = Object
-        .keys(byDay).map(day => ({
-          day: day,
-          slots: groupBy(byDay[day], findSlotFromSession)
-        }))
+        .keys(byDay).map(day => {
+          const sessionsBySlot = groupBy(byDay[day], findSlotFromSession)
+          return ({
+            day: day,
+            sessionBySlot: flatMap(Object.keys(sessionsBySlot),
+              (id) => sessionsBySlot[id].map(s => ({ slot: parseInt(id, 10), session: s })))
+          })
+        })
       return { ...state, all: action.payload, slots }
     }
     default:
