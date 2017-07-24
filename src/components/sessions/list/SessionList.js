@@ -54,7 +54,7 @@ class SessionList extends React.Component {
        getSectionData: (sessions, sectionId) => (props.slotTimes.find(st => st.num === parseInt(sectionId, 10))),
        getRowData: (sessions, sectionId, rowId) => (sessions.find(s => s.session.sessionId === rowId))
     })
-    this.state = updateState({ds: ds}, props)
+    this.state = updateState({ ds: ds }, props)
   }
   static propTypes = {
     sessionsData: PropTypes.array,

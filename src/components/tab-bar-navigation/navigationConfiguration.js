@@ -9,27 +9,27 @@ import { SettingsNavigatorTab } from '../settings/navigationConfiguration'
 import style from '../../common/style'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
+// eslint-disable-next-line
+const Icon = (icon: string) => ({ tintColor}) =>
+  ( <FontAwesome size={ 30 } name={icon} color={tintColor}/> )
+
 const routeConfiguration = {
     HomeNavigatorTab: { 
       screen: HomeNavigatorTab,
       navigationOptions: {            
-        tabBarIcon: ({ tintColor }) =>
-           ( <FontAwesome size={ 30 } name='home' color={tintColor}/> )
+        tabBarIcon: Icon('home')
       },
-      
      },
     SessionNavigatorTab: {
       screen: SessionNavigatorTab,
       navigationOptions: {            
-        tabBarIcon: ({ tintColor }) =>
-           ( <FontAwesome size={ 30 } name='lightbulb-o' color={tintColor}/> )
+        tabBarIcon: Icon('lightbulb-o')
       },
     }, 
     SettingsNavigatorTab : { 
       screen: SettingsNavigatorTab,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) =>
-           ( <FontAwesome size={ 30 } name='cog' color={tintColor}/> )
+        tabBarIcon: Icon('cog')
       },
     }
 }

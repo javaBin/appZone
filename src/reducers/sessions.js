@@ -45,7 +45,7 @@ const sessions = (state: SessionState = initState(), action: SessionsFetchSucces
             )
           })
         })
-      return { ...state, all: action.payload, slots}
+      return { ...state, all: action.payload, slots }
     }
     default:
       return state
