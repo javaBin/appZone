@@ -34,7 +34,7 @@ const sessions = (state: SessionState = initState, action: SessionsFetchSuccessA
           day: day,
           slots: groupBy(byDay[day], findSlotFromSession)
         }))
-      return { ...state, all: action.payload,  slots }
+      return { ...state, all: action.payload, slots }
     }
     default:
       return state
@@ -60,7 +60,8 @@ export const slotsZulu = [
   { num: 4, start: "11:00Z", end: "12:00Z" },
   { num: 5, start: "12:20Z", end: "13:20Z" },
   { num: 6, start: "13:40Z", end: "14:40Z" },
-  { num: 7, start: "15:00Z", end: "16:00Z" }
+  { num: 7, start: "15:00Z", end: "16:00Z" },
+  { num: 8, start: "16:20Z", end: "17:20Z" }
 ].map(s => ({
   num: s.num,
   start: moment(s.start, 'HH:mmZ').utc(),
