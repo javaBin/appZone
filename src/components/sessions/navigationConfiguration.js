@@ -1,6 +1,6 @@
 import { StackNavigator } from 'react-navigation'
 // Screens
-import SessionList from './SessionList'
+import SessionList from './list/SessionList'
 import SessionDetail from './SessionDetail'
 
 const routeConfiguration = {
