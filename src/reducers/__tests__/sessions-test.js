@@ -60,7 +60,6 @@ describe("session reducer", () => {
       { slot: 7, session: session3 },
     ])
   })
-
 })
 
 const session1: Session =  {

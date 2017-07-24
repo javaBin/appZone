@@ -37,7 +37,7 @@ const SessionSectionHeader = (props: any) => {
     </Text>
 
   </View>)
-};
+}
 
 
 export default SessionSectionHeader
