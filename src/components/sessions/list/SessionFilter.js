@@ -11,13 +11,6 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../../common/style'
 
 const styles = StyleSheet.create({
-   // listContainer: {
-   //   flex: 1,
-   //   backgroundColor: style.colors.background,
-   // },
-   // textStyle: {
-   //   color: style.colors.primary,
-   // },
    filterButtonWrapper: {
      flexDirection: 'row',
      justifyContent: 'space-between',
