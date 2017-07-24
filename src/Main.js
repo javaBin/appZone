@@ -6,10 +6,11 @@ import { fetchConferences } from './actions/conference'
 import { fetchSessions } from './actions/session'
 import { setDays, setSelectedDay } from './actions/filter'
 import { getDays, getSelectedDayBySlug } from './util'
+import config from './config'
 
 
 const initialState = {}
-const slug = 'javazone_2016'
+const slug = config.conferenceSlug
 const store = configureStore(initialState)
 
 store.dispatch(fetchConferences())
