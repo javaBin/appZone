@@ -4,7 +4,7 @@ import { call, put, takeLatest, select } from 'redux-saga/effects'
 import { sessionBySlug } from './SleepingPillApi'
 import { sessionsFetchError, sessionsFetchSuccess, SESSIONS } from '../actions/session'
 
-function* fetchSessionsRequest() {
+function* fetchSessionsRequest(): Generator<*, void, *> {
   try {
     const selectedConf = yield select((state) => (state.conferences.selected))
     const sessions = yield call(() => sessionBySlug(selectedConf))
@@ -14,6 +14,6 @@ function* fetchSessionsRequest() {
   }
 }
 
-export default function* fetchSessions() {
+export default function* fetchSessions(): Generator<*, void, *> {
   yield takeLatest(SESSIONS.FETCH_REQUEST, fetchSessionsRequest)
 }

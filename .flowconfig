@@ -14,6 +14,10 @@
 .*/Libraries/react-native/React.js
 .*/Libraries/react-native/ReactNative.js
 
+.*/node_modules/react-native-tab-view/.*
+.*/node_modules/react-navigation/.*
+
+.*/ios/Pods/.*
 [include]
 
 [libs]
@@ -41,5 +45,7 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
 
 unsafe.enable_getters_and_setters=true
 
+module.file_ext=.js
+module.file_ext=.ios.js
 [version]
 ^0.47.0

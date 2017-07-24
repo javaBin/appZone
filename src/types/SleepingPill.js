@@ -5,7 +5,7 @@ export type Conference = {
   slug: string
 }
 
-export type Conferences = Array<Conference>
+export type ConferenceApiResponse = {conferences: Array<Conference>}
 
 export type Speaker = {
   name: string,
@@ -25,4 +25,4 @@ export type Session = {
   speakers: Array<Speaker>
 }
 
-export type Sessions = Array<Session>
+export type SessionsApiResponse = {sessions: Array<Session>}
