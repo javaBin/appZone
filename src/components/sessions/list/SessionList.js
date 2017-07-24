@@ -52,8 +52,8 @@ class SessionList extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if(this.props.sessionsData !== nextProps.sessionsData) {
-      this.setState(()=> {
-        return { ds: this.state.ds.cloneWithRows(nextProps.sessionsData) }
+      this.setState((prevState) => {
+        return { ...prevState, ds: prevState.ds.cloneWithRows(nextProps.sessionsData) }
       })
     }
   }
@@ -67,7 +67,8 @@ class SessionList extends React.Component {
           day2={this.props.day2}
           onFilterDayPressed={this.props.filterSessionDay}
           onFilterSessionPressed={this.filterSessions} />
-        <ListView 
+        <ListView
+          removeClippedSubviews={false}
           enableEmptySections={true} style={ styles.list }
           dataSource={ this.state.ds }
           renderRow={(sessionAndSlot) =>
