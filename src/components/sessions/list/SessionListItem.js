@@ -70,7 +70,7 @@ const SessionListItem = (props: Props) => (
       <Text style={ styles.sessionTitle }>{props.session.title}</Text>
       { getSessionFormat(props.session.format) }
       <Text style={ styles.textStyle }>
-        { getTimeSpan(props.session.startTimeZulu, props.session.startTimeZulu) }
+        { getTimeSpan(props.session.startTimeZulu, props.session.endTimeZulu) }
       </Text>
       <Text style={ styles.textStyle }>{ props.session.room }</Text>
     </TouchableOpacity>
