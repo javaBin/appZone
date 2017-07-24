@@ -13,9 +13,16 @@ export type SessionState = {
   slots: Array<{day: string, sessionBySlot: {slot: number, session: Session}}>
 }
 
+export type SlotTime = {
+  slotId: number,
+  start: moment,
+  end: moment
+}
+
 export const initState = (): SessionState => ({
   all: [],
-  slots: []
+  slots: [],
+  slotTimes: slotsZulu
 })
 
 const sessions = (state: SessionState = initState(), action: SessionsFetchSuccessAction) => {
@@ -34,7 +41,7 @@ const sessions = (state: SessionState = initState(), action: SessionsFetchSucces
               (id) => sessionsBySlot[id].map(s => ({ slot: parseInt(id, 10), session: s })))
           })
         })
-      return { ...state, all: action.payload, slots }
+      return { ...state, all: action.payload, slots}
     }
     default:
       return state
@@ -50,20 +57,20 @@ export const findSlotNumber = (startDateTime: ?string, endDateTime: ?string): nu
   const endTime = toNowTime(endDateTime)
   const slot = slotsZulu.find(
     slot => (startTime.isSameOrAfter(slot.start) && endTime.isSameOrBefore(slot.end)))
-  return slot ? slot.num : 0
+  return slot ? slot.slotId : 0
 }
 
 export const slotsZulu = [
-  { num: 1, start: "07:00Z", end: "08:00Z" },
-  { num: 2, start: "08:20Z", end: "09:20Z" },
-  { num: 3, start: "09:40Z", end: "10:40Z" },
-  { num: 4, start: "11:00Z", end: "12:00Z" },
-  { num: 5, start: "12:20Z", end: "13:20Z" },
-  { num: 6, start: "13:40Z", end: "14:40Z" },
-  { num: 7, start: "15:00Z", end: "16:00Z" },
-  { num: 8, start: "16:20Z", end: "17:20Z" }
+  { slotId: 1, start: "07:00Z", end: "08:00Z" },
+  { slotId: 2, start: "08:20Z", end: "09:20Z" },
+  { slotId: 3, start: "09:40Z", end: "10:40Z" },
+  { slotId: 4, start: "11:00Z", end: "12:00Z" },
+  { slotId: 5, start: "12:20Z", end: "13:20Z" },
+  { slotId: 6, start: "13:40Z", end: "14:40Z" },
+  { slotId: 7, start: "15:00Z", end: "16:00Z" },
+  { slotId: 8, start: "16:20Z", end: "17:20Z" }
 ].map(s => ({
-  num: s.num,
+  slotId: s.slotId,
   start: moment(s.start, 'HH:mmZ').utc(),
   end: moment(s.end, 'HH:mmZ').utc()
 }))

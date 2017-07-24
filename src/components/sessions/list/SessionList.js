@@ -1,17 +1,15 @@
 // @flow
 
 import React from 'react'
-import { 
-  StyleSheet, 
-  View, 
-  ListView,
-} from 'react-native'
+import { ListView, StyleSheet, View } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import style from '../../../common/style'
 import SessionListItem from './SessionListItem'
 import SessionFilter from './SessionFilter'
+import SessionSectionHeader from './SessionSectionHeader'
 import { setSelectedDay } from '../../../actions/filter'
+import groupBy from 'lodash/groupBy'
 
 import type { Dispatch } from '../../../types/Actions'
 
@@ -26,6 +24,23 @@ const styles = StyleSheet.create({
   }
 })
 
+const updateState = (state, props) => {
+  if (props.sessionsData) {
+    const bySlot = groupBy(props.sessionsData, s => s.slot)
+    const sectionHeader = Object.keys(bySlot)
+    const bySlotAndSession = sectionHeader.map(sh => bySlot[sh].map(s => s.session.sessionId))
+    return {
+      ds: state.ds.cloneWithRowsAndSections(
+        props.sessionsData,
+        sectionHeader,
+        bySlotAndSession
+      )
+    }
+  } else {
+    return state
+  }
+}
+
 class SessionList extends React.Component {
   state: {
     ds: ListView.DataSource
@@ -33,13 +48,17 @@ class SessionList extends React.Component {
 
   constructor(props) {
     super(props)
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
-    this.state = {
-      ds: ds.cloneWithRows(this.props.sessionsData)
-    }
+    const ds = new ListView.DataSource({
+       rowHasChanged: (r1, r2) => r1 !== r2,
+       sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
+       getSectionData: (sessions, sectionId) => (props.slotTimes.find(st => st.num === parseInt(sectionId, 10))),
+       getRowData: (sessions, sectionId, rowId) => (sessions.find(s => s.session.sessionId === rowId))
+    })
+    this.state = updateState({ds: ds}, props)
   }
   static propTypes = {
     sessionsData: PropTypes.array,
+    slotTimes: PropTypes.array,
     selectedDay: PropTypes.string,
     day1: PropTypes.string,
     day2: PropTypes.string,
@@ -52,9 +71,7 @@ class SessionList extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if(this.props.sessionsData !== nextProps.sessionsData) {
-      this.setState((prevState) => {
-        return { ...prevState, ds: prevState.ds.cloneWithRows(nextProps.sessionsData) }
-      })
+      this.setState(updateState)
     }
   }
 
@@ -75,7 +92,10 @@ class SessionList extends React.Component {
              (<SessionListItem
                 onRowPressed={ (session) => {this.props.navigation.navigate('SessionDetail', { sessionData: session })}}
                 session={sessionAndSlot.session} />)
-          } />
+          }
+          renderSectionHeader={(a, slotTimeId) =>
+            (<SessionSectionHeader slotTimeId={parseInt(slotTimeId, 10)} slotTimes={this.props.slotTimes} />)}
+        />
       </View>
     )
   }
@@ -87,6 +107,7 @@ const mapStateToProps = (state) => {
 
   return {  
     sessionsData: sessions,
+    slotTimes: state.sessions.slotTimes,
     selectedDay: state.filter.selectedDay,
     day1: state.filter.days.day1,
     day2: state.filter.days.day2,

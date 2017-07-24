@@ -42,18 +42,15 @@ describe("session reducer", () => {
   it("should reduce to timeslots", () => {
     const state = reducer(initState(), sessionsFetchSuccess(fixture))
 
-    expect(state).toEqual({
-      all: fixture.sessions,
-      slots:
-        [{
-          day: "2016-09-08",
-          sessionBySlot: [
-            { slot: 1, session: session1 },
-            { slot: 1, session: session2 },
-            { slot: 7, session: session3 },
-          ]
-        }]
-      }
+    expect(state.all).toEqual(fixture.sessions)
+    expect(state.slots).toEqual([{
+      day: "2016-09-08",
+      sessionBySlot: [
+        { slot: 1, session: session1 },
+        { slot: 1, session: session2 },
+        { slot: 7, session: session3 },
+      ]
+    }]
     )
   })
 })
