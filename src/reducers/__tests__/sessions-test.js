@@ -48,8 +48,8 @@ describe("session reducer", () => {
         [{
           day: "2016-09-08",
           slots: {
-            "1": [session1],
-            "7": [session2]
+            "1": [session1, session2],
+            "7": [session3]
           }
         }]
       }
@@ -79,12 +79,34 @@ const session1:Session =  {
   video: null
 }
 
-const session2: Session =     {
+const session2:Session =  {
   conferenceId: "3baa25d3-9cca-459a-90d7-9fc349209289",
-  sessionId: "9cd53aacae26476ca86bacc9fa76457d",
+  sessionId: "9a5a84def65d4c3880e0154c0adf50e6",
   slug: "slug2",
 
   title: "title 2",
+  abstract: "",
+  intendedAudience: "",
+  speakers: [],
+
+  language:  "en",
+  format: 'presentation',
+  level: 'beginner',
+  keywords: [],
+
+  startTimeZulu: "2016-09-08T07:00Z",
+  endTimeZulu: "2016-09-08T08:00Z",
+  room: "Room 1",
+
+  video: null
+}
+
+const session3: Session =     {
+  conferenceId: "3baa25d3-9cca-459a-90d7-9fc349209289",
+  sessionId: "9cd53aacae26476ca86bacc9fa76457d",
+  slug: "slug3",
+
+  title: "title 4",
   abstract: "",
   intendedAudience: "",
   speakers: [],
@@ -101,5 +123,5 @@ const session2: Session =     {
   video: null
 }
 const fixture: SessionsApiResponse = {
-  sessions: [ session1, session2 ]
+  sessions: [ session1, session2, session3 ]
 }
