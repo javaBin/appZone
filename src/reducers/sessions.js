@@ -3,6 +3,7 @@
 import { SESSIONS } from '../actions/session'
 import moment from 'moment'
 import groupBy from 'lodash/groupBy'
+import orderBy from 'lodash/orderBy'
 import flatMap from 'lodash/flatMap'
 
 import type { Session } from '../types/SleepingPill'
@@ -38,7 +39,10 @@ const sessions = (state: SessionState = initState(), action: SessionsFetchSucces
           return ({
             day: day,
             sessionBySlot: flatMap(Object.keys(sessionsBySlot),
-              (id) => sessionsBySlot[id].map(s => ({ slot: parseInt(id, 10), session: s })))
+              (id) => orderBy(
+                sessionsBySlot[id].map(s => ({ slot: parseInt(id, 10), session: s })),
+                ["session.room", "session.startTimeZulu"])
+            )
           })
         })
       return { ...state, all: action.payload, slots}

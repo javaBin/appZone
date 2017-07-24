@@ -43,19 +43,27 @@ describe("session reducer", () => {
     const state = reducer(initState(), sessionsFetchSuccess(fixture))
 
     expect(state.all).toEqual(fixture.sessions)
-    expect(state.slots).toEqual([{
-      day: "2016-09-08",
-      sessionBySlot: [
-        { slot: 1, session: session1 },
-        { slot: 1, session: session2 },
-        { slot: 7, session: session3 },
-      ]
-    }]
-    )
+    expect(state.slots).toHaveLength(1)
+    expect(state.slots[0].day).toEqual("2016-09-08")
+    expect(state.slots[0].sessionBySlot).toContainEqual({ slot: 1, session: session1 })
+    expect(state.slots[0].sessionBySlot).toContainEqual({ slot: 1, session: session2 })
+    expect(state.slots[0].sessionBySlot).toContainEqual({ slot: 7, session: session3 })
   })
+
+  it("should reduce to timeslots with ordered sessions", () => {
+    const state = reducer(initState(), sessionsFetchSuccess(fixture))
+
+    expect(state.all).toEqual(fixture.sessions)
+    expect(state.slots[0].sessionBySlot).toEqual([
+      { slot: 1, session: session2 },
+      { slot: 1, session: session1 },
+      { slot: 7, session: session3 },
+    ])
+  })
+
 })
 
-const session1:Session =  {
+const session1: Session =  {
   conferenceId: "3baa25d3-9cca-459a-90d7-9fc349209289",
   sessionId: "9a5a84def65d4c3880e0154c0adf50e5",
   slug: "slug1",
@@ -77,7 +85,7 @@ const session1:Session =  {
   video: null
 }
 
-const session2:Session =  {
+const session2: Session =  {
   conferenceId: "3baa25d3-9cca-459a-90d7-9fc349209289",
   sessionId: "9a5a84def65d4c3880e0154c0adf50e6",
   slug: "slug2",
