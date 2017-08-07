@@ -5,13 +5,9 @@ import {
   Text, 
   ListView, 
   TouchableOpacity,
-<<<<<<< 1a0ca5fa4b30dff513942bed171474b54c91ae2c:src/components/sessions/SessionList.js
+  Button
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
-=======
-  Button
-} from 'react-native';
->>>>>>> Session feedback. WIP:src/components/sessions/SessionList.ios.js
 
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TextInput, ListView, Platform, TouchableHighlight} from 'react-native';
+import {View, Text, StyleSheet, TextInput, ListView, Platform, TouchableHighlight, Alert} from 'react-native';
 
 import {FeedbackCriteria} from './FeedbackCriteria';
 import * as feedbackAction from '../../actions/feedback';
@@ -12,12 +12,12 @@ class Feedback extends Component {
     const dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       titleText: "Rate this session",
-      bodyText: 'This is not really a bird nest.',
+      categories: ['Overall', 'Relevance', 'Content', 'Quality', 'Comment'],
       ratingCriteria : dataSource.cloneWithRows(
         ['Overall', 'Relevance', 'Content', 'Quality', 'Comment']
-      )
+      ),
+      feedbackData: this.props.feedbackData
     };
-    console.log('feedback props', this.props)
     this.props.addFeedback(
       {sessionId : this.props.navigation.state.params.sessionData.sessionId,
         eventId: this.props.navigation.state.params.sessionData.conferenceId
@@ -26,7 +26,7 @@ class Feedback extends Component {
   }
 
 
-   rows(rowData, sessionData) {
+   rows(rowData, rowId,sessionData) {
     if(rowData === 'Comment') {
       //debounce on comment with UPDATE
       return (
@@ -38,22 +38,56 @@ class Feedback extends Component {
             value={this.state.text}
           />
         </View>);
-    }
-    let { updateFeedback } = this.props
-    let { nav } = this.props
+    } else {
+    console.log('#####Feddback comp feedback data', this.state.feedbackData)
+      let { updateFeedback } = this.props
+      let { nav } = this.props
 
-    return (
-    <FeedbackCriteria 
-      key={rowData}
-      title={rowData} 
-      selectedScore={(score) => updateFeedback(score)}
-      sessionData={sessionData}
-      />);
+      return (
+      <FeedbackCriteria 
+        key={rowId}
+        title={rowData} 
+        feedbackData={this.state.feedbackData}
+        selectedScore={(score) => updateFeedback(score)}
+        sessionData={sessionData}
+        />);
+      
+    }
+  }
+
+  okPressed(error) {
+    this.props.removeError(error);
+  }
+
+  displayError(error) {
+    if(error.length > 0) {
+      Alert.alert('Error', error[0].error, [
+        {text: 'OK', onPress: () => this.okPressed(error[0])},
+      ]);
+    }
   }
 
   render() {
     const { params } = this.props.navigation.state;
-    let { submitFeedback, feedbackData } = this.props;
+    let { submitFeedback, feedbackData, errors } = this.props;
+    console.log('feedback comp render feedbackdata', feedbackData)
+    //<ListView
+    //        dataSource={this.state.ratingCriteria}
+    //        renderRow={(rowData, rowId) => this.rows(rowData,rowId, params.sessionData, feedbackData)}
+    //      />
+    const feedbackCriteriaList = this.state.categories.map(c => {
+      return (
+        <FeedbackCriteria 
+          title={c}
+          feedbackData={feedbackData}
+          sessionData={params.sessionData}
+          selectedScore={(score) => this.props.updateFeedback(score)}
+        />
+      )
+    })
+    
+
+    this.displayError(errors);
     return (
       <View style={styles.container}>
         
@@ -64,18 +98,15 @@ class Feedback extends Component {
           </TouchableHighlight>  
           
           <Text style={styles.h1}>{params.sessionTitle}</Text>
-          <ListView
-            key="kay"
-            dataSource={this.state.ratingCriteria}
-            renderRow={(rowData, rowId) => this.rows(rowData, params.sessionData)}
-          />
+          {feedbackCriteriaList}
+          
           <TouchableHighlight
             style={styles.submitBtn}
             onPress={()=> {
               
               let comment = this.state.text;
 
-             let feedback = feedbackData.filter((f) => {
+             let feedback = feedbackData.feedback.filter((f) => {
                 return f.sessionId=== params.sessionData.sessionId;
                 });
              let reduced = feedback.reduce((acc, curr)=>{ 
@@ -143,8 +174,10 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => { 
+  console.log('map stat to props', state)
   return {  
-    feedbackData: state.feedback
+    feedbackData: state.feedback,
+    errors : state.errors
   };
 };
 
@@ -158,6 +191,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     submitFeedback : (feedback) => {
       dispatch(feedbackAction.submitFeedback(feedback))  
+    },
+    removeError: (error) => {
+      dispatch(feedbackAction.removeError(error))
     }
   }; 
 };

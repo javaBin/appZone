@@ -1,4 +1,4 @@
-'use strict'
+/* 'use strict'
 
 import request from '../../lib/request';
 import DeviceInfo from 'react-native-device-info';
@@ -65,3 +65,4 @@ export function postFeedback(data) {
 			//dispatch failed
 		});
 }
+ */

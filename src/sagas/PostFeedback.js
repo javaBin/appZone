@@ -2,7 +2,7 @@
 
 import { call, put, takeLatest, select } from 'redux-saga/effects';
 import { feedback } from './SleepingPillApi';
-import { feedbackFetchError, feedbackFetchSuccess, FEEDBACK } from '../actions/feedback';
+import { feedbackFetchError, addError, feedbackFetchSuccess, FEEDBACK } from '../actions/feedback';
 
 
 
@@ -16,6 +16,7 @@ function* postFeedbackRequest(action) {
   } catch (e) {
     console.log('catch err', e)
     yield put(feedbackFetchError(e.message))
+    yield put(addError(e.message))
   }
 }
 

@@ -8,7 +8,9 @@ export const FEEDBACK = {
   SUBMIT: 'FEEDBACK_SUBMIT',
   FETCH_POST: 'FEEDBACK_POST_REQUEST',
   FETCH_SUCCESS: 'FEEDBACK_FETCH_SUCCESS',
-  FETCH_ERROR: 'FEEDBACK_FETCH_ERROR'
+  FETCH_ERROR: 'FEEDBACK_FETCH_ERROR',
+  ADD_ERROR: 'ADD_ERROR',
+  REMOVE_ERROR: 'REMOVE_ERROR'
 };
 
 export const getFeedback = 
@@ -54,4 +56,9 @@ export const feedbackFetchSuccess =
 
 export const feedbackFetchError =
   (errorMsg) => ({type: FEEDBACK.FETCH_ERROR, error: errorMsg});
+
+export const addError =
+  (errorMsg) => ({type: FEEDBACK.ADD_ERROR, error: errorMsg});
+
+export const removeError = (error) => ({type: FEEDBACK.REMOVE_ERROR, ...error});
 

@@ -6,13 +6,15 @@ import FeedbackScoreBtn from './FeedbackScoreBtn';
 export class FeedbackCriteria extends Component {
   constructor(props) {
     super(props);
-
+    console.log('feedback criteria', this.props)
     this.state = {
       titleText: this.props.title,
+      feedback: this.props.feedbackData,
       session : this.props.sessionData,
       maxStars: 5
     };
     this.onButtonPress = this.onButtonPress.bind(this);
+    this.selecte = this.selected.bind(this);
   }
 
   onButtonPress = (score) => {
@@ -23,14 +25,19 @@ export class FeedbackCriteria extends Component {
     this.props.selectedScore(scoreObj);
   }
 
-  render() {
-    
-    let scoreButtons = [];
+  selected(score, feedbackData) {
 
+    const selectedFeedback = feedbackData.feedback.filter(f => f.sessionId === this.props.sessionData.sessionId)
+    return selectedFeedback[0] ? selectedFeedback[0][this.props.title.toLowerCase()] == score : false;
+  }
+
+  render() {
+    let scoreButtons = [];
     for(let i = 0; i < this.state.maxStars; i++) {
       scoreButtons.push(
         <FeedbackScoreBtn
           score={'' +(i + 1)}
+          selected={this.selected((i + 1),this.props.feedbackData)}
           onScoreButtonPress={this.onButtonPress}
         />
       );

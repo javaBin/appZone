@@ -1,15 +1,18 @@
 // @flow
+<<<<<<< 4ea13d9cfd4d95dda0828d359572dee6e0973d15
 
 <<<<<<< 16be030b656664568267d3793bb24420e7de3836
 import { combineReducers } from 'redux'
 =======
+=======
+import {combineReducers} from 'redux'
+>>>>>>> Selectable feedback. WIP
 import { CONFERENCES } from '../actions/conference'
 import { SESSIONS } from '../actions/session'
 import { DAY } from '../actions/filter'
 import settings from './settings'
 import type { Session, Conference } from '../types/SleepingPill'
 import type {   PayloadAction } from '../types/Actions'
-import settings from './settings'
 
 <<<<<<< 0fe177708fc9ced6b78ca557214e91193916c2e4
 >>>>>>> Session feedback. WIP
@@ -53,11 +56,11 @@ function arrayObjectIndexOf(myArray, searchTerms, properties) {
 }
 
 function insertItem(array, action) {
-    let itemExist = array.filter(a => a.sessionId === action.payload.sessionID);
+    let itemExist = array.feedback.filter(a => a.sessionId === action.payload.sessionID);
     if(itemExist > 0) {
       return array;
     } else {
-      return [...array, action.payload];
+      return {feedback: [...array.feedback, action.payload], feedbackSessionIds: [...array.feedbackSessionIds, action.payload.sessionId]};
     }
     //let newArray = array.slice();
     //newArray.splice(action.index, 0, action.item);
@@ -70,7 +73,7 @@ function removeItem(array, action) {
 
 function updateItem(array, action) {
   console.log('update item method')
-  return array.map((item) => {
+  return {feedbackSessionIds: array.feedbackSessionIds, feedback: array.feedback.map((item) => {
     console.log(`item ${item} action ${action.payload.sessionId}`);
     console.log(`item`, item);
     if(item.sessionId !== action.payload.sessionId) {
@@ -81,11 +84,11 @@ function updateItem(array, action) {
     console.log('changed item', t);
     return t; 
             
-  })
+  })}
 }
 
 
-const feedbackInit = []
+const feedbackInit = {feedbackSessionIds: [], feedback :[]};
 
 const feedback = (state = feedbackInit, action) => {
   switch (action.type) {
@@ -95,28 +98,30 @@ const feedback = (state = feedbackInit, action) => {
       return insertItem(state, action)
     case FEEDBACK.UPDATE:
       console.log('add reducer', action);
-      //let i = arrayObjectIndexOf(state, [action.payload.sessionTitle, action.payload.title], ['sessionTitle', 'title']);
       const item = updateItem(state, action);
       console.log('utpdate item', item);
       return item;
-      //return [
-      //  ...state.slice(0, i),
-      //  {[action.payload.session.sessionId] : action.payload},
-      //  ...state.slice(i+1)];
-    case FEEDBACK.SUBMIT:
-      return {...state}
     case FEEDBACK.FETCH_SUCCESS:
       console.log('posted feedback', action);
       console.log('posted feedback', state);
       return {...state}
-    case FEEDBACK.FETCH_ERROR:
-        return action.error;
     default:
-      return state
+      return {...state}
   }
 }
+const errors = (state = [], action) => {
+  switch (action.type) {
+     case FEEDBACK.ADD_ERROR:
+      console.log('add error', action)
+      return state.concat([{error: action.error, index: state.length}]);
+    case FEEDBACK.REMOVE_ERROR:
 
-
+      return state.filter((error, i) => i.index !== action.error.index);
+    default:
+      return state;
+  }
+}
+ 
 
 const reducers = combineReducers({
   conferences, 
@@ -124,6 +129,7 @@ const reducers = combineReducers({
   settings,
   filter,
   feedback,
+  errors,
   tabBar: tabBarReducer,
 })
 
