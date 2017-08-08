@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TextInput, ListView, Platform, TouchableHighlight, Alert} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome'
+import style from '../../common/style'
+
 
 import {FeedbackCriteria} from './FeedbackCriteria';
 import * as feedbackAction from '../../actions/feedback';
@@ -12,7 +15,13 @@ class Feedback extends Component {
     const dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       titleText: "Rate this session",
-      categories: ['Overall', 'Relevance', 'Content', 'Quality', 'Comment'],
+      categories: [
+        {id: 'Overall', title: 'Session rating', low: 'Not so awesome', high: 'Awsome'}, 
+        {id: 'Relevance', title: 'How relevant was this session to your projects', low: 'Not at all', high: 'Extremly'}, 
+        {id: 'Content', title: 'Based on the decription/my expectaions, the content was', low: 'Too basic', high: 'Too advanced'},
+        {id: 'Quality', title: 'Speaker quality', low: 'Poor', high: 'Outstanding'}, 
+        {id: 'Comment', title: 'Any other comments'}
+      ],
       ratingCriteria : dataSource.cloneWithRows(
         ['Overall', 'Relevance', 'Content', 'Quality', 'Comment']
       ),
@@ -69,16 +78,12 @@ class Feedback extends Component {
 
   render() {
     const { params } = this.props.navigation.state;
-    let { submitFeedback, feedbackData, errors } = this.props;
-    console.log('feedback comp render feedbackdata', feedbackData)
-    //<ListView
-    //        dataSource={this.state.ratingCriteria}
-    //        renderRow={(rowData, rowId) => this.rows(rowData,rowId, params.sessionData, feedbackData)}
-    //      />
-    const feedbackCriteriaList = this.state.categories.map(c => {
+    let { submitFeedback, feedbackData, errors, sessionData, navigation } = this.props;
+
+    const feedbackCriteriaList = this.state.categories.map(category => {
       return (
         <FeedbackCriteria 
-          title={c}
+          category={category}
           feedbackData={feedbackData}
           sessionData={params.sessionData}
           selectedScore={(score) => this.props.updateFeedback(score)}
@@ -90,17 +95,17 @@ class Feedback extends Component {
     this.displayError(errors);
     return (
       <View style={styles.container}>
-        
-          <TouchableHighlight 
-              style={styles.backBtn} 
-              onPress={() => this.props.navigation.navigate('SessionList')}>
-              <Text style={styles.backBtnText}>Tilbake</Text>
-          </TouchableHighlight>  
+          <View style={{flexDirection: 'row', marginBottom: 10}}>
+            <Icon name="arrow-left" style={{ padding: 15 }} size={40} color={style.colors.color4}
+                onPress={() => navigation.navigate('SessionDetail', {sessionData: params.sessionData})} />
+            <Text style={styles.h1}>{params.sessionData.title}</Text>
+
+          </View>
           
-          <Text style={styles.h1}>{params.sessionTitle}</Text>
           {feedbackCriteriaList}
           
           <TouchableHighlight
+            underlayColor='black'
             style={styles.submitBtn}
             onPress={()=> {
               
@@ -131,7 +136,7 @@ class Feedback extends Component {
 const styles = StyleSheet.create({
   container: {
         ...Platform.select({
-          ios: { paddingTop: 30 }
+          ios: { paddingTop: 10 }
         }),
         flex: 1,
         flexDirection: 'column',
@@ -143,18 +148,25 @@ const styles = StyleSheet.create({
       alignSelf: 'flex-start',
       margin: 10
     },
-    backBtnText: {
-      color: '#dddddd'
-    },
     submitBtn: {
-      height: 30
+      height: 30,
+      paddingTop: 5,
+      paddingBottom: 5,
+      paddingLeft: 30,
+      paddingRight: 30,
+      borderWidth: 1,
+      borderColor: style.colors.color4,
+      marginBottom: 10
     },
     submitBtnText: {
-      color: '#dddddd'
+      color: style.colors.color4
     },
     h1 : {
-       fontSize: 24,
-       color: '#dddddd' 
+       fontSize: 18,
+       color: style.colors.color1,
+       width: 300,
+       alignSelf: 'center', 
+       
     },
     h2: {
         fontSize: 20,

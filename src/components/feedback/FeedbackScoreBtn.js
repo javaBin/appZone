@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Button, TouchableHighlight, Text } from 'react-native';
+import style from '../../common/style'
 
 import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome';
 
@@ -20,9 +21,12 @@ class FeedbackScoreBtn extends React.Component  {
                     borderColor: 'red',borderRadius: 10}
         } else {
             return {
-                        height: 40,
-                        width: 40,
-                        backgroundColor: 'red'
+                        height: 30,
+                        width: 50,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        marginRight: 10,
+                        marginLeft: 10
                     }
         }
     }
@@ -33,7 +37,7 @@ class FeedbackScoreBtn extends React.Component  {
             <TouchableHighlight
                 onPress={this.onButtonPress.bind(this)}
                 style={this.style(this.props.selected)}>
-                <Text style={{color: '#fff', padding: 10}}>{this.props.score}</Text>
+                <Text style={{color: style.colors.color2, fontSize: 20}}>{this.props.score}</Text>
             </TouchableHighlight>
         )
     }
