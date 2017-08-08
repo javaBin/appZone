@@ -16,9 +16,15 @@ class FeedbackScoreBtn extends React.Component  {
 
     style(selected){
         if(selected) {
-            return {height: 40,
-                    width: 40, backgroundColor: '#3d3d3d', borderWidth: 2,
-                    borderColor: 'red',borderRadius: 10}
+            return {height: 30,
+                    width: 50, 
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: style.colors.backgroundSecondary, 
+                    borderWidth: 2,
+                    borderColor: '#ddd',
+                    borderRadius: 40
+                    }
         } else {
             return {
                         height: 30,

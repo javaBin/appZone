@@ -31,8 +31,8 @@ export class FeedbackCriteria extends Component {
 
   selected(score, feedbackData) {
 
-    //const selectedFeedback = feedbackData.feedback.filter(f => f.sessionId === this.props.sessionData.sessionId)
-    //return selectedFeedback[0] ? selectedFeedback[0][this.props.category.id.toLowerCase()] == score : false;
+    const selectedFeedback = feedbackData.feedback.filter(f => f.sessionId === this.props.sessionData.sessionId)
+    return selectedFeedback[0] ? selectedFeedback[0][this.props.category.id.toLowerCase()] == score : false;
   }
 
   render() {
