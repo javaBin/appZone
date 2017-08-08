@@ -81,14 +81,27 @@ class Feedback extends Component {
     let { submitFeedback, feedbackData, errors, sessionData, navigation } = this.props;
 
     const feedbackCriteriaList = this.state.categories.map(category => {
-      return (
-        <FeedbackCriteria 
-          category={category}
-          feedbackData={feedbackData}
-          sessionData={params.sessionData}
-          selectedScore={(score) => this.props.updateFeedback(score)}
-        />
-      )
+      if(category.id === 'Comment') {
+        return (
+        <View style={styles.commentContainer}>   
+          <TextInput 
+            placeholder={category.title}
+            placeholderTextColor={style.colors.primary}
+            style={styles.commentInput}
+            onChangeText={(text) => this.setState({text})}
+            value={this.state.text}
+          />
+        </View>);
+      } else {
+        return (
+          <FeedbackCriteria 
+            category={category}
+            feedbackData={feedbackData}
+            sessionData={params.sessionData}
+            selectedScore={(score) => this.props.updateFeedback(score)}
+          />
+        )
+      }
     })
     
 
@@ -143,6 +156,20 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#000000',
+    },
+    commentContainer: {
+      flex: 1,
+      flexDirection: 'row',
+    },
+    commentInput: {
+      height: 30, 
+      flex: 1, 
+      borderBottomColor: style.colors.color3, 
+      borderBottomWidth: 1, 
+      color: style.colors.primary, 
+      marginRight: 10, 
+      marginLeft: 10,
+      fontSize: 13
     },
     backBtn : {
       alignSelf: 'flex-start',

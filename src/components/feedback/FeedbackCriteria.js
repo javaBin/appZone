@@ -66,8 +66,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        alignItems: 'flex-start',
-        backgroundColor: style.colors.background,
+        alignItems: 'flex-start'
     },
     h2: {
         fontSize: 13,
