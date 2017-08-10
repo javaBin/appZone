@@ -8,13 +8,13 @@ export class FeedbackCriteria extends Component {
   constructor(props) {
     super(props);
     console.log('feedback criteria', this.props)
-    this.state = {
-      id: this.props.category.id,
-      titleText: this.props.category.title,
-      low: this.props.category.low,
-      high: this.props.category.high,
-      feedback: this.props.feedbackData,
-      session : this.props.sessionData,
+  this.state = {
+      //id: this.props.category.id,
+      //titleText: this.props.category.title,
+      //low: this.props.category.low,
+      //high: this.props.category.high,
+      //feedback: this.props.feedbackData,
+      //session : this.props.sessionData,
       maxStars: 5
     };
     this.onButtonPress = this.onButtonPress.bind(this);
@@ -36,10 +36,13 @@ export class FeedbackCriteria extends Component {
   }
 
   render() {
+      
+    let {category, feedbackData, sessionData} = this.props;
     let scoreButtons = [];
     for(let i = 0; i < this.state.maxStars; i++) {
       scoreButtons.push(
         <FeedbackScoreBtn
+          key={i}
           score={'' +(i + 1)}
           selected={this.selected((i + 1),this.props.feedbackData)}
           onScoreButtonPress={this.onButtonPress}
@@ -49,13 +52,13 @@ export class FeedbackCriteria extends Component {
 
     return (
         <View style={styles.container}>
-          <Text style={styles.h2}>{this.state.titleText}</Text>
+          <Text style={styles.h2}>{category.title}</Text>
           <View style={styles.scoreContainer}>
              {scoreButtons}
           </View>
           <View style={styles.gradingContainer}>
-            <Text style={styles.grading}>{this.state.low}</Text>
-            <Text style={styles.grading}>{this.state.high}</Text>
+            <Text style={styles.grading}>{category.low}</Text>
+            <Text style={styles.grading}>{category.high}</Text>
           </View>
         </View>
     )

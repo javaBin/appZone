@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Text, StyleSheet, View, ScrollView } from 'react-native'
+import { Text, StyleSheet, View, ScrollView, Button } from 'react-native'
 
 import moment from 'moment'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -74,6 +74,7 @@ class SessionDetail extends React.Component {
               <Text style={styles.textStyleHeder}>{params.sessionData.room} {params.sessionData.format}</Text>
               <Text style={{ color: style.colors.color1 }}>{fromTime} - {toTime}</Text>
             </View>
+            <Button title="Feedback" {...this.props} onPress={() => this.props.navigation.navigate('Feedback', { sessionData: params.sessionData })}></Button>
           </View>
         </View>
         <View style={styles.container}>

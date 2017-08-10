@@ -35,34 +35,10 @@ class Feedback extends Component {
   }
 
 
-   rows(rowData, rowId,sessionData) {
-    if(rowData === 'Comment') {
-      //debounce on comment with UPDATE
-      return (
-        <View style={styles.container}>   
-          <Text style={styles.h2}>{rowData}</Text>
-          <TextInput 
-            style={{height: 30, flexBasis: 90, borderColor: 'yellow', borderWidth: 1, color: 'yellow'}}
-            onChangeText={(text) => this.setState({text})}
-            value={this.state.text}
-          />
-        </View>);
-    } else {
-    console.log('#####Feddback comp feedback data', this.state.feedbackData)
-      let { updateFeedback } = this.props
-      let { nav } = this.props
 
-      return (
-      <FeedbackCriteria 
-        key={rowId}
-        title={rowData} 
-        feedbackData={this.state.feedbackData}
-        selectedScore={(score) => updateFeedback(score)}
-        sessionData={sessionData}
-        />);
-      
-    }
-  }
+  //componentWillMount() {
+  //  this.displayError(this.props.errors);
+  //}
 
   okPressed(error) {
     this.props.removeError(error);
@@ -83,7 +59,7 @@ class Feedback extends Component {
     const feedbackCriteriaList = this.state.categories.map(category => {
       if(category.id === 'Comment') {
         return (
-        <View style={styles.commentContainer}>   
+        <View style={styles.commentContainer} key={category.id}>   
           <TextInput 
             placeholder={category.title}
             placeholderTextColor={style.colors.primary}
@@ -95,6 +71,7 @@ class Feedback extends Component {
       } else {
         return (
           <FeedbackCriteria 
+            key={category.id}
             category={category}
             feedbackData={feedbackData}
             sessionData={params.sessionData}
@@ -103,14 +80,12 @@ class Feedback extends Component {
         )
       }
     })
-    
 
-    this.displayError(errors);
     return (
       <View style={styles.container}>
           <View style={{flexDirection: 'row', marginBottom: 10}}>
             <Icon name="arrow-left" style={{ padding: 15 }} size={40} color={style.colors.color4}
-                onPress={() => navigation.navigate('SessionDetail', {sessionData: params.sessionData})} />
+                onPress={() => navigation.goBack()} />
             <Text style={styles.h1}>{params.sessionData.title}</Text>
 
           </View>

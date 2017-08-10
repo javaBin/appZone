@@ -1,4 +1,4 @@
-import { postFeedback } from '../components/feedback/FeedbackApi'
+
 // @flow
 
 export const FEEDBACK = {
@@ -38,15 +38,8 @@ export const addFeedback =
 
 export const submitFeedback =
   (feedback) => {
-    //return (dispatch, getState) => {
-    //  postFeedback(feedback);
-    console.log('action submit feedback')
       return ({ type: FEEDBACK.SUBMIT, payload : feedback});
-    //}
   };
-
-//export const postFeedback = 
-//  (feedback) => ({type: FEEDBACK.FETCH_POST, feedback: feedback});
 
 export const feedbackFetchSuccess =
   (json) => {
