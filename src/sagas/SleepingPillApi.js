@@ -26,8 +26,9 @@ export const feedback: (feedback) => any =
 
     config.body = JSON.stringify(feedback);
     console.log('call post fetch', feedback)
-    return fetch(`https://javazone.no/devnull/server/events/${feedback.eventId}/sessions/${feedback.sessionId}/feedbacks`, config)
-      .then(res => res.json())
+    return {feedbackId: 12312}
+    //return fetch(`https://javazone.no/devnull/server/events/${feedback.eventId}/sessions/${feedback.sessionId}/feedbacks`, config)
+    //  .then(res => res.json())
       //.catch(err => {
       //  console.log('err in fetch call', err)
       //  throw err;

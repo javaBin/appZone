@@ -12,7 +12,6 @@ import { connect } from 'react-redux';
 class Feedback extends Component {
   constructor(props) {
     super(props);
-    const dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       titleText: "Rate this session",
       categories: [
@@ -22,9 +21,6 @@ class Feedback extends Component {
         {id: 'Quality', title: 'Speaker quality', low: 'Poor', high: 'Outstanding'}, 
         {id: 'Comment', title: 'Any other comments'}
       ],
-      ratingCriteria : dataSource.cloneWithRows(
-        ['Overall', 'Relevance', 'Content', 'Quality', 'Comment']
-      ),
       feedbackData: this.props.feedbackData
     };
     this.props.addFeedback(
@@ -35,12 +31,10 @@ class Feedback extends Component {
   }
 
 
-  componentWillReceiveProps() {
-    
+  componentWillMount() {
+    this.displayError(this.props.message)
+
   }
-  //componentWillMount() {
-  //  this.displayError(this.props.errors);
-  //}
 
   okPressed(error) {
     this.props.removeError(error);
@@ -49,19 +43,20 @@ class Feedback extends Component {
   displayError(message) {
     if(message) {
       let msg = message;
-      if(message.indexOf('JSON') > -1) {
+      if(message.error) {
         msg = 'Ops! Something happend while sending feedback'
       } else if(message.feedbackId) {
         msg = 'Feedback sendt'
       }
       this.refs.feedbackToast.show(msg, DURATION.LENGTH_LONG);  
+      this.props.removeError(message);
     }
   }
   
   render() {
     const { params } = this.props.navigation.state;
     let { submitFeedback, feedbackData, errors, sessionData, navigation } = this.props;
-    this.displayError(this.props.error)
+    this.displayError(this.props.message)
     const feedbackCriteriaList = this.state.categories.map(category => {
       if(category.id === 'Comment') {
         return (
@@ -200,7 +195,7 @@ const mapStateToProps = (state) => {
   console.log('map stat to props', state)
   return {  
     feedbackData: state.feedback,
-    error : state.feedback.message
+    message : state.feedback.message
   };
 };
 

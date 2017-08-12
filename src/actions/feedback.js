@@ -23,17 +23,6 @@ export const addFeedback =
   (feedback) => {
     console.log('add feedback called', feedback)
     return ({type: FEEDBACK.ADD, payload: feedback});
-    //return (dispatch, getState) =>{
-      //let state = getState();
-      //let hasFeedback = state.feedback.feedbackList.filter((feedback)=> {
-      //  return feedback.sessionTitle === score.sessionTitle && feedback.title === score.title;
-      //});
-      //console.log('has feedback length', state.feedback.feedbackList)
-      //console.log('has feedback length', hasFeedback.length)
-      //if(hasFeedback.length === 0) {
-      //  dispatch({type: FEEDBACK.ADD, payload: score})
-      //}
-    //}
   };
 
 export const submitFeedback =

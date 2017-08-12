@@ -21,11 +21,9 @@ const feedback = (state: FeedbackState = feedbackInit(), action) => {
         console.log('utpdate item', item);
         return item;
       case FEEDBACK.FETCH_SUCCESS:
-        console.log('posted feedback', action);
-        console.log('posted feedback', state);
         return {...state, message: action.response}
       case FEEDBACK.FETCH_ERROR: 
-        return {...state, message: action.error}
+        return {...state, message: {error: action.error}}
       case FEEDBACK.REMOVE_ERROR:
         return {...state, message: null}
 
