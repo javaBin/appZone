@@ -9,12 +9,6 @@ export class FeedbackCriteria extends Component {
     super(props);
     console.log('feedback criteria', this.props)
   this.state = {
-      //id: this.props.category.id,
-      //titleText: this.props.category.title,
-      //low: this.props.category.low,
-      //high: this.props.category.high,
-      //feedback: this.props.feedbackData,
-      //session : this.props.sessionData,
       maxStars: 5
     };
     this.onButtonPress = this.onButtonPress.bind(this);
@@ -24,8 +18,8 @@ export class FeedbackCriteria extends Component {
   onButtonPress = (score) => {
     console.log('score obj feedback criteria', score)
     const scoreObj = Object.assign({}, 
-    { [this.state.id.toLowerCase()] : score, 
-      sessionId: this.state.session.sessionId})
+    { [this.props.category.id.toLowerCase()] : score, 
+      sessionId: this.props.sessionData.sessionId})
     this.props.selectedScore(scoreObj);
   }
 
