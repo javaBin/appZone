@@ -23,7 +23,12 @@ const feedback = (state: FeedbackState = feedbackInit(), action) => {
       case FEEDBACK.FETCH_SUCCESS:
         console.log('posted feedback', action);
         console.log('posted feedback', state);
-        return {...state}
+        return {...state, message: action.response}
+      case FEEDBACK.FETCH_ERROR: 
+        return {...state, message: action.error}
+      case FEEDBACK.REMOVE_ERROR:
+        return {...state, message: null}
+
       default:
         return {...state}
     }
@@ -74,7 +79,6 @@ const errors = (state = [], action) => {
      case FEEDBACK.ADD_ERROR:
       console.log('add error', action)
       return state.concat([{error: action.error, index: state.length}]);
-    case FEEDBACK.REMOVE_ERROR:
 
       return state.filter((error, i) => i.index !== action.error.index);
     default:

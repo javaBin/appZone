@@ -35,16 +35,21 @@
 =======
 >>>>>>> chore: remove react-moment dependency
     "react-native": "^0.46.3",
+<<<<<<< 3127135d7e3a41af52b83e131c950b424a50813c
 >>>>>>> chore: upgrade react-native
 =======
     "prop-types": "^15.5.10",
     "react": "16.0.0-alpha.12",
     "react-native": "^0.46.3",
 >>>>>>> merged
+=======
+    "react-native-device-info": "^0.11.0",
+    "react-native-easy-toast": "^1.0.6",
+>>>>>>> Feedback msg toast
     "react-native-maps": "^0.14.0",
 >>>>>>> added a fully working map and also videoscreen that renders webview, both will need more adjustments
     "react-native-material-design": "^0.3.7",
-    "react-native-vector-icons": "^4.2.0",
+    "react-native-vector-icons": "^4.3.0",
     "react-navigation": "^1.0.0-beta.11",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",

@@ -53,5 +53,5 @@ export const feedbackFetchError =
 export const addError =
   (errorMsg) => ({type: FEEDBACK.ADD_ERROR, error: errorMsg});
 
-export const removeError = (error) => ({type: FEEDBACK.REMOVE_ERROR, ...error});
+export const removeError = (error) => ({type: FEEDBACK.REMOVE_ERROR, error});
 

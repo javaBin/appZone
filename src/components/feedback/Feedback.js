@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, TextInput, ListView, Platform, TouchableHighlight, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
-
+import Toast, {DURATION} from 'react-native-easy-toast'
 
 import {FeedbackCriteria} from './FeedbackCriteria';
 import * as feedbackAction from '../../actions/feedback';
@@ -35,7 +35,9 @@ class Feedback extends Component {
   }
 
 
-
+  componentWillReceiveProps() {
+    
+  }
   //componentWillMount() {
   //  this.displayError(this.props.errors);
   //}
@@ -44,18 +46,22 @@ class Feedback extends Component {
     this.props.removeError(error);
   }
 
-  displayError(error) {
-    if(error.length > 0) {
-      Alert.alert('Error', error[0].error, [
-        {text: 'OK', onPress: () => this.okPressed(error[0])},
-      ]);
+  displayError(message) {
+    if(message) {
+      let msg = message;
+      if(message.indexOf('JSON') > -1) {
+        msg = 'Ops! Something happend while sending feedback'
+      } else if(message.feedbackId) {
+        msg = 'Feedback sendt'
+      }
+      this.refs.feedbackToast.show(msg, DURATION.LENGTH_LONG);  
     }
   }
-
+  
   render() {
     const { params } = this.props.navigation.state;
     let { submitFeedback, feedbackData, errors, sessionData, navigation } = this.props;
-
+    this.displayError(this.props.error)
     const feedbackCriteriaList = this.state.categories.map(category => {
       if(category.id === 'Comment') {
         return (
@@ -91,7 +97,10 @@ class Feedback extends Component {
           </View>
           
           {feedbackCriteriaList}
-          
+          <Toast 
+            ref="feedbackToast" 
+            style={{backgroundColor: style.colors.color4}}
+            position='top'/>
           <TouchableHighlight
             underlayColor='black'
             style={styles.submitBtn}
@@ -139,7 +148,7 @@ const styles = StyleSheet.create({
     commentInput: {
       height: 30, 
       flex: 1, 
-      borderBottomColor: style.colors.color3, 
+      borderBottomColor: style.colors.color1, 
       borderBottomWidth: 1, 
       color: style.colors.primary, 
       marginRight: 10, 
@@ -191,7 +200,7 @@ const mapStateToProps = (state) => {
   console.log('map stat to props', state)
   return {  
     feedbackData: state.feedback,
-    errors : state.errors
+    error : state.feedback.message
   };
 };
 

@@ -81,6 +81,6 @@ const styles = StyleSheet.create({
     },
     grading: {
       fontSize: 12,
-      color: style.colors.color3
+      color: style.colors.color1
     }
 });
