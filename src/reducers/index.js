@@ -1,59 +1,33 @@
 // @flow
 
 import { combineReducers } from 'redux'
-import { CONFERENCES } from '../actions/conference'
-import { SESSIONS } from '../actions/session'
-import { DAY } from '../actions/filter'
-import settings from './settings'
-import type { Session, Conference } from '../types/SleepingPill'
-import type {   PayloadAction } from '../types/Actions'
 
-//Navigation
-import { SessionNavigatorTab } from '../components/sessions/navigationConfiguration'
-import { HomeNavigatorTab } from '../components/home/navigationConfiguration'
-import { SettingsNavigatorTab } from '../components/settings/navigationConfiguration'
+import settings from './settings'
+import sessions from './sessions'
+import conferences from './conferences'
+import filter from './filter'
 import { tabBarReducer } from '../components/tab-bar-navigation/navigationConfiguration'
 
-const conferenceInit = { all: [], selected: "javazone_2016" }
+import type { SessionState } from './sessions'
+import type { ConferencesState } from './conferences'
+import type { FilterState } from './filter'
+import type { SettingsState } from './settings'
 
-const conferences = (state = conferenceInit, action: PayloadAction<Array<Conference>>) => {
-  switch (action.type) {
-    case CONFERENCES.FETCH_SUCCESS:
-      return { all: action.payload }
-    default:
-      return state
-  }
-}
+/**
+ * Each sub reducer will have it's own sub name space. For instance the conferences
+ * reducer will be accessible from `<root>.conferences`.
+ *
+ * To make it easier to understand how the store is build up we have a flow type
+ * `StoreState` that describe the expected store.
+ *
+ */
 
-const sessions = (state: Array<Session> = [], action: PayloadAction<Array<Session>>) => {
-  switch (action.type) {
-    case SESSIONS.FETCH_SUCCESS:
-      return action.payload
-    default:
-      return state
-  }
-}
-
-const daysInit = {
-  days: { day1: null, day2: null },
-  selectedDay: null,
-}
-
-const filter = (state = daysInit, action) => {
-  switch (action.type) {
-    case DAY.SET_DAYS:
-      return { 
-        ...state, 
-        days: action.days
-      }
-    case DAY.SET_SELECTED_DAY:
-    return  {
-      ...state,
-      selectedDay: action.day
-    }
-    default: 
-      return state
-  }
+export type StoreState = {
+  conferences: ConferencesState,
+  session: SessionState,
+  filter: FilterState,
+  settings: SettingsState,
+  tabBar: any
 }
 
 const reducers = combineReducers({
@@ -62,15 +36,6 @@ const reducers = combineReducers({
   settings,
   filter,
   tabBar: tabBarReducer,
-
-  tabSession: (state, action) =>
-  SessionNavigatorTab.router.getStateForAction(action,state),
-
-  tabSettings : (state, action) =>
-  SettingsNavigatorTab.router.getStateForAction(action,state),
-
-  tabHome: (state, action) =>
-  HomeNavigatorTab.router.getStateForAction(action,state)
 })
 
 export default reducers

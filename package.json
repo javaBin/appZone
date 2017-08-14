@@ -12,6 +12,7 @@
     "flow-stop": "flow stop"
   },
   "dependencies": {
+    "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
     "prop-types": "^15.5.10",
@@ -38,8 +39,8 @@
     "eslint": "^3.19.0",
     "eslint-plugin-react": "^7.0.0",
     "eslint-plugin-react-native": "^2.3.2",
-    "jest": "20.0.4",
     "flow-bin": "0.47.0",
+    "jest": "20.0.4",
     "react-test-renderer": "~15.4.1",
     "remote-redux-devtools": "0.5.0",
     "remote-redux-devtools-on-debugger": "^0.7.1",

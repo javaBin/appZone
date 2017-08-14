@@ -27,6 +27,7 @@
     "react/display-name": [ "off", { "ignoreTranspilerName": true }]
   },
   "globals": {
-    "Generator": true
+    "Generator": true,
+    "__DEV__": true
   }
 }
