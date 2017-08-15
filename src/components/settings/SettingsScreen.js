@@ -9,8 +9,7 @@ import {
   Text,
   View,
   StyleSheet,
-  AsyncStorage,
-  Dimensions
+  AsyncStorage
 } from 'react-native'
 import style from '../../common/style'
 
