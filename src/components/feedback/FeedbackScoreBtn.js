@@ -23,12 +23,15 @@ class FeedbackScoreBtn extends React.Component  {
                     backgroundColor: style.colors.backgroundSecondary, 
                     borderWidth: 2,
                     borderColor: '#ddd',
-                    borderRadius: 40
+                    borderRadius: 40,
+                    marginRight: 10,
+                        marginLeft: 10
                     }
         } else {
             return {
                         height: 30,
                         width: 50,
+                        borderWidth: 2, 
                         justifyContent: 'center',
                         alignItems: 'center',
                         marginRight: 10,

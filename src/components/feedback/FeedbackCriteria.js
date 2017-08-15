@@ -61,9 +61,13 @@ export class FeedbackCriteria extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'flex-start'
+      
+      flexDirection: 'column',
+        alignItems: 'flex-start',
+        alignSelf: 'stretch',
+        marginLeft: 10,
+        marginRight: 10,
+        marginBottom: 20
     },
     h2: {
         fontSize: 13,
@@ -71,7 +75,8 @@ const styles = StyleSheet.create({
         marginBottom: 10    
     },
     scoreContainer: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignSelf: 'stretch'
     },
     gradingContainer: {
       marginTop: 5,
