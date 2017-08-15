@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TextInput, ListView, Platform, TouchableHighlight, Alert} from 'react-native';
+import {View, Text, StyleSheet, TextInput, ListView, Platform, TouchableHighlight, Alert, Button} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
 import Toast, {DURATION} from 'react-native-easy-toast'
@@ -96,30 +96,25 @@ class Feedback extends Component {
             ref="feedbackToast" 
             style={{backgroundColor: style.colors.color4}}
             position='top'/>
-          <TouchableHighlight
-            underlayColor='black'
+          <Button
+            color={style.colors.color4}
             style={styles.submitBtn}
+            title='Submit feedback'
             onPress={()=> {
-              
-              let comment = this.state.text;
+          let comment = this.state.text;
 
-             let feedback = feedbackData.feedback.filter((f) => {
-                return f.sessionId=== params.sessionData.sessionId;
-                });
-             let reduced = feedback.reduce((acc, curr)=>{ 
-                  console.log('curr', curr)
-                  return Object.assign(acc, {...curr});
-                  }, {});
-            
-            let f = Object.assign(reduced, {comment: this.state.text});
-            //  console.log('feedback', feedbackData.feedbackList);
-            //  console.log('feedback', params.sessionTitle);
-             console.log('feedback', f);
-            submitFeedback(f);
+            let feedback = feedbackData.feedback.filter((f) => {
+              return f.sessionId=== params.sessionData.sessionId;
+              });
+            let reduced = feedback.reduce((acc, curr)=>{ 
+                console.log('curr', curr)
+                return Object.assign(acc, {...curr});
+                }, {});
+          let f = Object.assign(reduced, {comment: this.state.text});
+          submitFeedback(f);
             }}
           >
-          <Text style={styles.submitBtnText}>Submit feedback</Text>
-          </TouchableHighlight>
+          </Button>
       </View>
     )
   }
@@ -139,6 +134,9 @@ const styles = StyleSheet.create({
     commentContainer: {
       flex: 1,
       flexDirection: 'row',
+      alignSelf: 'stretch',
+      marginLeft: 10,
+      marginRight: 10
     },
     commentInput: {
       height: 30, 
@@ -146,8 +144,6 @@ const styles = StyleSheet.create({
       borderBottomColor: style.colors.color1, 
       borderBottomWidth: 1, 
       color: style.colors.primary, 
-      marginRight: 10, 
-      marginLeft: 10,
       fontSize: 13
     },
     backBtn : {
@@ -160,12 +156,13 @@ const styles = StyleSheet.create({
       paddingBottom: 5,
       paddingLeft: 30,
       paddingRight: 30,
-      borderWidth: 1,
       borderColor: style.colors.color4,
-      marginBottom: 10
+      color: 'white',
+      marginBottom: 10,
     },
     submitBtnText: {
-      color: style.colors.color4
+      color: 'white',
+      backgroundColor: style.colors.color4
     },
     h1 : {
        fontSize: 18,
