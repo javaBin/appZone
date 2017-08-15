@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import style from '../../../common/style'
 import moment from 'moment'
+import config from '../../../config'
 
 import type { Session } from '../../../types/SleepingPill'
 
@@ -42,6 +43,19 @@ const getSessionFormat = (format) =>  {
   }
 }
 
+const getAddToMySchedule = () => {
+  if(config.features.myschedule) {
+    return (
+      <View>
+        <Icon
+          name="star-o" style={{ paddingRight: 10 }}
+          size={ 30 }
+          color={style.colors.color4}/>
+      </View>
+    )
+  }
+}
+
 const getTimeSpan = (fromTime: ?string, endTime: ?string): ?string => {
   if (fromTime && endTime ) {
     const from = (moment(fromTime).format('dddd, DD MMM HH:mm'))
@@ -58,12 +72,7 @@ type Props = {
 
 const SessionListItem = (props: Props) => (
   <View style={ styles.listItemWrapper} key={ props.session.sessionId }>
-    <View>
-      <Icon
-          name="star-o" style={{ paddingRight: 10 }}
-          size={ 30 }
-          color={style.colors.color4}/>
-    </View>
+    {getAddToMySchedule()}
     <TouchableOpacity
         style={{ paddingRight: 40 }}
         onPress={ () => props.onRowPressed(props.session) } key={ props.session.sessionId }>

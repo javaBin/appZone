@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../../common/style'
+import config from '../../../config'
 
 const styles = StyleSheet.create({
    filterButtonWrapper: {
@@ -36,6 +37,20 @@ type Props = {
   day2: ?string
 }
 
+const getFilterButton = (props) => {
+  if(config.features.filtersessions) {
+    return (
+      <Icon.Button
+          borderRadius={0}
+          backgroundColor={style.colors.backgroundSecondary}
+          name="filter"
+          size={30}
+          onPress={props.onFilterSessionPressed()}>
+      </Icon.Button>
+    )
+  }
+}
+
 const SessionFilter = (props: Props) => (
   <View style= { styles.filterButtonWrapper }>
     <TouchableOpacity
@@ -48,15 +63,10 @@ const SessionFilter = (props: Props) => (
         style={ styles.filterButton }
         onPress={() => props.onFilterDayPressed(props.day2)}
         title="Day 2"
-        accessibilityLabel="List sessions, day one"
-    ><Text style={styles.filterButtonText}>DAY 2</Text></TouchableOpacity>
-    <Icon.Button
-        borderRadius={0}
-        backgroundColor={style.colors.backgroundSecondary}
-        name="filter"
-        size={30}
-        onPress={props.onFilterSessionPressed()}>
-    </Icon.Button>
+        accessibilityLabel="List sessions, day two">
+      <Text style={ styles.filterButtonText}>DAY 2</Text>
+    </TouchableOpacity>
+    { getFilterButton(props) }
   </View>
 )
 
