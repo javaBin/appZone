@@ -23,7 +23,7 @@ const routeConfiguration = {
     SessionNavigatorTab: {
       screen: SessionNavigatorTab,
       navigationOptions: {            
-        tabBarIcon: Icon('lightbulb-o')
+        tabBarIcon: Icon('calendar-minus-o')
       },
     }, 
     SettingsNavigatorTab : { 

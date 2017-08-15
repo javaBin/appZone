@@ -12,10 +12,31 @@ import {
   AsyncStorage,
   Dimensions
 } from 'react-native'
-
-let ScreenHeight = Dimensions.get("window").height
+import style from '../../common/style'
 
 import * as settings from '../../actions/settings'
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    padding: 16,
+    backgroundColor: style.colors.backgroundSecondary,
+  },
+  switchWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  switch: {
+    margin: 10,
+  },
+  option: {
+    fontSize: 16,
+    flexWrap: 'wrap',
+    flex: 0.8,
+    color: style.colors.primary
+  }
+})
 
 const STORE_SETTINGS_KEY = 'SETTINGSKEY'
 
@@ -44,15 +65,31 @@ class SettingsScreen extends React.Component {
         <View style={styles.switchWrapper}>
           <Text style={styles.option}>Notify me about sessions that are about to begin</Text>
           <Switch
+ 
+            thumbTintColor = { 
+              (this.props.notificationSession) 
+              ? style.colors.color1
+              : style.colors.primary}
+
             accessibilityLabel="Notify me about sessions that are about to begin"
             style={styles.switch}
             value={!!this.props.notificationSession}
-            onValueChange={(enabled) => this.setNotificationSessionSwitch(enabled)}
+            onValueChange={
+              (enabled) => {
+                this.setNotificationSessionSwitch(enabled)
+              }
+            }
           />
         </View>
         <View style={styles.switchWrapper}>
           <Text style={styles.option}>Notify me to send feedback</Text>
           <Switch
+
+            thumbTintColor = { 
+              (this.props.notificationFeedback) 
+              ? style.colors.color1
+              : style.colors.primary}
+
             accessibilityLabel="Notify me to send feedback"
             style={styles.switch}
             value={!!this.props.notificationFeedback}
@@ -75,34 +112,6 @@ class SettingsScreen extends React.Component {
     this.props.dispatch(settings.loadSettings(settingsJson))
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    position: 'absolute',
-    flexDirection: 'column',
-    left: 0,
-    right: 0,
-    top: 0,
-    marginTop: 16,
-    alignItems: 'center',
-    backgroundColor: 'white',
-    height: ScreenHeight
-  },
-  switchWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  switch: {
-    margin: 10
-  },
-  option: {
-    fontSize: 16,
-    flexWrap: 'wrap',
-    flex: 0.8,
-
-  }
-})
 
 function select(store) {
   return {
