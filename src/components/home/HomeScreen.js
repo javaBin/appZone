@@ -1,6 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Image, StyleSheet, ScrollView, Text, View } from 'react-native' 
 import style from '../../common/style'
+import * as firebase from '../../actions/firebase'
 
 const styles = StyleSheet.create({
   homeWrapper: {
@@ -35,6 +37,14 @@ const styles = StyleSheet.create({
 })
 
 export default class HomeScreen extends React.Component {
+  static propTypes = {
+    dispatch: PropTypes.func,
+  }
+
+  componentWillMount() {
+    this.props.dispatch(firebase.setCurrentScreen('home_screen', 'HomeScreen'))
+  }
+
   render() {
     return (
       <View style = {styles.homeWrapper}>

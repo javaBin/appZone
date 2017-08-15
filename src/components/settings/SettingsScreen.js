@@ -43,7 +43,7 @@ const STORE_SETTINGS_KEY = 'SETTINGSKEY'
 
 class SettingsScreen extends React.Component {
   componentWillMount() {
-    this.props.dispatch(firebase.setCurrentScreen('settings_screen', 'SettingsScreen.js'))
+    this.props.dispatch(firebase.setCurrentScreen('settings_screen', 'SettingsScreen'))
     AsyncStorage.getItem(STORE_SETTINGS_KEY).then((settingsStr) => {
       if (!settingsStr) {
         AsyncStorage.setItem(STORE_SETTINGS_KEY, JSON.stringify({}))
