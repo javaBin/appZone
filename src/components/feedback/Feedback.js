@@ -112,6 +112,11 @@ class Feedback extends Component {
               }, {});
             
           let f = Object.assign({}, reduced, {comment});
+          //let feedbackBody = Object.keys(feedback).filter((key) => {
+            return key !== 'sessionId' && key !== 'eventId';
+          //})
+          //let fe = Object.assign({}, {feedback: {reduced[]}})
+          //let b = Object.assign({}, {sessionId: reduced.sessionId, eventId: reduced}, )
           submitFeedback(f);
             }}
           >

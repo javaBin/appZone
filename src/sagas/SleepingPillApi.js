@@ -26,8 +26,8 @@ export const feedback: (feedback) => any =
     let feedbackBody = Object.keys(feedback).filter((key) => {
       return key !== 'sessionId' && key !== 'eventId';
     })
-    options.body = JSON.stringify({overall: 1, sessionId: '12312'});
-    return fetch(`https://javazone.no/devnull/server/events/${feedback.eventId}/sessions/${feedback.sessionId}/feedbacks`, options)
+    options.body = JSON.stringify(feedback);
+    return fetch(`${config.urls.devnull}/events/${feedback.eventId}/sessions/${feedback.sessionId}/feedbacks`, options)
       .then(res => res.json())
       //.catch(err => {
       //  console.log('err in fetch call', err)
