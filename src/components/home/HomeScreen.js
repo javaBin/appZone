@@ -36,8 +36,8 @@ export default class HomeScreen extends React.Component {
           <Text style = {styles.homeTextHeader}>{ 'JAVAZONE 2017' }</Text>      
           <Text style = {styles.homeTextSubtitle}>{ 'September 13th –14th' }</Text>
           <Text style = {styles.homeTextSubtitle}>{ 'Oslo Spektrum' }</Text>
-          <View style={{margin: 5}}>
-            <Image style={{width: 120, height: 100}} source={require('../../common/img/jzlogo_2017.png')}/>
+          <View style={{ margin: 5 }}>
+            <Image style={{ width: 120, height: 100 }} source={require('../../common/img/jzlogo_2017.png')}/>
           </View>
           <Text style = {styles.homeTextMadeBy}>{ 'Made by javaBin' }</Text>  
         </View>
