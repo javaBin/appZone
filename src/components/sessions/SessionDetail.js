@@ -74,8 +74,8 @@ class SessionDetail extends React.Component {
               <Text style={styles.textStyleHeder}>{params.sessionData.room} {params.sessionData.format}</Text>
               <Text style={{ color: style.colors.color1 }}>{fromTime} - {toTime}</Text>
             </View>
-            <Button title="Feedback" {...this.props} onPress={() => this.props.navigation.navigate('Feedback', { sessionData: params.sessionData })}></Button>
           </View>
+          <Button title="Feedback" {...this.props} onPress={() => this.props.navigation.navigate('Feedback', { sessionData: params.sessionData })}></Button>          
         </View>
         <View style={styles.container}>
           <Text style={styles.textStyle}>{params.sessionData.abstract}</Text>

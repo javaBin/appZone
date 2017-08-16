@@ -1,6 +1,6 @@
-import DeviceInfo from 'react-native-device-info';
 
 // @flow
+import DeviceInfo from 'react-native-device-info';
 
 import config from '../config'
 
@@ -23,12 +23,12 @@ const options = {
 export const feedback: (feedback) => any =
   (feedback) => {
     options.method = 'POST';
-
-    options.body = JSON.stringify(feedback);
-    console.log('call post fetch', feedback)
-    return {feedbackId: 12312}
-    //return fetch(`https://javazone.no/devnull/server/events/${feedback.eventId}/sessions/${feedback.sessionId}/feedbacks`, config)
-    //  .then(res => res.json())
+    let feedbackBody = Object.keys(feedback).filter((key) => {
+      return key !== 'sessionId' && key !== 'eventId';
+    })
+    options.body = JSON.stringify({overall: 1, sessionId: '12312'});
+    return fetch(`https://javazone.no/devnull/server/events/${feedback.eventId}/sessions/${feedback.sessionId}/feedbacks`, options)
+      .then(res => res.json())
       //.catch(err => {
       //  console.log('err in fetch call', err)
       //  throw err;

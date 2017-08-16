@@ -1,101 +1,58 @@
 {
-  "name": "appZone",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "lint": "eslint src",
-    "test": "jest",
-    "postinstall": "remotedev-debugger --hostname localhost --port 8083 --injectserver",
-    "flow": "flow",
-    "flow-status": "flow status",
-    "flow-stop": "flow stop"
-  },
-  "dependencies": {
-    "lodash": "^4.17.4",
-    "moment": "^2.18.1",
-    "moment-timezone": "^0.5.13",
-<<<<<<< aceee3b55e2e5388c5edd555226796ccff21ad2c
-<<<<<<< 82d3f1fb42801c8f439fe38a53ceecf7c1becb96
-<<<<<<< ed76f0ae8cf37402152a6753250f42959abe420a
-    "prop-types": "^15.5.10",
-    "react": "~15.4.1",
-    "react-moment": "^0.2.4",
-    "react-native": "0.42.3",
-<<<<<<< c504c7f38ef59cf19c848ff216e3b11c3dcf228a
-    "react-native-device-info": "^0.10.2",
-=======
-=======
-    "react": "^16.6.1",
-=======
-    "react": "16.0.0-alpha.12",
-<<<<<<< 832a8d555a2f177129b73428fd2c3f02b6e5649a
->>>>>>> chore: using right version of react
-    "react-moment": "^0.2.4",
-=======
->>>>>>> chore: remove react-moment dependency
-    "react-native": "^0.46.3",
-<<<<<<< 3127135d7e3a41af52b83e131c950b424a50813c
->>>>>>> chore: upgrade react-native
-=======
-    "prop-types": "^15.5.10",
-    "react": "16.0.0-alpha.12",
-    "react-native": "^0.46.3",
->>>>>>> merged
-=======
-    "react-native-device-info": "^0.11.0",
-    "react-native-easy-toast": "^1.0.6",
->>>>>>> Feedback msg toast
-    "react-native-maps": "^0.14.0",
->>>>>>> added a fully working map and also videoscreen that renders webview, both will need more adjustments
-    "react-native-material-design": "^0.3.7",
-    "react-native-vector-icons": "^4.3.0",
-    "react-navigation": "^1.0.0-beta.11",
-    "react-redux": "^5.0.3",
-    "redux": "^3.6.0",
-    "redux-logger": "^3.0.6",
-    "redux-saga": "^0.14.4"
-  },
-  "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "babel-jest": "20.0.3",
-<<<<<<< aceee3b55e2e5388c5edd555226796ccff21ad2c
-=======
-    "babel-plugin-transform-async-to-generator": "^6.24.1",
->>>>>>> merged
-    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-react-native": "1.9.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "eslint": "^3.19.0",
-    "eslint-plugin-react": "^7.0.0",
-    "eslint-plugin-react-native": "^2.3.2",
-    "flow-bin": "0.47.0",
-    "jest": "20.0.4",
-    "react-test-renderer": "~15.4.1",
-    "remote-redux-devtools": "0.5.0",
-    "remote-redux-devtools-on-debugger": "^0.7.1",
-    "remotedev-server": "^0.2.2"
-  },
-  "jest": {
-    "preset": "react-native",
-<<<<<<< 348faa40e9f47f4cfdbb6d32e572a613d0023405
-<<<<<<< aceee3b55e2e5388c5edd555226796ccff21ad2c
-<<<<<<< ed76f0ae8cf37402152a6753250f42959abe420a
-    "setupFiles": ["./jest-setup.js"],
-=======
->>>>>>> chore: upgrade react-native
-=======
-    "setupFiles": [
-      "./jest-setup.js"
-    ],
->>>>>>> merged
-=======
->>>>>>> Session feedback. WIP
-    "transformIgnorePatterns": [
-      "node_modules/?!(react-native|native-base)"
-    ]
+    "name": "appZone",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+      "start": "node node_modules/react-native/local-cli/cli.js start",
+      "lint": "eslint src",
+      "test": "jest",
+      "postinstall": "remotedev-debugger --hostname localhost --port 8083 --injectserver",
+      "flow": "flow",
+      "flow-status": "flow status",
+      "flow-stop": "flow stop"
+    },
+    "dependencies": {
+      "lodash": "^4.17.4",
+      "moment": "^2.18.1",
+      "moment-timezone": "^0.5.13",
+      "prop-types": "^15.5.10",
+      "react": "16.0.0-alpha.12",
+      "react-native": "^0.46.3",
+      "react-native-maps": "^0.14.0",
+      "react-native-material-design": "^0.3.7",
+      "react-native-vector-icons": "^4.2.0",
+      "react-navigation": "^1.0.0-beta.11",
+      "react-redux": "^5.0.3",
+      "redux": "^3.6.0",
+      "redux-saga": "^0.14.4"
+    },
+    "devDependencies": {
+      "babel-eslint": "^7.2.3",
+      "babel-jest": "20.0.3",
+      "babel-plugin-transform-async-to-generator": "^6.24.1",
+      "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
+      "babel-plugin-transform-object-rest-spread": "^6.23.0",
+      "babel-preset-es2015": "^6.24.1",
+      "babel-preset-react": "^6.24.1",
+      "babel-preset-react-native": "1.9.1",
+      "babel-preset-stage-2": "^6.24.1",
+      "eslint": "^3.19.0",
+      "eslint-plugin-react": "^7.0.0",
+      "eslint-plugin-react-native": "^2.3.2",
+      "flow-bin": "0.47.0",
+      "jest": "20.0.4",
+      "react-test-renderer": "~15.4.1",
+      "remote-redux-devtools": "0.5.0",
+      "remote-redux-devtools-on-debugger": "^0.7.1",
+      "remotedev-server": "^0.2.2"
+    },
+    "jest": {
+      "preset": "react-native",
+      "setupFiles": [
+        "./jest-setup.js"
+      ],
+      "transformIgnorePatterns": [
+        "node_modules/?!(react-native|native-base)"
+      ]
+    }
   }
-}

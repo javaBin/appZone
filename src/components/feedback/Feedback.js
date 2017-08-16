@@ -103,14 +103,15 @@ class Feedback extends Component {
             onPress={()=> {
           let comment = this.state.text;
 
-            let feedback = feedbackData.feedback.filter((f) => {
-              return f.sessionId=== params.sessionData.sessionId;
-              });
-            let reduced = feedback.reduce((acc, curr)=>{ 
-                console.log('curr', curr)
+          let feedback = feedbackData.feedback.filter((f) => {
+            return f.sessionId=== params.sessionData.sessionId;
+          });
+          //let feedbackObj = feedback.filter(f => )
+          let reduced = feedback.reduce((acc, curr)=>{ 
                 return Object.assign(acc, {...curr});
-                }, {});
-          let f = Object.assign(reduced, {comment: this.state.text});
+              }, {});
+            
+          let f = Object.assign({}, reduced, {comment});
           submitFeedback(f);
             }}
           >
