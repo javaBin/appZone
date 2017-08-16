@@ -5,6 +5,9 @@ script:
   - npm run lint
   - npm run flow
   - npm run test
+cache:
+  directories:
+    - node_modules
 matrix:
   include:
     - language: android
@@ -43,6 +46,7 @@ matrix:
         - node --version
         - travis_retry npm install -g yarn
         - yarn -version
+        - android update sdk --no-ui --filter build-tools-24.0.0,android-24,extra-android-m2repository
       install:
         - travis_retry gem install xcpretty
         - travis_retry yarn
