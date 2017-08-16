@@ -55,8 +55,8 @@ const tabBarConfiguration = {
         backgroundColor: style.colors.color4,
       },
       iconStyle: {
-        width: 100,
-        height: 100,
+        width: 70,
+        height: 70,
         paddingBottom: 10,
       }
    }
