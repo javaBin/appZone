@@ -7,7 +7,8 @@ type Config = {|
   conferenceSlug: string, 
   features: { 
     filtersessions: boolean, 
-    myschedule: boolean
+    myschedule: boolean,
+    settings: boolean,
   }
 |}
 
@@ -18,7 +19,8 @@ const prodConfig: Config = {
   conferenceSlug: "javazone_2017",
   features: {
     filtersessions: false,
-    myschedule: false
+    myschedule: false,
+    settings: false
   }
 } 
 
@@ -29,7 +31,8 @@ const devConfig: Config = {
   conferenceSlug: "javazone_2016",
   features: {
     filtersessions: true,
-    myschedule: true
+    myschedule: true,
+    settings: true
   }
 }
 

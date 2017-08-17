@@ -44,20 +44,6 @@ type Props = {
   selectedDay: ?string,
 }
 
-const getFilterButton = (props) => {
-  if(config.features.filtersessions) {
-    return (
-      <Icon.Button
-          borderRadius={0}
-          backgroundColor={style.colors.backgroundSecondary}
-          name="filter"
-          size={30}
-          onPress={props.onFilterSessionPressed()}>
-      </Icon.Button>
-    )
-  }
-}
-
 const SessionFilter = (props: Props) => (
   <View style= { styles.filterButtonWrapper }>
     <TouchableOpacity
@@ -84,7 +70,15 @@ const SessionFilter = (props: Props) => (
         accessibilityLabel="List sessions, day two">
       <Text style={ styles.filterButtonText}>DAY 2</Text>
     </TouchableOpacity>
-    { getFilterButton(props) }
+    { config.features.filtersessions &&
+      <Icon.Button
+          borderRadius={0}
+          backgroundColor={style.colors.backgroundSecondary}
+          name="filter"
+          size={30}
+          onPress={props.onFilterSessionPressed()}>
+      </Icon.Button>
+    }
   </View>
 )
 

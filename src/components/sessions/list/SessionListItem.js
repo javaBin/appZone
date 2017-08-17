@@ -72,7 +72,14 @@ type Props = {
 
 const SessionListItem = (props: Props) => (
   <View style={ styles.listItemWrapper} key={ props.session.sessionId }>
-    {getAddToMySchedule()}
+    { config.features.myschedule &&
+      <View>
+        <Icon
+          name="star-o" style={{ paddingRight: 10 }}
+          size={ 30 }
+          color={style.colors.color4}/>
+      </View>
+    }
     <TouchableOpacity
         style={{ paddingRight: 40 }}
         onPress={ () => props.onRowPressed(props.session) } key={ props.session.sessionId }>
