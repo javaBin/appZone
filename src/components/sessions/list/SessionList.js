@@ -82,6 +82,7 @@ class SessionList extends React.Component {
         <SessionFilter
           day1={this.props.day1}
           day2={this.props.day2}
+          selectedDay={this.props.selectedDay}
           onFilterDayPressed={this.props.filterSessionDay}
           onFilterSessionPressed={this.filterSessions} />
         <ListView

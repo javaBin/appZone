@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import style from '../../../common/style'
 import moment from 'moment'
+import config from '../../../config'
 
 import type { Session } from '../../../types/SleepingPill'
 
@@ -58,12 +59,14 @@ type Props = {
 
 const SessionListItem = (props: Props) => (
   <View style={ styles.listItemWrapper} key={ props.session.sessionId }>
-    <View>
-      <Icon
+    { config.features.myschedule &&
+      <View>
+        <Icon
           name="star-o" style={{ paddingRight: 10 }}
           size={ 30 }
           color={style.colors.color4}/>
-    </View>
+      </View>
+    }
     <TouchableOpacity
         style={{ paddingRight: 40 }}
         onPress={ () => props.onRowPressed(props.session) } key={ props.session.sessionId }>

@@ -15,10 +15,11 @@ module.exports = {
     header: 'Menlo',
     headerItalic: 'Menlo-Italic', 
     headerRegular: 'jura-regular',
-    special: 'tron',
+    special: 'Menlo-Bold',
   },
   fontSizes: {
     heading1: 30,
     heading2: 25,
+    heading3: 20
   }
 }

@@ -10,10 +10,15 @@ import type { SlotTime } from '../../../reducers/sessions'
 
 const styles = StyleSheet.create({
    container: {
-     backgroundColor: style.colors.secondary
+    backgroundColor: style.colors.background,
+    borderColor: style.colors.color3,
+    borderWidth: 3,
+    padding: 10,
    },
    text: {
-     color: style.colors.primary,
+     color: style.colors.color3,
+     fontFamily: style.fonts.headerLight,
+     fontSize: style.fontSizes.heading3,
    }
  })
 
@@ -35,7 +40,6 @@ const SessionSectionHeader = (props: any) => {
       {`Session: ${props.slotTimeId}: `}
       <Time time={slot.start} style={styles.text} /> - <Time time={slot.end}  style={styles.text} />
     </Text>
-
   </View>)
 }
 

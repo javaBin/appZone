@@ -20,5 +20,6 @@ module.exports = {
   fontSizes: {
     heading1: 30,
     heading2: 25,
+    heading3: 20
   }
 }
