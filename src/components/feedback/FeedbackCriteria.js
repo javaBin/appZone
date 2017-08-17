@@ -7,18 +7,16 @@ import FeedbackScoreBtn from './FeedbackScoreBtn';
 export class FeedbackCriteria extends Component {
   constructor(props) {
     super(props);
-    console.log('feedback criteria', this.props)
-  this.state = {
-      maxStars: 5
-    };
+    this.state = {
+        maxStars: 5
+      };
     this.onButtonPress = this.onButtonPress.bind(this);
     this.selecte = this.selected.bind(this);
   }
 
   onButtonPress = (score) => {
-    console.log('score obj feedback criteria', score)
     const scoreObj = Object.assign({}, 
-    { [this.props.category.id.toLowerCase()] : score, 
+    { feedback: {[this.props.category.id.toLowerCase()] : score}, 
       sessionId: this.props.sessionData.sessionId})
     this.props.selectedScore(scoreObj);
   }
@@ -26,7 +24,8 @@ export class FeedbackCriteria extends Component {
   selected(score, feedbackData) {
 
     const selectedFeedback = feedbackData.feedback.filter(f => f.sessionId === this.props.sessionData.sessionId)
-    return selectedFeedback[0] ? selectedFeedback[0][this.props.category.id.toLowerCase()] == score : false;
+    return selectedFeedback[0] ? 
+      (selectedFeedback[0].feedback ? selectedFeedback[0].feedback[this.props.category.id.toLowerCase()] == score : false) : false;
   }
 
   render() {

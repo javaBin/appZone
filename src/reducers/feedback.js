@@ -11,8 +11,8 @@ const feedbackInit = ():FeedbackState => ({feedbackSessionIds: [], feedback :[]}
 
 const feedback = (state: FeedbackState = feedbackInit(), action) => {
   switch (action.type) {
-      case FEEDBACK.GET: 
-        return {...state, feedback}
+      //case FEEDBACK.GET: 
+        //return {...state, feedback}
       case FEEDBACK.ADD:
         return insertItem(state, action)
       case FEEDBACK.UPDATE:
@@ -24,7 +24,6 @@ const feedback = (state: FeedbackState = feedbackInit(), action) => {
         return {...state, message: {error: action.error}}
       case FEEDBACK.REMOVE_ERROR:
         return {...state, message: null}
-
       default:
         return {...state}
     }
@@ -47,9 +46,7 @@ function updateItem(array, action) {
     if(item.sessionId !== action.payload.sessionId) {
       return item;
     }
-    const t = Object.assign({}, {...item}, {...action.payload});
-    return t; 
-    
+    return Object.assign({}, {...item, feedback: {...item.feedback, ...action.payload.feedback}}); 
   })}
 }
 

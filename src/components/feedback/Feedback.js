@@ -23,16 +23,16 @@ class Feedback extends Component {
       ],
       feedbackData: this.props.feedbackData
     };
-    this.props.addFeedback(
-      {sessionId : this.props.navigation.state.params.sessionData.sessionId,
-        eventId: this.props.navigation.state.params.sessionData.conferenceId
-       }
-      )
+    this.onChangeText = this.onChangeText.bind(this)
+    
   }
 
 
   componentWillMount() {
-    this.displayError(this.props.message)
+    this.props.addFeedback(
+      {sessionId : this.props.navigation.state.params.sessionData.sessionId,
+        eventId: this.props.navigation.state.params.sessionData.conferenceId
+       })
 
   }
 
@@ -52,6 +52,9 @@ class Feedback extends Component {
       this.props.removeError(message);
     }
   }
+  onChangeText(text) {
+    this.setState({text});
+  }
   
   render() {
     const { params } = this.props.navigation.state;
@@ -65,7 +68,7 @@ class Feedback extends Component {
             placeholder={category.title}
             placeholderTextColor={style.colors.primary}
             style={styles.commentInput}
-            onChangeText={(text) => this.setState({text})}
+            onChangeText={this.onChangeText}
             value={this.state.text}
           />
         </View>);
@@ -106,17 +109,11 @@ class Feedback extends Component {
           let feedback = feedbackData.feedback.filter((f) => {
             return f.sessionId=== params.sessionData.sessionId;
           });
-          //let feedbackObj = feedback.filter(f => )
           let reduced = feedback.reduce((acc, curr)=>{ 
                 return Object.assign(acc, {...curr});
               }, {});
             
           let f = Object.assign({}, reduced, {comment});
-          //let feedbackBody = Object.keys(feedback).filter((key) => {
-            return key !== 'sessionId' && key !== 'eventId';
-          //})
-          //let fe = Object.assign({}, {feedback: {reduced[]}})
-          //let b = Object.assign({}, {sessionId: reduced.sessionId, eventId: reduced}, )
           submitFeedback(f);
             }}
           >

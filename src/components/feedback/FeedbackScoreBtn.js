@@ -41,7 +41,6 @@ class FeedbackScoreBtn extends React.Component  {
     }
 
     render() {
-        console.log('this.props.selected', this.props.selected)
         return (
             <TouchableHighlight
                 onPress={this.onButtonPress.bind(this)}
