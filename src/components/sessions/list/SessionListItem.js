@@ -43,19 +43,6 @@ const getSessionFormat = (format) =>  {
   }
 }
 
-const getAddToMySchedule = () => {
-  if(config.features.myschedule) {
-    return (
-      <View>
-        <Icon
-          name="star-o" style={{ paddingRight: 10 }}
-          size={ 30 }
-          color={style.colors.color4}/>
-      </View>
-    )
-  }
-}
-
 const getTimeSpan = (fromTime: ?string, endTime: ?string): ?string => {
   if (fromTime && endTime ) {
     const from = (moment(fromTime).format('dddd, DD MMM HH:mm'))

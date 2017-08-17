@@ -39,12 +39,11 @@ const settings = {
   }
 
 const getNavigationRouteConfig = () => {
-  routeConfiguration = {}
-  routeConfiguration.home = home;
-  routeConfiguration.sessions = sessions;
-  if (config.features.settings) routeConfiguration.settings = settings;
-  return routeConfiguration;
-
+  const routeConfiguration = {}
+  routeConfiguration.home = home
+  routeConfiguration.sessions = sessions
+  if (config.features.settings) routeConfiguration.settings = settings
+  return routeConfiguration
 }
 
 const tabBarConfiguration = {
