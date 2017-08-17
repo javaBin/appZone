@@ -6,6 +6,8 @@ import { HomeNavigatorTab } from '../home/navigationConfiguration'
 import { SessionNavigatorTab } from '../sessions/navigationConfiguration'
 import { SettingsNavigatorTab } from '../settings/navigationConfiguration'
 
+import config from '../../config'
+
 import style from '../../common/style'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
@@ -13,25 +15,36 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 const Icon = (icon: string) => ({ tintColor}) =>
   ( <FontAwesome size={ 30 } name={icon} color={tintColor}/> )
 
-const routeConfiguration = {
-    HomeNavigatorTab: { 
-      screen: HomeNavigatorTab,
-      navigationOptions: {            
-        tabBarIcon: Icon('home')
-      },
-     },
-    SessionNavigatorTab: {
-      screen: SessionNavigatorTab,
-      navigationOptions: {            
-        tabBarIcon: Icon('calendar-minus-o')
-      },
-    }, 
-    SettingsNavigatorTab : { 
-      screen: SettingsNavigatorTab,
-      navigationOptions: {
-        tabBarIcon: Icon('cog')
-      },
-    }
+const home = { 
+    screen: HomeNavigatorTab,
+    navigationOptions: {            
+      tabBarIcon: Icon('home')
+    },
+  }
+
+
+const sessions = {
+    screen: SessionNavigatorTab,
+    navigationOptions: {            
+      tabBarIcon: Icon('calendar-minus-o')
+    },
+  }
+
+
+const settings = { 
+    screen: SettingsNavigatorTab,
+    navigationOptions: {
+      tabBarIcon: Icon('cog')
+    },
+  }
+
+const getNavigationRouteConfig = () => {
+  routeConfiguration = {}
+  routeConfiguration.home = home;
+  routeConfiguration.sessions = sessions;
+  if (config.features.settings) routeConfiguration.settings = settings;
+  return routeConfiguration;
+
 }
 
 const tabBarConfiguration = {
@@ -70,4 +83,4 @@ export const tabBarReducer = (state, action) => {
   }
 }
 
-export const TabBar = TabNavigator(routeConfiguration, tabBarConfiguration)
+export const TabBar = TabNavigator(getNavigationRouteConfig(), tabBarConfiguration)
