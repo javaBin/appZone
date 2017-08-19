@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
       flexGrow: 2,
       borderColor: style.colors.backgroundSecondary,
       borderWidth: 3,
-      height: 40,
+      height: 48,
     },
     filterButtonText: {
       alignSelf: 'center',

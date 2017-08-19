@@ -10,15 +10,13 @@ import type { SlotTime } from '../../../reducers/sessions'
 
 const styles = StyleSheet.create({
    container: {
-    backgroundColor: style.colors.background,
-    borderColor: style.colors.color3,
-    borderWidth: 3,
     padding: 10,
+    borderColor: style.colors.color1,
+    borderBottomWidth: 2
    },
    text: {
-     color: style.colors.color3,
-     fontFamily: style.fonts.headerLight,
-     fontSize: style.fontSizes.heading3,
+    color: style.colors.primary,
+    fontSize: style.fontSizes.heading3,
    }
  })
 
