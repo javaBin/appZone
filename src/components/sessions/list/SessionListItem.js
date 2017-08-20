@@ -62,7 +62,7 @@ const SessionListItem = (props: Props) => (
     { config.features.myschedule &&
       <View>
         <Icon
-          name="star-o" style={{ paddingRight: 10 }}
+          name="plus" style={{ paddingRight: 10 }}
           size={ 30 }
           color={style.colors.color4}/>
       </View>
