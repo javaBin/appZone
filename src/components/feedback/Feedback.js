@@ -24,6 +24,7 @@ class Feedback extends Component {
       feedbackData: this.props.feedbackData
     };
     this.onChangeText = this.onChangeText.bind(this)
+    this.handleOnPress = this.handleOnPress.bind(this)
     
   }
 
@@ -40,6 +41,20 @@ class Feedback extends Component {
     this.displayError(this.props.message)
   }
 
+  handleOnPress() {
+
+    let comment = this.state.text;
+    
+    let feedback = feedbackData.feedback.filter((f) => {
+      return f.sessionId=== params.sessionData.sessionId;
+    });
+    let reduced = feedback.reduce((acc, curr)=>{ 
+          return Object.assign(acc, {...curr});
+        }, {});
+      
+    let f = Object.assign({}, reduced, {comment});
+    submitFeedback(f);
+  }
   
   displayError(message) {
     if(message) {
@@ -86,7 +101,7 @@ class Feedback extends Component {
     })
 
     return (
-      <ScrollView>
+      <ScrollView style={{backgroundColor: style.colors.background}}> 
         <View style={styles.container}>
           <View style={{flexDirection: 'row', marginBottom: 10}}>
             <Icon name="arrow-left" style={{ padding: 15 }} size={40} color={style.colors.color4}
@@ -105,17 +120,13 @@ class Feedback extends Component {
             style={styles.submitBtn}
             title='Submit feedback'
             onPress={()=> {
-          let comment = this.state.text;
-
-          let feedback = feedbackData.feedback.filter((f) => {
-            return f.sessionId=== params.sessionData.sessionId;
-          });
-          let reduced = feedback.reduce((acc, curr)=>{ 
-                return Object.assign(acc, {...curr});
-              }, {});
-            
-          let f = Object.assign({}, reduced, {comment});
-          submitFeedback(f);
+              let comment = this.state.text;
+              let feedback = feedbackData.feedback.filter((f) => {
+                return f.sessionId=== params.sessionData.sessionId;
+              }).reduce((acc, curr)=>{ 
+                    return Object.assign(acc, {...curr});
+              }, {});;
+              submitFeedback(Object.assign({}, {...feedback, feedback: Object.assign({}, {...feedback.feedback}, {comment})}));
             }}
           >
           </Button>
@@ -131,6 +142,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        alignSelf: 'stretch',
         backgroundColor: style.colors.background,
     },
     commentContainer: {
@@ -192,7 +204,6 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => { 
-  console.log('map stat to props', state)
   return {  
     feedbackData: state.feedback,
     message : state.feedback.message
