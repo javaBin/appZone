@@ -14,7 +14,7 @@ module.exports = {
     headerLight: 'Menlo-Regular',
     header: 'Menlo',
     headerItalic: 'Menlo-Italic', 
-    headerRegular: 'jura-regular',
+    headerRegular: 'Menlo',
     special: 'Menlo-Bold',
   },
   fontSizes: {
