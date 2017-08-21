@@ -86,7 +86,8 @@ class Feedback extends Component {
     })
 
     return (
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView>
+        <View style={styles.container}>
           <View style={{flexDirection: 'row', marginBottom: 10}}>
             <Icon name="arrow-left" style={{ padding: 15 }} size={40} color={style.colors.color4}
                 onPress={() => navigation.goBack()} />
@@ -118,6 +119,7 @@ class Feedback extends Component {
             }}
           >
           </Button>
+        </View>
       </ScrollView>
     )
   }
@@ -125,14 +127,11 @@ class Feedback extends Component {
 
 const styles = StyleSheet.create({
   container: {
-        ...Platform.select({
-          ios: { paddingTop: 10 }
-        }),
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#000000',
+        backgroundColor: style.colors.background,
     },
     commentContainer: {
       flexDirection: 'row',
@@ -142,7 +141,7 @@ const styles = StyleSheet.create({
       marginRight: 10
     },
     commentInput: {
-      height: 30, 
+      height: 40, 
       flex: 1, 
       borderBottomColor: style.colors.color1, 
       borderBottomWidth: 1, 
