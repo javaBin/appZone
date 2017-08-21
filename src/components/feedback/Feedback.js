@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TextInput, ListView, Platform, TouchableHighlight, Alert, Button} from 'react-native';
+import {View, Text, StyleSheet, TextInput, ListView, Platform, TouchableHighlight, Alert, Button, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
 import Toast, {DURATION} from 'react-native-easy-toast'
@@ -33,13 +33,14 @@ class Feedback extends Component {
       {sessionId : this.props.navigation.state.params.sessionData.sessionId,
         eventId: this.props.navigation.state.params.sessionData.conferenceId
        })
-
+       
+  }
+    
+  componentDidUpdate() {
+    this.displayError(this.props.message)
   }
 
-  okPressed(error) {
-    this.props.removeError(error);
-  }
-
+  
   displayError(message) {
     if(message) {
       let msg = message;
@@ -59,7 +60,6 @@ class Feedback extends Component {
   render() {
     const { params } = this.props.navigation.state;
     let { submitFeedback, feedbackData, errors, sessionData, navigation } = this.props;
-    this.displayError(this.props.message)
     const feedbackCriteriaList = this.state.categories.map(category => {
       if(category.id === 'Comment') {
         return (
@@ -86,7 +86,7 @@ class Feedback extends Component {
     })
 
     return (
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
           <View style={{flexDirection: 'row', marginBottom: 10}}>
             <Icon name="arrow-left" style={{ padding: 15 }} size={40} color={style.colors.color4}
                 onPress={() => navigation.goBack()} />
@@ -118,7 +118,7 @@ class Feedback extends Component {
             }}
           >
           </Button>
-      </View>
+      </ScrollView>
     )
   }
 }
@@ -135,9 +135,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#000000',
     },
     commentContainer: {
-      flex: 1,
       flexDirection: 'row',
       alignSelf: 'stretch',
+      marginTop: 10,
       marginLeft: 10,
       marginRight: 10
     },
@@ -165,6 +165,7 @@ const styles = StyleSheet.create({
     },
     submitBtnText: {
       color: 'white',
+      marginTop: 10,
       backgroundColor: style.colors.color4
     },
     h1 : {

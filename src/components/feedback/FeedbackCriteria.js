@@ -16,7 +16,7 @@ export class FeedbackCriteria extends Component {
 
   onButtonPress = (score) => {
     const scoreObj = Object.assign({}, 
-    { feedback: {[this.props.category.id.toLowerCase()] : score}, 
+    { feedback: {[this.props.category.id.toLowerCase()] : parseInt(score)}, 
       sessionId: this.props.sessionData.sessionId})
     this.props.selectedScore(scoreObj);
   }

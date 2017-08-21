@@ -11,8 +11,6 @@ const feedbackInit = ():FeedbackState => ({feedbackSessionIds: [], feedback :[]}
 
 const feedback = (state: FeedbackState = feedbackInit(), action) => {
   switch (action.type) {
-      //case FEEDBACK.GET: 
-        //return {...state, feedback}
       case FEEDBACK.ADD:
         return insertItem(state, action)
       case FEEDBACK.UPDATE:
