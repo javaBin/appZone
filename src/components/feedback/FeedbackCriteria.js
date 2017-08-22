@@ -1,24 +1,24 @@
-import React, {Component} from 'react';
-import {View, Text, StyleSheet, Alert} from 'react-native';
+import React, { Component } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 import style from '../../common/style'
 
-import FeedbackScoreBtn from './FeedbackScoreBtn';
+import FeedbackScoreBtn from './FeedbackScoreBtn'
 
 export class FeedbackCriteria extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
         maxStars: 5
-      };
-    this.onButtonPress = this.onButtonPress.bind(this);
-    this.selecte = this.selected.bind(this);
+      }
+    this.onButtonPress = this.onButtonPress.bind(this)
+    this.selecte = this.selected.bind(this)
   }
 
   onButtonPress = (score) => {
     const scoreObj = Object.assign({}, 
     { feedback: {[this.props.category.id.toLowerCase()] : parseInt(score)}, 
       sessionId: this.props.sessionData.sessionId})
-    this.props.selectedScore(scoreObj);
+    this.props.selectedScore(scoreObj)
   }
 
   selected(score, feedbackData) {
@@ -30,28 +30,28 @@ export class FeedbackCriteria extends Component {
 
   render() {
       
-    let {category, feedbackData, sessionData} = this.props;
-    let scoreButtons = [];
+    let { category } = this.props
+    let scoreButtons = []
     for(let i = 0; i < this.state.maxStars; i++) {
       scoreButtons.push(
         <FeedbackScoreBtn
           key={i}
           score={'' +(i + 1)}
-          selected={this.selected((i + 1),this.props.feedbackData)}
-          onScoreButtonPress={this.onButtonPress}
+          selected={ this.selected((i + 1),this.props.feedbackData) }
+          onScoreButtonPress={ this.onButtonPress }
         />
-      );
+      )
     }
 
     return (
-        <View style={styles.container}>
-          <Text style={styles.h2}>{category.title}</Text>
-          <View style={styles.scoreContainer}>
-             {scoreButtons}
+        <View style={ styles.container }>
+          <Text style={ styles.h2 }>{ category.title }</Text>
+          <View style={ styles.scoreContainer }>
+             { scoreButtons }
           </View>
-          <View style={styles.gradingContainer}>
-            <Text style={styles.grading}>{category.low}</Text>
-            <Text style={styles.grading}>{category.high}</Text>
+          <View style={ styles.gradingContainer }>
+            <Text style={ styles.grading }>{ category.low }</Text>
+            <Text style={ styles.grading }>{ category.high }</Text>
           </View>
         </View>
     )
@@ -60,8 +60,7 @@ export class FeedbackCriteria extends Component {
 
 const styles = StyleSheet.create({
     container: {
-      
-      flexDirection: 'column',
+        flexDirection: 'column',
         alignItems: 'flex-start',
         alignSelf: 'stretch',
         marginLeft: 10,
@@ -87,4 +86,4 @@ const styles = StyleSheet.create({
       fontSize: 12,
       color: style.colors.color1
     }
-});
+})

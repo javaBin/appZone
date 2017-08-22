@@ -1,110 +1,92 @@
-import React, {Component} from 'react';
-import {View, Text, StyleSheet, TextInput, ListView, Platform, TouchableHighlight, Alert, Button, ScrollView} from 'react-native';
+import React, { Component } from 'react'
+import { View, Text, StyleSheet, TextInput, Button, ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
-import Toast, {DURATION} from 'react-native-easy-toast'
+import Toast, { DURATION } from 'react-native-easy-toast'
 
-import {FeedbackCriteria} from './FeedbackCriteria';
-import * as feedbackAction from '../../actions/feedback';
+import { FeedbackCriteria } from './FeedbackCriteria'
+import * as feedbackAction from '../../actions/feedback'
 
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 
 class Feedback extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       titleText: "Rate this session",
       categories: [
-        {id: 'Overall', title: 'Session rating', low: 'Not so awesome', high: 'Awsome'}, 
-        {id: 'Relevance', title: 'How relevant was this session to your projects', low: 'Not at all', high: 'Extremly'}, 
-        {id: 'Content', title: 'Based on the decription/my expectaions, the content was', low: 'Too basic', high: 'Too advanced'},
-        {id: 'Quality', title: 'Speaker quality', low: 'Poor', high: 'Outstanding'}, 
-        {id: 'Comment', title: 'Any other comments'}
+        { id: 'Overall', title: 'Session rating', low: 'Not so awesome', high: 'Awsome' }, 
+        { id: 'Relevance', title: 'How relevant was this session to your projects', low: 'Not at all', high: 'Extremly' }, 
+        { id: 'Content', title: 'Based on the decription/my expectaions, the content was', low: 'Too basic', high: 'Too advanced' },
+        { id: 'Quality', title: 'Speaker quality', low: 'Poor', high: 'Outstanding' }, 
+        { id: 'Comment', title: 'Any other comments' }
       ],
       feedbackData: this.props.feedbackData
-    };
+    }
     this.onChangeText = this.onChangeText.bind(this)
-    this.handleOnPress = this.handleOnPress.bind(this)
-    
   }
 
 
   componentWillMount() {
     this.props.addFeedback(
-      {sessionId : this.props.navigation.state.params.sessionData.sessionId,
+      { sessionId : this.props.navigation.state.params.sessionData.sessionId,
         eventId: this.props.navigation.state.params.sessionData.conferenceId
-       })
-       
+      })
   }
     
   componentDidUpdate() {
     this.displayError(this.props.message)
   }
-
-  handleOnPress() {
-
-    let comment = this.state.text;
-    
-    let feedback = feedbackData.feedback.filter((f) => {
-      return f.sessionId=== params.sessionData.sessionId;
-    });
-    let reduced = feedback.reduce((acc, curr)=>{ 
-          return Object.assign(acc, {...curr});
-        }, {});
-      
-    let f = Object.assign({}, reduced, {comment});
-    submitFeedback(f);
-  }
   
   displayError(message) {
     if(message) {
-      let msg = message;
+      let msg = message
       if(message.error) {
         msg = 'Ops! Something happend while sending feedback'
       } else if(message.feedbackId) {
         msg = 'Feedback sendt'
       }
-      this.refs.feedbackToast.show(msg, DURATION.LENGTH_LONG);  
-      this.props.removeError(message);
+      this.feedbackToast.show(msg, DURATION.LENGTH_LONG)  
+      this.props.removeError(message)
     }
   }
   onChangeText(text) {
-    this.setState({text});
+    this.setState({ text })
   }
   
   render() {
-    const { params } = this.props.navigation.state;
-    let { submitFeedback, feedbackData, errors, sessionData, navigation } = this.props;
+    const { params } = this.props.navigation.state
+    let { submitFeedback, feedbackData, navigation } = this.props
     const feedbackCriteriaList = this.state.categories.map(category => {
       if(category.id === 'Comment') {
         return (
-        <View style={styles.commentContainer} key={category.id}>   
+        <View style={ styles.commentContainer } key={ category.id }>   
           <TextInput 
-            placeholder={category.title}
-            placeholderTextColor={style.colors.primary}
-            style={styles.commentInput}
-            onChangeText={this.onChangeText}
-            value={this.state.text}
+            placeholder={ category.title }
+            placeholderTextColor={ style.colors.primary }
+            style={ styles.commentInput }
+            onChangeText={ this.onChangeText }
+            value={ this.state.text }
           />
-        </View>);
+        </View>)
       } else {
         return (
           <FeedbackCriteria 
-            key={category.id}
-            category={category}
-            feedbackData={feedbackData}
-            sessionData={params.sessionData}
-            selectedScore={(score) => this.props.updateFeedback(score)}
+            key={ category.id }
+            category={ category }
+            feedbackData={ feedbackData }
+            sessionData={ params.sessionData }
+            selectedScore={ (score) => this.props.updateFeedback(score) }
           />
         )
       }
     })
 
     return (
-      <ScrollView style={{backgroundColor: style.colors.background}}> 
-        <View style={styles.container}>
-          <View style={{flexDirection: 'row', marginBottom: 10}}>
-            <Icon name="arrow-left" style={{ padding: 15 }} size={40} color={style.colors.color4}
+      <ScrollView style={{ backgroundColor: style.colors.background }}> 
+        <View style={ styles.container }>
+          <View style={{ flexDirection: 'row', marginBottom: 10 }}>
+            <Icon name="arrow-left" style={{ padding: 15 }} size={ 40 } color={ style.colors.color4 }
                 onPress={() => navigation.goBack()} />
             <Text style={styles.h1}>{params.sessionData.title}</Text>
 
@@ -112,21 +94,21 @@ class Feedback extends Component {
           
           {feedbackCriteriaList}
           <Toast 
-            ref="feedbackToast" 
-            style={{backgroundColor: style.colors.color4}}
+            ref={(c) => { this.feedbackToast = c }} 
+            style={{ backgroundColor: style.colors.color4 }}
             position='top'/>
           <Button
-            color={style.colors.color4}
-            style={styles.submitBtn}
+            color={ style.colors.color4 }
+            style={ styles.submitBtn }
             title='Submit feedback'
             onPress={()=> {
-              let comment = this.state.text;
+              let comment = this.state.text
               let feedback = feedbackData.feedback.filter((f) => {
-                return f.sessionId=== params.sessionData.sessionId;
+                return f.sessionId=== params.sessionData.sessionId
               }).reduce((acc, curr)=>{ 
-                    return Object.assign(acc, {...curr});
-              }, {});;
-              submitFeedback(Object.assign({}, {...feedback, feedback: Object.assign({}, {...feedback.feedback}, {comment})}));
+                    return Object.assign(acc, { ...curr })
+              }, {})
+              submitFeedback(Object.assign({}, { ...feedback, feedback: Object.assign({}, { ...feedback.feedback }, { comment }) }))
             }}
           >
           </Button>
@@ -201,14 +183,14 @@ const styles = StyleSheet.create({
         marginTop: 100,
         marginBottom: 5
     }
-});
+})
 
 const mapStateToProps = (state) => { 
   return {  
     feedbackData: state.feedback,
     message : state.feedback.message
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -224,6 +206,6 @@ const mapDispatchToProps = (dispatch) => {
     removeError: (error) => {
       dispatch(feedbackAction.removeError(error))
     }
-  }; 
-};
-export default connect(mapStateToProps, mapDispatchToProps)(Feedback);
+  } 
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Feedback)
