@@ -25,6 +25,7 @@ matrix:
         - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
         - travis_retry sudo apt-get update -qq
         - travis_retry sudo apt-get install -y -qq yarn
+        - android update sdk --no-ui --filter build-tools-24.0.0,android-24,extra-android-m2repository
       install:
         - yarn
       android:
@@ -46,7 +47,6 @@ matrix:
         - node --version
         - travis_retry npm install -g yarn
         - yarn -version
-        - android update sdk --no-ui --filter build-tools-24.0.0,android-24,extra-android-m2repository
       install:
         - travis_retry gem install xcpretty
         - travis_retry yarn
