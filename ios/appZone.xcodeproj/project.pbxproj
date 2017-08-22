@@ -70,6 +70,8 @@
 		50173E011EBDD70400B6EB54 /* SMCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50173DDD1EBDD70300B6EB54 /* SMCalloutView.m */; };
 		50173E021EBDD70400B6EB54 /* RCTConvert+AirMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 50173DDF1EBDD70400B6EB54 /* RCTConvert+AirMap.m */; };
 		504054DB1F4CA165000ADA3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 504054DA1F4CA165000ADA3B /* GoogleService-Info.plist */; };
+		504054DF1F4CC0A4000ADA3B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504054DE1F4CC0A4000ADA3B /* Launch Screen.storyboard */; };
+		504054E11F4CC16A000ADA3B /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 504054E01F4CC16A000ADA3B /* Default~iphone.png */; };
 		509A12191F08403F0029000C /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509A120F1F08403F0029000C /* Entypo.ttf */; };
 		509A121A1F08403F0029000C /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509A12101F08403F0029000C /* EvilIcons.ttf */; };
 		509A121B1F08403F0029000C /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509A12111F08403F0029000C /* FontAwesome.ttf */; };
@@ -413,6 +415,8 @@
 		50173DDE1EBDD70400B6EB54 /* RCTConvert+AirMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+AirMap.h"; sourceTree = "<group>"; };
 		50173DDF1EBDD70400B6EB54 /* RCTConvert+AirMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+AirMap.m"; sourceTree = "<group>"; };
 		504054DA1F4CA165000ADA3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		504054DE1F4CC0A4000ADA3B /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "appZone/Launch Screen.storyboard"; sourceTree = "<group>"; };
+		504054E01F4CC16A000ADA3B /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
 		509A120F1F08403F0029000C /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
 		509A12101F08403F0029000C /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		509A12111F08403F0029000C /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
@@ -573,6 +577,8 @@
 		13B07FAE1A68108700A75B9A /* appZone */ = {
 			isa = PBXGroup;
 			children = (
+				504054E01F4CC16A000ADA3B /* Default~iphone.png */,
+				504054DE1F4CC0A4000ADA3B /* Launch Screen.storyboard */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				504054DA1F4CA165000ADA3B /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -1238,9 +1244,11 @@
 				509A12211F08403F0029000C /* SimpleLineIcons.ttf in Resources */,
 				509A121D1F08403F0029000C /* Ionicons.ttf in Resources */,
 				509A121C1F08403F0029000C /* Foundation.ttf in Resources */,
+				504054E11F4CC16A000ADA3B /* Default~iphone.png in Resources */,
 				509A121F1F08403F0029000C /* MaterialIcons.ttf in Resources */,
 				509A12191F08403F0029000C /* Entypo.ttf in Resources */,
 				504054DB1F4CA165000ADA3B /* GoogleService-Info.plist in Resources */,
+				504054DF1F4CC0A4000ADA3B /* Launch Screen.storyboard in Resources */,
 				509A121E1F08403F0029000C /* MaterialCommunityIcons.ttf in Resources */,
 				509A12431F0840CA0029000C /* jura-medium.ttf in Resources */,
 				509A12411F0840CA0029000C /* jura-bold.ttf in Resources */,
@@ -1536,7 +1544,6 @@
 			baseConfigurationReference = 372A0389385E8C546C755D09 /* Pods-appZone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = X4FF6CYH8M;
@@ -1563,7 +1570,6 @@
 			baseConfigurationReference = 6DCD3E42B847B6F4480FDE18 /* Pods-appZone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X4FF6CYH8M;
 				HEADER_SEARCH_PATHS = (
