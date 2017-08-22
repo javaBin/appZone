@@ -16,7 +16,8 @@
 
 .*/node_modules/react-native-tab-view/.*
 .*/node_modules/react-navigation/.*
-
+.*/node_modules/react-native-firebase/.*
+.*/node_modules/react-native/local-cli/link/link.js
 .*/ios/Pods/.*
 [include]
 
@@ -29,6 +30,8 @@ flow/
 emoji=true
 
 module.system=haste
+
+module.name_mapper='^./link/link$' -> 'emptyObject'
 
 munge_underscores=true
 
