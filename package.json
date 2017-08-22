@@ -50,12 +50,9 @@
   },
   "jest": {
     "preset": "react-native",
-<<<<<<< HEAD
     "setupFiles": [
       "./jest-setup.js"
     ],
-=======
->>>>>>> first initial setup for both ios and android
     "transformIgnorePatterns": [
       "node_modules/?!(react-native|native-base)"
     ]
