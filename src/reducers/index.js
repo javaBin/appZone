@@ -49,14 +49,12 @@ const firebaseEvents = (state = firebaseInit, action) => {
       return action.payload
     }
     case FIREBASE_EVENT.LOG_EVENT: {
-      console.warn("in log")
       const event = action.payload.eventName
       const params = action.payload.params
       firebase.analytics().logEvent(event, params)
       return action.payload
     }
     case FIREBASE_EVENT.LOG_CRASH: {
-      console.warn("in crash", action.payload.msg, action.payload.errorMessage)
       firebase.crash().log(action.payload.msg)
       firebase.crash().report(action.payload.errorMessage)
       return action.payload

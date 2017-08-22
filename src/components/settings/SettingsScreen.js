@@ -15,7 +15,6 @@ import style from '../../common/style'
 
 import * as settings from '../../actions/settings'
 import * as firebase from '../../actions/firebase'
-import firebaseConf from '../firebase/Firebase'
 
 const styles = StyleSheet.create({
   container: {
@@ -44,6 +43,7 @@ const STORE_SETTINGS_KEY = 'SETTINGSKEY'
 class SettingsScreen extends React.Component {
   componentWillMount() {
     this.props.dispatch(firebase.setCurrentScreen('settings_screen', 'SettingsScreen'))
+
     AsyncStorage.getItem(STORE_SETTINGS_KEY).then((settingsStr) => {
       if (!settingsStr) {
         AsyncStorage.setItem(STORE_SETTINGS_KEY, JSON.stringify({}))
@@ -52,13 +52,6 @@ class SettingsScreen extends React.Component {
         this.loadSettings(settingsJson)
       }
     })
-
-    firebaseConf.crash().isCrashCollectionEnabled()
-      .then((enabled) => {
-        if (enabled) {
-          console.log('Crash Reporting is currently enabled');
-        }
-      });
   }
 
   static propTypes = {

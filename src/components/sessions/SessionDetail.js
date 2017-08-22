@@ -1,11 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { connect } from 'react-redux'
+import * as firebase from '../../actions/firebase'
+
 import { Text, StyleSheet, View, ScrollView } from 'react-native'
 
 import moment from 'moment'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
+import type { Dispatch } from '../../../types/Actions'
 
 const styles = StyleSheet.create({
   sessionHeaderWrapper: {
@@ -54,6 +58,13 @@ const styles = StyleSheet.create({
 })
 
 class SessionDetail extends React.Component {
+  static propTypes = {
+    logScreen: PropTypes.func,
+  }
+
+  componentWillMount() {
+    this.props.logScreen()
+  }
 
   render() {
     const { navigation, } = this.props
@@ -112,4 +123,8 @@ SessionDetail.defaultProps = {
   navigation: null
 }
 
-export default SessionDetail
+
+const mapDispatchToProps = (dispatch: Dispatch) =>
+({ logScreen: () => { dispatch(firebase.setCurrentScreen('session_detail', 'SessionDetail')) } })
+
+export default connect(null, mapDispatchToProps)(SessionDetail)

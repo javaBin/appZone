@@ -1,8 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { Image, StyleSheet, ScrollView, Text, View } from 'react-native' 
 import style from '../../common/style'
 import * as firebase from '../../actions/firebase'
+
+import type { Dispatch } from '../../../types/Actions'
 
 const styles = StyleSheet.create({
   homeWrapper: {
@@ -36,13 +39,13 @@ const styles = StyleSheet.create({
   },
 })
 
-export default class HomeScreen extends React.Component {
+class HomeScreen extends React.Component {
   static propTypes = {
-    dispatch: PropTypes.func,
+    logScreen: PropTypes.func,
   }
 
   componentWillMount() {
-    this.props.dispatch(firebase.setCurrentScreen('home_screen', 'HomeScreen'))
+    this.props.logScreen()
   }
 
   render() {
@@ -64,3 +67,9 @@ export default class HomeScreen extends React.Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch: Dispatch) =>
+({ logScreen: () => { dispatch(firebase.setCurrentScreen('home_screen', 'HomeScreen')) } })
+
+
+export default connect(null, mapDispatchToProps)(HomeScreen)
