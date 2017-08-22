@@ -14,6 +14,7 @@ import {
 import style from '../../common/style'
 
 import * as settings from '../../actions/settings'
+import * as firebase from '../../actions/firebase'
 
 const styles = StyleSheet.create({
   container: {
@@ -41,6 +42,8 @@ const STORE_SETTINGS_KEY = 'SETTINGSKEY'
 
 class SettingsScreen extends React.Component {
   componentWillMount() {
+    this.props.dispatch(firebase.setCurrentScreen('settings_screen', 'SettingsScreen'))
+
     AsyncStorage.getItem(STORE_SETTINGS_KEY).then((settingsStr) => {
       if (!settingsStr) {
         AsyncStorage.setItem(STORE_SETTINGS_KEY, JSON.stringify({}))
@@ -100,7 +103,9 @@ class SettingsScreen extends React.Component {
   }
 
   setNotificationSessionSwitch(enabled) {
+    this.props.dispatch(firebase.logEvent('notification_switch', { 'enabled': enabled }))
     this.props.dispatch(settings.setNotificationSession(enabled))
+    this.props.dispatch(firebase.logCrash('LOG ERROR', "whaat what?"))
   }
 
   setNotificationFeedbackSwitch(enabled) {

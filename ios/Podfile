@@ -8,9 +8,15 @@ target 'appZone' do
   # Pods for appZone
 
   pod 'GoogleMaps', '2.1.1'
+  pod 'Firebase/Core'
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
+  
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Crash'
 
   # React stuff
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'BatchedBridge', # Required For React Native 0.45.0+
     'Core',
     'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
     'RCTText',
