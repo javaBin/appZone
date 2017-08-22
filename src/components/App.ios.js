@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native'
 import TabBarNavigation from './tab-bar-navigation/TabBarNavigation'
 
 class App extends Component {
+
     render() {
         return (
             <TabBarNavigation style={styles.container} />
