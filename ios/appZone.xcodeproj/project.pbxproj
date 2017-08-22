@@ -70,7 +70,7 @@
 		50173E001EBDD70400B6EB54 /* AIRMapUrlTileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50173DDA1EBDD70300B6EB54 /* AIRMapUrlTileManager.m */; };
 		50173E011EBDD70400B6EB54 /* SMCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50173DDD1EBDD70300B6EB54 /* SMCalloutView.m */; };
 		50173E021EBDD70400B6EB54 /* RCTConvert+AirMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 50173DDF1EBDD70400B6EB54 /* RCTConvert+AirMap.m */; };
-		5050D3BD1F1E98DA003DEF2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5050D3BC1F1E98DA003DEF2C /* GoogleService-Info.plist */; };
+		504054DB1F4CA165000ADA3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 504054DA1F4CA165000ADA3B /* GoogleService-Info.plist */; };
 		509A12191F08403F0029000C /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509A120F1F08403F0029000C /* Entypo.ttf */; };
 		509A121A1F08403F0029000C /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509A12101F08403F0029000C /* EvilIcons.ttf */; };
 		509A121B1F08403F0029000C /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509A12111F08403F0029000C /* FontAwesome.ttf */; };
@@ -86,8 +86,6 @@
 		509A12431F0840CA0029000C /* jura-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509A123E1F0840CA0029000C /* jura-medium.ttf */; };
 		509A12441F0840CA0029000C /* jura-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509A123F1F0840CA0029000C /* jura-regular.ttf */; };
 		509A12451F0840CA0029000C /* tron.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509A12401F0840CA0029000C /* tron.ttf */; };
-		509E5BA31F3B6F1400FAC8EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 509E5BA21F3B6F1400FAC8EA /* GoogleService-Info.plist */; };
-		50B81E281F4CA00A00C8D2BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50B81E271F4CA00A00C8D2BF /* GoogleService-Info.plist */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		BAFCF63CC8C4D157885820FF /* libPods-appZone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0EDDFDDBFE08309478E8718 /* libPods-appZone.a */; };
@@ -416,7 +414,7 @@
 		50173DDD1EBDD70300B6EB54 /* SMCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCalloutView.m; sourceTree = "<group>"; };
 		50173DDE1EBDD70400B6EB54 /* RCTConvert+AirMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+AirMap.h"; sourceTree = "<group>"; };
 		50173DDF1EBDD70400B6EB54 /* RCTConvert+AirMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+AirMap.m"; sourceTree = "<group>"; };
-		5050D3BC1F1E98DA003DEF2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		504054DA1F4CA165000ADA3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		509A120F1F08403F0029000C /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
 		509A12101F08403F0029000C /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		509A12111F08403F0029000C /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
@@ -432,9 +430,7 @@
 		509A123E1F0840CA0029000C /* jura-medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "jura-medium.ttf"; path = "../../../android/app/src/main/assets/fonts/jura-medium.ttf"; sourceTree = "<group>"; };
 		509A123F1F0840CA0029000C /* jura-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "jura-regular.ttf"; path = "../../../android/app/src/main/assets/fonts/jura-regular.ttf"; sourceTree = "<group>"; };
 		509A12401F0840CA0029000C /* tron.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = tron.ttf; path = ../../../android/app/src/main/assets/fonts/tron.ttf; sourceTree = "<group>"; };
-		509E5BA21F3B6F1400FAC8EA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		509E5C0D1F3B9A3E00FAC8EA /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
-		50B81E271F4CA00A00C8D2BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6D5C505E57BC08065CC3017C /* libPods-appZoneTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appZoneTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DCD3E42B847B6F4480FDE18 /* Pods-appZone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appZone.release.xcconfig"; path = "Pods/Target Support Files/Pods-appZone/Pods-appZone.release.xcconfig"; sourceTree = "<group>"; };
@@ -579,16 +575,14 @@
 		13B07FAE1A68108700A75B9A /* appZone */ = {
 			isa = PBXGroup;
 			children = (
-				50B81E271F4CA00A00C8D2BF /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
-				509E5BA21F3B6F1400FAC8EA /* GoogleService-Info.plist */,
+				504054DA1F4CA165000ADA3B /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				5050D3BC1F1E98DA003DEF2C /* GoogleService-Info.plist */,
 			);
 			name = appZone;
 			sourceTree = "<group>";
@@ -1249,15 +1243,13 @@
 				509A121C1F08403F0029000C /* Foundation.ttf in Resources */,
 				509A121F1F08403F0029000C /* MaterialIcons.ttf in Resources */,
 				509A12191F08403F0029000C /* Entypo.ttf in Resources */,
-				509E5BA31F3B6F1400FAC8EA /* GoogleService-Info.plist in Resources */,
+				504054DB1F4CA165000ADA3B /* GoogleService-Info.plist in Resources */,
 				509A121E1F08403F0029000C /* MaterialCommunityIcons.ttf in Resources */,
 				509A12431F0840CA0029000C /* jura-medium.ttf in Resources */,
 				509A12411F0840CA0029000C /* jura-bold.ttf in Resources */,
 				509A12441F0840CA0029000C /* jura-regular.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				50B81E281F4CA00A00C8D2BF /* GoogleService-Info.plist in Resources */,
 				509A12421F0840CA0029000C /* jura-light.ttf in Resources */,
-				5050D3BD1F1E98DA003DEF2C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
