@@ -1,14 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-<<<<<<< HEAD
-import { Text, StyleSheet, View, ScrollView, Button } from 'react-native'
-=======
 import { connect } from 'react-redux'
 import * as firebase from '../../actions/firebase'
 
-import { Text, StyleSheet, View, ScrollView } from 'react-native'
->>>>>>> develop
+import { Text, StyleSheet, View, ScrollView, Button } from 'react-native'
 
 import moment from 'moment'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -128,12 +124,7 @@ SessionDetail.defaultProps = {
   navigation: null
 }
 
-<<<<<<< HEAD
-export default SessionDetail
-=======
-
 const mapDispatchToProps = (dispatch: Dispatch) =>
 ({ logScreen: () => { dispatch(firebase.setCurrentScreen('session_detail', 'SessionDetail')) } })
 
 export default connect(null, mapDispatchToProps)(SessionDetail)
->>>>>>> develop
