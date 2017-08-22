@@ -4,6 +4,11 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>jura-bold.ttf</string>
+		<string>jura-light.ttf</string>
+		<string>jura-medium.ttf</string>
+		<string>jura-regular.ttf</string>
+		<string>tron.ttf</string>
 		<string>EvilIcons.ttf</string>
 		<string>FontAwesome.ttf</string>
 		<string>Entypo.ttf</string>

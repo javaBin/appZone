@@ -10,12 +10,12 @@ module.exports = {
     color4: '#f28e31', // orange
   },
   fonts: {
-    headerBold: 'Menlo-Bold',
-    headerLight: 'Menlo-Regular',
-    header: 'Menlo',
-    headerItalic: 'Menlo-Italic', 
-    headerRegular: 'Menlo',
-    special: 'Menlo-Bold',
+    headerBold: 'jura-bold', 
+    headerLight: 'jura-light',
+    header: 'jura-medium', 
+    headerItalic: 'jura-regular',
+    headerRegular: 'jura-regular', 
+    special: 'tron',
   },
   fontSizes: {
     heading1: 30,
