@@ -1,4 +1,5 @@
 import DeviceInfo from 'react-native-device-info'
+import config from '../config'
 
 const options = {
 	"Content-Type": "application/json",
