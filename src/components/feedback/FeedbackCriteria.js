@@ -16,20 +16,18 @@ export class FeedbackCriteria extends Component {
 
   onButtonPress = (score) => {
     const scoreObj = Object.assign({}, 
-    { feedback: {[this.props.criteria.id.toLowerCase()] : parseInt(score)}, 
-      sessionId: this.props.sessionData.sessionId})
+    { feedback: { [this.props.criteria.id.toLowerCase()] : parseInt(score) }, 
+      sessionId: this.props.sessionData.sessionId })
     this.props.selectedScore(scoreObj)
   }
 
   selected(score, feedbackData) {
-
     const selectedFeedback = feedbackData.feedback.filter(f => f.sessionId === this.props.sessionData.sessionId)
     return selectedFeedback[0] ? 
-      (selectedFeedback[0].feedback ? selectedFeedback[0].feedback[this.props.criteria.id.toLowerCase()] == score : false) : false;
+      (selectedFeedback[0].feedback ? selectedFeedback[0].feedback[this.props.criteria.id.toLowerCase()] == score : false) : false
   }
 
-  render() {
-      
+  render() {      
     let { criteria } = this.props
     let scoreButtons = []
     for(let i = 0; i < this.state.maxStars; i++) {
