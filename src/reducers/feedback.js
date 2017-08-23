@@ -4,10 +4,17 @@ import { FEEDBACK } from '../actions/feedback'
 
 
 export type FeedbackState = {
-  feedbackSessionIds:any,
-  feedback:any
+  feedback:any,
+  feedbackCriteria:any
 }
-const feedbackInit = ():FeedbackState => ({ feedbackSessionIds: [], feedback :[] })
+const feedbackCriteria = [
+    { id: 'Overall', title: 'Session rating', low: 'Not so awesome', high: 'Awsome' }, 
+    { id: 'Relevance', title: 'How relevant was this session to your projects', low: 'Not at all', high: 'Extremly' }, 
+    { id: 'Content', title: 'Based on the decription/my expectaions, the content was', low: 'Too basic', high: 'Too advanced' },
+    { id: 'Quality', title: 'Speaker quality', low: 'Poor', high: 'Outstanding' }, 
+    { id: 'Comment', title: 'Any other comments' }
+]
+const feedbackInit = ():FeedbackState => ({ feedback :[], feedbackCriteria: feedbackCriteria })
 
 const feedback = (state: FeedbackState = feedbackInit(), action) => {
   switch (action.type) {
@@ -28,18 +35,18 @@ const feedback = (state: FeedbackState = feedbackInit(), action) => {
 
 
 
-function insertItem(array, action) {
-    let itemExist = array.feedback.filter(a => a.sessionId === action.payload.sessionID)
+function insertItem(state, action) {
+    let itemExist = state.feedback.filter(a => a.sessionId === action.payload.sessionID)
     if(itemExist > 0) {
-      return array
+      return state
     } else {
-      return { feedback: [...array.feedback, action.payload], feedbackSessionIds: [...array.feedbackSessionIds, action.payload.sessionId] }
+      return { feedbackCriteria: [...state.feedbackCriteria], feedback: [...state.feedback, action.payload] }
     }
 }
 
 
-function updateItem(array, action) {
-  return { feedbackSessionIds: array.feedbackSessionIds, feedback: array.feedback.map((item) => {
+function updateItem(state, action) {
+  return { feedbackCriteria: [...state.feedbackCriteria], feedback: state.feedback.map((item) => {
     if(item.sessionId !== action.payload.sessionId) {
       return item
     }

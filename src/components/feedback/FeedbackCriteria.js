@@ -16,7 +16,7 @@ export class FeedbackCriteria extends Component {
 
   onButtonPress = (score) => {
     const scoreObj = Object.assign({}, 
-    { feedback: {[this.props.category.id.toLowerCase()] : parseInt(score)}, 
+    { feedback: {[this.props.criteria.id.toLowerCase()] : parseInt(score)}, 
       sessionId: this.props.sessionData.sessionId})
     this.props.selectedScore(scoreObj)
   }
@@ -25,12 +25,12 @@ export class FeedbackCriteria extends Component {
 
     const selectedFeedback = feedbackData.feedback.filter(f => f.sessionId === this.props.sessionData.sessionId)
     return selectedFeedback[0] ? 
-      (selectedFeedback[0].feedback ? selectedFeedback[0].feedback[this.props.category.id.toLowerCase()] == score : false) : false;
+      (selectedFeedback[0].feedback ? selectedFeedback[0].feedback[this.props.criteria.id.toLowerCase()] == score : false) : false;
   }
 
   render() {
       
-    let { category } = this.props
+    let { criteria } = this.props
     let scoreButtons = []
     for(let i = 0; i < this.state.maxStars; i++) {
       scoreButtons.push(
@@ -45,13 +45,13 @@ export class FeedbackCriteria extends Component {
 
     return (
         <View style={ styles.container }>
-          <Text style={ styles.h2 }>{ category.title }</Text>
+          <Text style={ styles.h2 }>{ criteria.title }</Text>
           <View style={ styles.scoreContainer }>
              { scoreButtons }
           </View>
           <View style={ styles.gradingContainer }>
-            <Text style={ styles.grading }>{ category.low }</Text>
-            <Text style={ styles.grading }>{ category.high }</Text>
+            <Text style={ styles.grading }>{ criteria.low }</Text>
+            <Text style={ styles.grading }>{ criteria.high }</Text>
           </View>
         </View>
     )

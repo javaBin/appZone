@@ -10,19 +10,10 @@ import * as feedbackAction from '../../actions/feedback'
 import { connect } from 'react-redux'
 
 class Feedback extends Component {
+
   constructor(props) {
     super(props)
-    this.state = {
-      titleText: "Rate this session",
-      categories: [
-        { id: 'Overall', title: 'Session rating', low: 'Not so awesome', high: 'Awsome' }, 
-        { id: 'Relevance', title: 'How relevant was this session to your projects', low: 'Not at all', high: 'Extremly' }, 
-        { id: 'Content', title: 'Based on the decription/my expectaions, the content was', low: 'Too basic', high: 'Too advanced' },
-        { id: 'Quality', title: 'Speaker quality', low: 'Poor', high: 'Outstanding' }, 
-        { id: 'Comment', title: 'Any other comments' }
-      ],
-      feedbackData: this.props.feedbackData
-    }
+    this.state = {}
     this.onChangeText = this.onChangeText.bind(this)
   }
 
@@ -56,13 +47,13 @@ class Feedback extends Component {
   
   render() {
     const { params } = this.props.navigation.state
-    let { submitFeedback, feedbackData, navigation } = this.props
-    const feedbackCriteriaList = this.state.categories.map(category => {
-      if(category.id === 'Comment') {
+    let { submitFeedback, feedbackData, navigation, feedbackCriteria } = this.props
+    const feedbackCriteriaList = feedbackCriteria.map(criteria => {
+      if(criteria.id === 'Comment') {
         return (
-        <View style={ styles.commentContainer } key={ category.id }>   
+        <View style={ styles.commentContainer } key={ criteria.id }>   
           <TextInput 
-            placeholder={ category.title }
+            placeholder={ criteria.title }
             placeholderTextColor={ style.colors.primary }
             style={ styles.commentInput }
             onChangeText={ this.onChangeText }
@@ -72,8 +63,8 @@ class Feedback extends Component {
       } else {
         return (
           <FeedbackCriteria 
-            key={ category.id }
-            category={ category }
+            key={ criteria.id }
+            criteria={ criteria }
             feedbackData={ feedbackData }
             sessionData={ params.sessionData }
             selectedScore={ (score) => this.props.updateFeedback(score) }
@@ -188,7 +179,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => { 
   return {  
     feedbackData: state.feedback,
-    message : state.feedback.message
+    message : state.feedback.message,
+    feedbackCriteria: state.feedback.feedbackCriteria
   }
 }
 
