@@ -4153,6 +4153,12 @@ react-native-firebase@^2.1.2:
     bows "^1.6.0"
     prop-types "^15.5.10"
 
+react-native-ios-status-bar-padding@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-ios-status-bar-padding/-/react-native-ios-status-bar-padding-1.1.0.tgz#a00b53a314cf334761832882d7a6209f3e1706b8"
+  dependencies:
+    react-native-status-bar-size "^0.3.2"
+
 react-native-maps@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.14.0.tgz#f0b928f0bef5036472dcd8175f14838884962cad"
@@ -4178,6 +4184,15 @@ react-native-splash-screen@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-native-splash-screen/-/react-native-splash-screen-2.1.0.tgz#4e0a5e4e8c32974fe7a3cdb4d9a226d06d9daf4f"
 
+react-native-status-bar-size@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/react-native-status-bar-size/-/react-native-status-bar-size-0.3.2.tgz#e3ffd906f021220c256857a8de6b945f8ea3fabc"
+
+react-native-tab-view@^0.0.65:
+  version "0.0.65"
+  resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-0.0.65.tgz#b685ea3081ff7c96486cd997361026c407302c59"
+  dependencies:
+    prop-types "^15.5.8"
 
 react-native-vector-icons@^2.0.1:
   version "2.1.0"
