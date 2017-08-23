@@ -1,10 +1,10 @@
 export const FEEDBACK = {
-  ADD: 'FEEDBACK_ADD',
-  UPDATE: 'FEEDBACK_UPDATE',
-  SUBMIT: 'FEEDBACK_SUBMITT',
-  FETCH_SUCCESS: 'FETCH_SUCCESS',
-  FETCH_ERROR: 'FETCH_ERROR',
-  REMOVE_ERROR: 'REMOVE_ERROR'
+  ADD: 'feedback:addFeedback',
+  UPDATE: 'feedback:updateFeedback',
+  SUBMIT: 'feedback:submitFeedback',
+  FETCH_SUCCESS: 'feedback:postSuccess',
+  FETCH_ERROR: 'feedback:postError',
+  REMOVE_ERROR: 'feedback:removeMessag'
 }
 
 export const updateFeedback = 
