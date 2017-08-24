@@ -65,8 +65,7 @@ class HomeScreen extends React.Component {
   }
 
   handleSuperSecretOnPress = () => {
-    this.setState( (previous, props) => ({counter: (previous.counter === 20 ) ? 0 : previous.counter + 1}))
-
+    this.setState( (previous) => ({ counter: (previous.counter === 20 ) ? 0 : previous.counter + 1 }))
   }
 
   render() {
@@ -94,7 +93,6 @@ class HomeScreen extends React.Component {
     )
   }
 }
-
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
 ({ logScreen: () => { dispatch(firebase.setCurrentScreen('home_screen', 'HomeScreen')) } })
