@@ -12,8 +12,7 @@ import type { Session } from '../../../types/SleepingPill'
 const styles = StyleSheet.create({
    sessionTitle: {
      color: style.colors.primary,
-     fontSize: 16,
-     fontWeight: '600',
+     fontSize: style.fontSizes.heading3,
    },
    textStyle: {
      color: style.colors.primary,
@@ -23,13 +22,19 @@ const styles = StyleSheet.create({
      flexDirection: 'row',
    },
    formatPresentation: {
-     color: style.colors.color1,
+     color: style.colors.color3,
+     fontSize: style.fontSizes.heading3,
    },
    formatLightningTalk: {
      color: style.colors.color4,
+     fontSize: style.fontSizes.heading3,
    },
    formatWorkshop: {
-     color: style.colors.color3,
+     color: style.colors.color1,
+     fontSize: style.fontSizes.heading3,
+   }, 
+   addToMyScheduleButotn: {
+      justifyContent: 'center',
    }
  })
 
@@ -60,7 +65,7 @@ type Props = {
 const SessionListItem = (props: Props) => (
   <View style={ styles.listItemWrapper} key={ props.session.sessionId }>
     { config.features.myschedule &&
-      <View>
+      <View style={ styles.addToMyScheduleButotn }>
         <Icon
           name="plus" style={{ paddingRight: 10 }}
           size={ 30 }

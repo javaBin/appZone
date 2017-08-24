@@ -15,7 +15,7 @@ module.exports = {
     header: 'jura-medium', 
     headerItalic: 'jura-regular',
     headerRegular: 'jura-regular', 
-    special: 'tron',
+    special: 'tr2n',
   },
   fontSizes: {
     heading1: 30,

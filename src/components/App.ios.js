@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, View } from 'react-native'
 import TabBarNavigation from './tab-bar-navigation/TabBarNavigation'
-import StatusBarPaddingIOS from 'react-native-ios-status-bar-padding';
+import StatusBarPaddingIOS from 'react-native-ios-status-bar-padding'
 
 class App extends Component {
 
