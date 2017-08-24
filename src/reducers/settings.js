@@ -9,12 +9,14 @@ const STORE_SETTINGS_KEY = 'SETTINGSKEY'
 
 export type SettingsState = {
   notificationSession: boolean,
-  notificationFeedback: boolean
+  notificationFeedback: boolean,
+  highContrastMode: boolean
 };
 
 const initialState: SettingsState = {
   notificationSession: false,
-  notificationFeedback: false
+  notificationFeedback: false,
+  highContrastMode: false
 }
 
 type Actions = {
@@ -26,6 +28,9 @@ type Actions = {
 } | {
   type: 'SET_NOTIFICATION_FEEDBACK',
   payload: boolean
+} | {
+  type: 'SET_HIGH_CONTRAST_MODE',
+  payload: boolean
 }
 
 export default function settings(state: SettingsState = initialState, action: Actions) {
@@ -36,12 +41,16 @@ export default function settings(state: SettingsState = initialState, action: Ac
     case SETTINGS.SET_NOTIFICATION_FEEDBACK:
       storeSettings(action.type, action.payload)
       return { ...state, notificationFeedback: action.payload }
+    case SETTINGS.SET_HIGH_CONTRAST_MODE:
+      storeSettings(action.type, action.payload)
+      return { ...state, highContrastMode: action.payload }
     case SETTINGS.GET_NOTIFICATION_CONFIG: {
       const config = action.payload
       return {
         ...state,
         notificationSession: config.notificationSession,
-        notificationFeedback: config.notificationFeedback
+        notificationFeedback: config.notificationFeedback,
+        highContrastMode: config.highContrastMode
       }
     }
     default:
@@ -54,7 +63,8 @@ export default function settings(state: SettingsState = initialState, action: Ac
 function storeSettings(type, enabled) {
   let settings: LoadedSettings = {
     notificationSession: false,
-    notificationFeedback: false
+    notificationFeedback: false,
+    highContrastMode: false
   }
   AsyncStorage.getItem(STORE_SETTINGS_KEY).then((settingsStr) => {
     settings = JSON.parse(settingsStr)
@@ -65,6 +75,9 @@ function storeSettings(type, enabled) {
           break
         case SETTINGS.SET_NOTIFICATION_FEEDBACK:
           settings.notificationFeedback = enabled
+          break
+        case SETTINGS.SET_HIGH_CONTRAST_MODE:
+          settings.highContrastMode = enabled
           break
         default:
           break
@@ -80,6 +93,9 @@ function storeSettings(type, enabled) {
           break
         case SETTINGS.SET_NOTIFICATION_FEEDBACK:
           settings.notificationFeedback = enabled
+          break
+        case  SETTINGS.SET_HIGH_CONTRAST_MODE:
+          settings.highContrastMode = enabled
           break
         default:
           break

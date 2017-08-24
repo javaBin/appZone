@@ -57,7 +57,8 @@ class SettingsScreen extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func,
     notificationSession: PropTypes.bool,
-    notificationFeedback: PropTypes.bool
+    notificationFeedback: PropTypes.bool,
+    highContrastMode: PropTypes.bool
   }
 
   render() {
@@ -98,6 +99,21 @@ class SettingsScreen extends React.Component {
             onValueChange={(enabled) => this.setNotificationFeedbackSwitch(enabled)}
           />
         </View>
+        <View style={styles.switchWrapper}>
+          <Text style={styles.option}>Toggle high contrast</Text>
+          <Switch
+
+            thumbTintColor = { 
+              (this.props.highContrast) 
+              ? style.colors.color1
+              : style.colors.primary}
+
+            accessibilityLabel="Toggle hight contrast"
+            style={styles.switch}
+            value={!!this.props.highContrast}
+            onValueChange={(enabled) => this.setHighContrastMode(enabled)}
+          />
+        </View>
       </View>
     )
   }
@@ -112,6 +128,10 @@ class SettingsScreen extends React.Component {
     this.props.dispatch(settings.setNotificationFeedback(enabled))
   }
 
+  setHighContrastMode(enabled) {
+    this.props.dispatch(settings.setHighContrastMode(enabled))
+  }
+
   loadSettings(settingsJson) {
     this.props.dispatch(settings.loadSettings(settingsJson))
   }
@@ -120,7 +140,8 @@ class SettingsScreen extends React.Component {
 function select(store) {
   return {
     notificationSession: store.settings.notificationSession,
-    notificationFeedback: store.settings.notificationFeedback
+    notificationFeedback: store.settings.notificationFeedback,
+    highContrast: store.settings.highContrastMode,
   }
 }
 

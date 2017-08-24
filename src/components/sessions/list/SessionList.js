@@ -4,7 +4,7 @@ import React from 'react'
 import { ListView, StyleSheet, View } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import style from '../../../common/style'
+
 import SessionListItem from './SessionListItem'
 import SessionFilter from './SessionFilter'
 import SessionSectionHeader from './SessionSectionHeader'
@@ -13,16 +13,18 @@ import groupBy from 'lodash/groupBy'
 
 import type { Dispatch } from '../../../types/Actions'
 
-const styles = StyleSheet.create({
-  list: {},
-  listContainer: {
-    flex: 1,
-    backgroundColor: style.colors.background,
-  },
-  textStyle: {
-    color: style.colors.primary,
-  }
-})
+
+// const style = (false) ? require('../../../common/style') : require('../../../common/styleHighContrast');
+// const styles = StyleSheet.create({
+//   list: {},
+//   listContainer: {
+//     flex: 1,
+//     backgroundColor: style.colors.background,
+//   },
+//   textStyle: {
+//     color: style.colors.primary,
+//   }
+// })
 
 const updateState = (state, props) => {
   if (props.sessionsData) {
@@ -75,7 +77,58 @@ class SessionList extends React.Component {
     }
   }
 
+  setStyleSheetSessionFilter(style) {
+    return StyleSheet.create({
+      filterButtonWrapper: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+      },
+      filterButton: {
+        flexGrow: 2,
+        borderColor: style.colors.backgroundSecondary,
+        borderWidth: 3,
+        height: 48,
+      },
+      filterButtonText: {
+        alignSelf: 'center',
+        paddingTop: 10,
+        fontSize: 15,
+        color: style.colors.color3
+      },
+      filterButtonBackground: {
+        backgroundColor: style.colors.backgroundSecondary
+      },
+      filterButtonBackgroundActive: {
+        backgroundColor: style.colors.backgroundColor
+      }
+    })
+  }
+
+  setStyleSheet(style){
+
+    return StyleSheet.create({
+      list: {},
+      listContainer: {
+        flex: 1,
+        backgroundColor: style.colors.background,
+      },
+      textStyle: {
+        color: style.colors.primary,
+      }
+    })
+  } 
+
+  getStyleConfig() {
+    return (this.props.highContrast) 
+      ? require('../../../common/style')
+      : require('../../../common/styleHighContrast')
+  }
+
+
   render() {
+    const style = this.getStyleConfig()
+    const styles = this.setStyleSheet(style)
+    const filterStyles = this.setStyleSheetSessionFilter(style)
     if(!this.state.ds) return null
     return (
       <View style={ styles.listContainer }>
@@ -84,10 +137,12 @@ class SessionList extends React.Component {
           day2={this.props.day2}
           selectedDay={this.props.selectedDay}
           onFilterDayPressed={this.props.filterSessionDay}
-          onFilterSessionPressed={this.filterSessions} />
+          onFilterSessionPressed={this.filterSessions} 
+          styles={this.filterStyles}/>
         <ListView
           removeClippedSubviews={false}
-          enableEmptySections={true} style={ styles.list }
+          enableEmptySections={true} 
+          style={ styles.list }
           dataSource={ this.state.ds }
           renderRow={(sessionAndSlot) =>
              (<SessionListItem
@@ -112,6 +167,7 @@ const mapStateToProps = (state) => {
     selectedDay: state.filter.selectedDay,
     day1: state.filter.days.day1,
     day2: state.filter.days.day2,
+    highContrast: state.settings.highContrastMode
   }
 }
 

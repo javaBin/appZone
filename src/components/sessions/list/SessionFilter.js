@@ -11,40 +11,19 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../../common/style'
 import config from '../../../config'
 
-const styles = StyleSheet.create({
-    filterButtonWrapper: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-    },
-    filterButton: {
-      flexGrow: 2,
-      borderColor: style.colors.backgroundSecondary,
-      borderWidth: 3,
-      height: 48,
-    },
-    filterButtonText: {
-      alignSelf: 'center',
-      paddingTop: 10,
-      fontSize: 15,
-      color: style.colors.color3
-    },
-    filterButtonBackground: {
-      backgroundColor: style.colors.backgroundSecondary
-    },
-    filterButtonBackgroundActive: {
-      backgroundColor: style.colors.backgroundColor
-    }
-  })
-
 type Props = {
   onFilterSessionPressed: () => void,
   onFilterDayPressed: (day: ?string) => void,
   day1: ?string,
   day2: ?string,
   selectedDay: ?string,
+  styles: obj
 }
 
+const styles = () => (this.props.styles)
+
 const SessionFilter = (props: Props) => (
+
   <View style= { styles.filterButtonWrapper }>
     <TouchableOpacity
         style = {[
