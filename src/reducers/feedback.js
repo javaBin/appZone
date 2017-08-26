@@ -1,7 +1,13 @@
 // @flow
 
 import { FEEDBACK } from '../actions/feedback'
-
+import type { 
+  AddFeedbackAction, 
+  UpdateFeedbackAction, 
+  FeedbackSubmitAction, 
+  FeedbackFetchSuccessAction, 
+  FeedbackFetchErrorAction, 
+  ReomoveErrorAction } from '../actions/feedback'
 
 export type FeedbackState = {
   feedback:any,
@@ -16,16 +22,23 @@ const feedbackCriteria = [
 ]
 const feedbackInit = ():FeedbackState => ({ feedback :[], feedbackCriteria: feedbackCriteria })
 
-const feedback = (state: FeedbackState = feedbackInit(), action) => {
+export type FeedbackActions = AddFeedbackAction | 
+UpdateFeedbackAction | 
+FeedbackSubmitAction | 
+FeedbackFetchSuccessAction | 
+FeedbackFetchErrorAction | 
+ReomoveErrorAction
+
+const feedback = (state: FeedbackState = feedbackInit(), action: FeedbackActions) => {
   switch (action.type) {
       case FEEDBACK.ADD:
         return insertItem(state, action)
       case FEEDBACK.UPDATE:
         return updateItem(state, action)
       case FEEDBACK.FETCH_SUCCESS:
-        return { ...state, message: action.response }
+        return { ...state, message: action.payload }
       case FEEDBACK.FETCH_ERROR: 
-        return { ...state, message: { error: action.error } }
+        return { ...state, message: { error: action.errorMsg } }
       case FEEDBACK.REMOVE_ERROR:
         return { ...state, message: null }
       default:
