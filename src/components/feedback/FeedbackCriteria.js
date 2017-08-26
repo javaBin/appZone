@@ -8,8 +8,8 @@ import FeedbackScoreBtn from './FeedbackScoreBtn'
 export class FeedbackCriteria extends Component {
   static propTypes = {
     selectedScore: PropTypes.func,
-    feedbackData: PropTypes.arrayOf,
-    sessionData: PropTypes.arrayOf,
+    feedbackData: PropTypes.object,
+    sessionData: PropTypes.object,
     criteria: PropTypes.object
   }
 
@@ -42,7 +42,7 @@ export class FeedbackCriteria extends Component {
       scoreButtons.push(
         <FeedbackScoreBtn
           key={i}
-          score={'' +(i + 1)}
+          score={(i + 1)}
           selected={ this.selected((i + 1),this.props.feedbackData) }
           onScoreButtonPress={ this.onButtonPress }
         />

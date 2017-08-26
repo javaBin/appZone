@@ -16,8 +16,8 @@ class Feedback extends Component {
     updateFeedback: PropTypes.func,
     removeError: PropTypes.func,
     submitFeedback: PropTypes.func,
-    message: PropTypes.string,
-    feedbackData: PropTypes.array,
+    message: PropTypes.object,
+    feedbackData: PropTypes.object,
     feedbackCriteria: PropTypes.array,
     navigation: PropTypes.object
   }
