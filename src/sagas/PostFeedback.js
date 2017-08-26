@@ -6,7 +6,7 @@ import { feedbackFetchError, feedbackFetchSuccess, FEEDBACK } from '../actions/f
 
 
 
-function* postFeedbackRequest(action) {
+function* postFeedbackRequest(action): Generator<*, void, *> {
   try {
     const feedbackPost = yield call(() => feedback(action.payload))
 
@@ -16,6 +16,6 @@ function* postFeedbackRequest(action) {
   }
 }
 
-export default function* postFeedbackSaga() {
+export default function* postFeedbackSaga(): Generator<*, void, *> {
   yield takeLatest(FEEDBACK.SUBMIT, postFeedbackRequest)
 }
