@@ -3,6 +3,7 @@
 type Config = {|
   urls: {
     sleepingPill: string,
+    devnull: string
   },
   conferenceSlug: string, 
   features: { 
@@ -14,7 +15,8 @@ type Config = {|
 
 const prodConfig: Config = {
   urls: {
-    sleepingPill: "https://sleepingpill.javazone.no"
+    sleepingPill: "https://sleepingpill.javazone.no",
+    devnull: "https://javazone.no/devnull/server"
   },
   conferenceSlug: "javazone_2017",
   features: {
