@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { View, Text, StyleSheet } from 'react-native'
 import style from '../../common/style'
 
 import FeedbackScoreBtn from './FeedbackScoreBtn'
 
 export class FeedbackCriteria extends Component {
+  static propTypes = {
+    selectedScore: PropTypes.func,
+    feedbackData: PropTypes.arrayOf,
+    sessionData: PropTypes.arrayOf,
+    criteria: PropTypes.object
+  }
+
   constructor(props) {
     super(props)
     this.state = {

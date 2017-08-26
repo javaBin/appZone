@@ -1,8 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { TouchableHighlight, Text } from 'react-native'
 import style from '../../common/style'
 
 class FeedbackScoreBtn extends React.Component  {
+    static propTypes = {
+        selected: PropTypes.bool,
+        score: PropTypes.number,
+        onScoreButtonPress: PropTypes.func,
+    }
     constructor(props) {
         super(props)
         this.state = {}
@@ -49,4 +55,5 @@ class FeedbackScoreBtn extends React.Component  {
         )
     }
 }
+
 export default FeedbackScoreBtn

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { View, Text, StyleSheet, TextInput, Button, ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
@@ -10,6 +11,16 @@ import * as feedbackAction from '../../actions/feedback'
 import { connect } from 'react-redux'
 
 class Feedback extends Component {
+  static propTypes = {
+    addFeedback: PropTypes.func,
+    updateFeedback: PropTypes.func,
+    removeError: PropTypes.func,
+    submitFeedback: PropTypes.func,
+    message: PropTypes.string,
+    feedbackData: PropTypes.array,
+    feedbackCriteria: PropTypes.array,
+    navigation: PropTypes.object
+  }
 
   constructor(props) {
     super(props)
