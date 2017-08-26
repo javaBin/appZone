@@ -17,6 +17,7 @@
 .*/node_modules/react-native-tab-view/.*
 .*/node_modules/react-navigation/.*
 .*/node_modules/react-native-firebase/.*
+.*/node_modules/react-native-status-bar-size/.*
 .*/node_modules/react-native/local-cli/link/link.js
 .*/ios/Pods/.*
 [include]

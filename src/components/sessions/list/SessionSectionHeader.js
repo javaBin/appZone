@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
    container: {
     padding: 10,
     borderColor: style.colors.color1,
-    borderBottomWidth: 2
+    borderBottomWidth: 2,
+    backgroundColor: style.colors.background
    },
    text: {
     color: style.colors.primary,

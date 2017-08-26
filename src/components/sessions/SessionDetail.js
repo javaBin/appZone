@@ -77,7 +77,7 @@ class SessionDetail extends React.Component {
         <View style={styles.sessionHeaderWrapper}>
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <Icon name="arrow-left" style={{ padding: 15 }} size={40} color={style.colors.color4}
-              onPress={() => navigation.navigate('SessionList')} />
+              onPress={() => navigation.goBack()} />
           </View>
           <Text style={styles.heading1}>{(params.sessionData.title).toUpperCase()}</Text>
           <View style={{ flex: 1, flexDirection: 'row' }}>
@@ -104,14 +104,17 @@ class SessionDetail extends React.Component {
                 </View>)
             })
           }
-          <Text style={styles.heading2}>KEYWORDS:</Text>
-          <View style={{ flex: 1, flexDirection: 'row' }}>
-            {
-              params.sessionData.keywords.map((keyword, index) => {
-                return <Text style={styles.keywordContainer} key={index}>{keyword}</Text>
-              })
-            }
-          </View>
+          {params.sessionData.keywords &&
+             <View>
+              <Text style={styles.heading2}>KEYWORDS:</Text>
+              <View style={{ flex: 1, flexDirection: 'row' }}>
+                {params.sessionData.keywords.map((keyword, index) => (
+                     <Text style={styles.keywordContainer} key={index}>{keyword}</Text>
+                  ))
+                }
+              </View>
+            </View>
+          }
         </View>
       </ScrollView>
     )
