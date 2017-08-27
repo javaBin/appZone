@@ -1,4 +1,4 @@
-package com.appzone;
+package com.appzone17;
 
 import android.app.Application;
 
