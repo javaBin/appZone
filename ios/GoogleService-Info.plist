@@ -17,11 +17,11 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.appzone</string>
+	<string>com.appzone17</string>
 	<key>PROJECT_ID</key>
-	<string>appzone-176218</string>
+	<string>appzone17-176218</string>
 	<key>STORAGE_BUCKET</key>
-	<string>appzone-176218.appspot.com</string>
+	<string>appzone17-176218.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -35,6 +35,6 @@
 	<key>GOOGLE_APP_ID</key>
 	<string>1:736395743583:ios:22d88df21bb0e1e8</string>
 	<key>DATABASE_URL</key>
-	<string>https://appzone-176218.firebaseio.com</string>
+	<string>https://appzone17-176218.firebaseio.com</string>
 </dict>
 </plist>
