@@ -1,4 +1,4 @@
-package com.appzone;
+package com.appzone17;
 
 import com.facebook.react.ReactActivity;
 import com.cboy.rn.splashscreen.SplashScreen; 
