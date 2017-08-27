@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		006B2B3B031597B37FAFCBB4 /* Pods_appZone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19ACECBC684704EB3CFC056E /* Pods_appZone.framework */; };
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* appZoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* appZoneTests.m */; };
+		0EA5A048EC23AF9C873B890E /* Pods_appZoneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D371266A9CAFF29D8D36DD44 /* Pods_appZoneTests.framework */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -33,10 +35,8 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* appZoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* appZoneTests.m */; };
-		41400521B42EB4CC297D4BF1 /* libPods-appZoneTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B9528D7FE87402C10E7AA87 /* libPods-appZoneTests.a */; };
-		504054DB1F4CA165000ADA3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 504054DA1F4CA165000ADA3B /* GoogleService-Info.plist */; };
 		504054DF1F4CC0A4000ADA3B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504054DE1F4CC0A4000ADA3B /* Launch Screen.storyboard */; };
-		504054E11F4CC16A000ADA3B /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 504054E01F4CC16A000ADA3B /* Default~iphone.png */; };
+		504054E11F4CC16A000ADA3B /* Default_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 504054E01F4CC16A000ADA3B /* Default_iphone.png */; };
 		509A12191F08403F0029000C /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509A120F1F08403F0029000C /* Entypo.ttf */; };
 		509A121A1F08403F0029000C /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509A12101F08403F0029000C /* EvilIcons.ttf */; };
 		509A121B1F08403F0029000C /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509A12111F08403F0029000C /* FontAwesome.ttf */; };
@@ -52,9 +52,9 @@
 		509A12431F0840CA0029000C /* jura-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509A123E1F0840CA0029000C /* jura-medium.ttf */; };
 		509A12441F0840CA0029000C /* jura-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509A123F1F0840CA0029000C /* jura-regular.ttf */; };
 		509A12451F0840CA0029000C /* tron.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 509A12401F0840CA0029000C /* tron.ttf */; };
+		50E3EDB11F5349AE008BB008 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50E3EDB01F5349AE008BB008 /* GoogleService-Info.plist */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		F7100FA7B32DA17C72E2606C /* libPods-appZone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4798FCE370AC0C538B663DA0 /* libPods-appZone.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -303,16 +303,14 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = appZone/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = appZone/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		1B9528D7FE87402C10E7AA87 /* libPods-appZoneTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appZoneTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		19ACECBC684704EB3CFC056E /* Pods_appZone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_appZone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* appZone-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "appZone-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* appZone-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "appZone-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		344FE7C482A959744D940358 /* libPods-appZone-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appZone-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		372A0389385E8C546C755D09 /* Pods-appZone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appZone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appZone/Pods-appZone.debug.xcconfig"; sourceTree = "<group>"; };
 		460922B08B09132DEB5F5081 /* libPods-appZone-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appZone-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4798FCE370AC0C538B663DA0 /* libPods-appZone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-appZone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		504054DA1F4CA165000ADA3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		504054DE1F4CC0A4000ADA3B /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "appZone/Launch Screen.storyboard"; sourceTree = "<group>"; };
-		504054E01F4CC16A000ADA3B /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
+		504054E01F4CC16A000ADA3B /* Default_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default_iphone.png; sourceTree = "<group>"; };
 		509A120F1F08403F0029000C /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
 		509A12101F08403F0029000C /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		509A12111F08403F0029000C /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
@@ -329,11 +327,13 @@
 		509A123F1F0840CA0029000C /* jura-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "jura-regular.ttf"; path = "../../../android/app/src/main/assets/fonts/jura-regular.ttf"; sourceTree = "<group>"; };
 		509A12401F0840CA0029000C /* tron.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = tron.ttf; path = ../../../android/app/src/main/assets/fonts/tron.ttf; sourceTree = "<group>"; };
 		509E5C0D1F3B9A3E00FAC8EA /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
+		50E3EDB01F5349AE008BB008 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6DCD3E42B847B6F4480FDE18 /* Pods-appZone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appZone.release.xcconfig"; path = "Pods/Target Support Files/Pods-appZone/Pods-appZone.release.xcconfig"; sourceTree = "<group>"; };
 		777D1F5A0F63877792298244 /* Pods-appZoneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appZoneTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appZoneTests/Pods-appZoneTests.debug.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		D371266A9CAFF29D8D36DD44 /* Pods_appZoneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_appZoneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA2C06B569B075BE97AA09BF /* Pods-appZoneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appZoneTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-appZoneTests/Pods-appZoneTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -343,7 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
-				41400521B42EB4CC297D4BF1 /* libPods-appZoneTests.a in Frameworks */,
+				0EA5A048EC23AF9C873B890E /* Pods_appZoneTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +362,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				F7100FA7B32DA17C72E2606C /* libPods-appZone.a in Frameworks */,
+				006B2B3B031597B37FAFCBB4 /* Pods_appZone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,11 +471,11 @@
 		13B07FAE1A68108700A75B9A /* appZone */ = {
 			isa = PBXGroup;
 			children = (
-				504054E01F4CC16A000ADA3B /* Default~iphone.png */,
+				504054E01F4CC16A000ADA3B /* Default_iphone.png */,
 				504054DE1F4CC0A4000ADA3B /* Launch Screen.storyboard */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
-				504054DA1F4CA165000ADA3B /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				50E3EDB01F5349AE008BB008 /* GoogleService-Info.plist */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -508,8 +508,8 @@
 			children = (
 				460922B08B09132DEB5F5081 /* libPods-appZone-tvOS.a */,
 				344FE7C482A959744D940358 /* libPods-appZone-tvOSTests.a */,
-				4798FCE370AC0C538B663DA0 /* libPods-appZone.a */,
-				1B9528D7FE87402C10E7AA87 /* libPods-appZoneTests.a */,
+				19ACECBC684704EB3CFC056E /* Pods_appZone.framework */,
+				D371266A9CAFF29D8D36DD44 /* Pods_appZoneTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1041,10 +1041,10 @@
 				509A12211F08403F0029000C /* SimpleLineIcons.ttf in Resources */,
 				509A121D1F08403F0029000C /* Ionicons.ttf in Resources */,
 				509A121C1F08403F0029000C /* Foundation.ttf in Resources */,
-				504054E11F4CC16A000ADA3B /* Default~iphone.png in Resources */,
+				504054E11F4CC16A000ADA3B /* Default_iphone.png in Resources */,
 				509A121F1F08403F0029000C /* MaterialIcons.ttf in Resources */,
+				50E3EDB11F5349AE008BB008 /* GoogleService-Info.plist in Resources */,
 				509A12191F08403F0029000C /* Entypo.ttf in Resources */,
-				504054DB1F4CA165000ADA3B /* GoogleService-Info.plist in Resources */,
 				504054DF1F4CC0A4000ADA3B /* Launch Screen.storyboard in Resources */,
 				509A121E1F08403F0029000C /* MaterialCommunityIcons.ttf in Resources */,
 				509A12431F0840CA0029000C /* jura-medium.ttf in Resources */,
