@@ -1,16 +1,16 @@
 {
   "project_info": {
     "project_number": "736395743583",
-    "firebase_url": "https://appzone-176218.firebaseio.com",
-    "project_id": "appzone-176218",
-    "storage_bucket": "appzone-176218.appspot.com"
+    "firebase_url": "https://appzone17-176218.firebaseio.com",
+    "project_id": "appzone17-176218",
+    "storage_bucket": "appzone17-176218.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:736395743583:android:22d88df21bb0e1e8",
         "android_client_info": {
-          "package_name": "com.appzone"
+          "package_name": "com.appzone17"
         }
       },
       "oauth_client": [
