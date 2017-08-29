@@ -11,7 +11,6 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-#import <GoogleMaps/GoogleMaps.h>
 #import <Firebase.h>
 
 @implementation AppDelegate
@@ -21,7 +20,6 @@
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
-  [GMSServices provideAPIKey:@"AIzaSyCfardDnQxjnjuiFlycg5NTTNmZqrbDntU"];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"appZone"
