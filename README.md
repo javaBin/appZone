@@ -27,3 +27,7 @@ Start project using react-native run-android
 Go to http://remotedev.io/local/
 Open settings. Check "Use custom (local) server
 Host name should be 'localhost' and port '8083'.
+
+## Build a signed apk for Android
+
+Follow the steps described [here](https://facebook.github.io/react-native/docs/signed-apk-android.html#generating-the-release-apk) to build a signed apk.
