@@ -12,6 +12,9 @@ import style from '../../common/style'
 import type { Dispatch } from '../../../types/Actions'
 
 const styles = StyleSheet.create({
+  sessionScrollview: {
+    backgroundColor: style.colors.background
+  },
   sessionHeaderWrapper: {
     flex: 1,
     padding: 5,
@@ -88,7 +91,7 @@ class SessionDetail extends React.Component {
     let fromTime = moment(new Date(params.sessionData.startTimeZulu)).format('HH:mm')
     let toTime = moment(new Date(params.sessionData.endTimeZulu)).format('HH:mm, dddd, MMMM DD ')
     return (
-      <ScrollView>
+      <ScrollView style={styles.sessionScrollview}>
         <View style={styles.sessionHeaderWrapper}>
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <Icon name="arrow-left" style={{ padding: 0 }} size={40} color={style.colors.color4}
