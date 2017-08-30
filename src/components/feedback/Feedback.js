@@ -7,6 +7,7 @@ import Toast, { DURATION } from 'react-native-easy-toast'
 
 import { FeedbackCriteria } from './FeedbackCriteria'
 import * as feedbackAction from '../../actions/feedback'
+import { getUUID } from '../../actions/uuid'
 
 import { connect } from 'react-redux'
 
@@ -16,6 +17,8 @@ class Feedback extends Component {
     updateFeedback: PropTypes.func,
     removeError: PropTypes.func,
     submitFeedback: PropTypes.func,
+    getUUID: PropTypes.func,
+    uuid: PropTypes.string,
     message: PropTypes.object,
     feedbackData: PropTypes.object,
     feedbackCriteria: PropTypes.array,
@@ -34,6 +37,7 @@ class Feedback extends Component {
       { sessionId : this.props.navigation.state.params.sessionData.sessionId,
         eventId: this.props.navigation.state.params.sessionData.conferenceId
       })
+    this.props.getUUID()
   }
     
   componentDidUpdate() {
@@ -58,7 +62,7 @@ class Feedback extends Component {
   
   render() {
     const { params } = this.props.navigation.state
-    let { submitFeedback, feedbackData, navigation, feedbackCriteria } = this.props
+    let { submitFeedback, feedbackData, navigation, feedbackCriteria, uuid } = this.props
     const feedbackCriteriaList = feedbackCriteria.map(criteria => {
       if(criteria.id === 'Comment') {
         return (
@@ -110,7 +114,7 @@ class Feedback extends Component {
               }).reduce((acc, curr)=>{ 
                     return Object.assign(acc, { ...curr })
               }, {})
-              submitFeedback(Object.assign({}, { ...feedback, feedback: Object.assign({}, { ...feedback.feedback }, { comment }) }))
+              submitFeedback(Object.assign({}, { ...feedback, feedback: Object.assign({}, { ...feedback.feedback }, { comment }), uuid }))
             }}
           >
           </Button>
@@ -191,7 +195,8 @@ const mapStateToProps = (state) => {
   return {  
     feedbackData: state.feedback,
     message : state.feedback.message,
-    feedbackCriteria: state.feedback.feedbackCriteria
+    feedbackCriteria: state.feedback.feedbackCriteria,
+    uuid: state.uuid.uuid
   }
 }
 
@@ -208,6 +213,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     removeError: (error) => {
       dispatch(feedbackAction.removeError(error))
+    },
+    getUUID : () => {
+      dispatch(getUUID())
     }
   } 
 }
