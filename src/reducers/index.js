@@ -4,6 +4,7 @@ import { combineReducers } from 'redux'
 
 import settings from './settings'
 import sessions from './sessions'
+import uuid from './uuid'
 import conferences from './conferences'
 import { FIREBASE_EVENT } from '../actions/firebase'
 import filter from './filter'
@@ -33,7 +34,8 @@ export type StoreState = {
   session: SessionState,
   filter: FilterState,
   settings: SettingsState,
-  tabBar: any
+  tabBar: any,
+  uuid: string
 }
 
 const firebaseInit = { analytics: null, }
@@ -71,6 +73,7 @@ const reducers = combineReducers({
   conferences, 
   feedback,
   sessions,
+  uuid,
   settings,
   filter,
   firebaseEvents,
