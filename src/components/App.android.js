@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native'
 import TabBarNavigation from './tab-bar-navigation/TabBarNavigation'
 
 import moment from 'moment'
-import nbLocale  from 'moment/locale/nb'
 import SplashScreen from 'react-native-splash-screen'
 
 class App extends Component {
@@ -13,7 +12,6 @@ class App extends Component {
     }
 
     render () {
-        moment.updateLocale('nb', nbLocale)
         return (
             <TabBarNavigation style={styles.container}/>
         )
