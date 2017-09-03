@@ -70,8 +70,8 @@ class SessionDetail extends React.Component {
     const { navigation, } = this.props
     const { params } = navigation.state
 
-    let fromTime = moment(new Date(params.sessionData.startTime)).format('dddd, MMMM DD HH:mm')
-    let toTime = moment(new Date(params.sessionData.endTime)).format('HH:mm')
+    let fromTime = moment(new Date(params.sessionData.startTimeZulu)).format('HH:mm')
+    let toTime = moment(new Date(params.sessionData.endTimeZulu)).format('HH:mm, dddd, MMMM DD ')
     return (
       <ScrollView>
         <View style={styles.sessionHeaderWrapper}>
