@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   textStyleHeder: {
-    color: style.colors.color1,
+    color: style.colors.primary,
   },
   textStyle: {
     color: style.colors.primary,
@@ -76,14 +76,14 @@ class SessionDetail extends React.Component {
       <ScrollView>
         <View style={styles.sessionHeaderWrapper}>
           <View style={{ flex: 1, flexDirection: 'row' }}>
-            <Icon name="arrow-left" style={{ padding: 15 }} size={40} color={style.colors.color4}
+            <Icon name="arrow-left" style={{ padding: 0 }} size={40} color={style.colors.color4}
               onPress={() => navigation.goBack()} />
           </View>
           <Text style={styles.heading1}>{(params.sessionData.title).toUpperCase()}</Text>
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <View>
-              <Text style={styles.textStyleHeder}>{params.sessionData.room} {params.sessionData.format}</Text>
-              <Text style={{ color: style.colors.color1 }}>{fromTime} - {toTime}</Text>
+              <Text style={styles.textStyleHeder}>{fromTime} - {toTime}</Text>
+              <Text style={styles.textStyleHeder}>{params.sessionData.room} - {params.sessionData.format}</Text>
             </View>
           </View>
         </View>
