@@ -20,6 +20,8 @@ const styles = StyleSheet.create({
    listItemWrapper: {
      padding: 10,
      flexDirection: 'row',
+     borderBottomColor: style.colors.backgroundSecondary,
+     borderBottomWidth: 1, 
    },
    formatPresentation: {
      color: style.colors.color3,
@@ -33,25 +35,25 @@ const styles = StyleSheet.create({
      color: style.colors.color1,
      fontSize: style.fontSizes.heading3,
    }, 
-   addToMyScheduleButotn: {
+   addToMyScheduleButton: {
       justifyContent: 'center',
    }
  })
 
-const getSessionFormat = (format) =>  {
+const getSessionFormat = (room, format) =>  {
   if (format === 'presentation') {
-    return <Text style={ styles.formatPresentation }>{format}</Text>
+    return <Text style={ styles.formatPresentation }>{room} - {format}</Text>
   } else if(format === 'lightning-talk') {
-    return <Text style={ styles.formatLightningTalk }>{format}</Text>
+    return <Text style={ styles.formatLightningTalk }>{room} -  {format}</Text>
   } else {
-    return <Text style={ styles.formatWorkshop }>{format}</Text>
+    return <Text style={ styles.formatWorkshop }>{room} - {format}</Text>
   }
 }
 
 const getTimeSpan = (fromTime: ?string, endTime: ?string): ?string => {
   if (fromTime && endTime ) {
-    const from = (moment(fromTime).format('dddd, DD MMM HH:mm'))
-    const end = (moment (endTime).format('HH:mm'))
+    const from = (moment(fromTime).format('HH:mm'))
+    const end = (moment (endTime).format('HH:mm dddd, DD MMM '))
   return (from + ' - ' + end)
   } else {
     return null
@@ -65,7 +67,7 @@ type Props = {
 const SessionListItem = (props: Props) => (
   <View style={ styles.listItemWrapper} key={ props.session.sessionId }>
     { config.features.myschedule &&
-      <View style={ styles.addToMyScheduleButotn }>
+      <View style={ styles.addToMyScheduleButton }>
         <Icon
           name="plus" style={{ paddingRight: 10 }}
           size={ 30 }
@@ -76,11 +78,10 @@ const SessionListItem = (props: Props) => (
         style={{ paddingRight: 40 }}
         onPress={ () => props.onRowPressed(props.session) } key={ props.session.sessionId }>
       <Text style={ styles.sessionTitle }>{props.session.title}</Text>
-      { getSessionFormat(props.session.format) }
+      { getSessionFormat(props.session.room, props.session.format) }
       <Text style={ styles.textStyle }>
         { getTimeSpan(props.session.startTimeZulu, props.session.endTimeZulu) }
       </Text>
-      <Text style={ styles.textStyle }>{ props.session.room }</Text>
     </TouchableOpacity>
   </View>
 )

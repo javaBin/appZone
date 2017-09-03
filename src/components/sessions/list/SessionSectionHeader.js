@@ -36,7 +36,7 @@ const SessionSectionHeader = (props: any) => {
   const slot = props.slotTimes.find(st => st.slotId === props.slotTimeId)
   return (<View style={styles.container}>
     <Text style={styles.text}>
-      {`Session: ${props.slotTimeId}: `}
+      {`Session ${props.slotTimeId}: `}
       <Time time={slot.start} style={styles.text} /> - <Time time={slot.end}  style={styles.text} />
     </Text>
   </View>)
