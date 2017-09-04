@@ -10,6 +10,7 @@ type Config = {|
     filtersessions: boolean, 
     myschedule: boolean,
     settings: boolean,
+    feedback: boolean
   }
 |}
 
@@ -22,7 +23,8 @@ const prodConfig: Config = {
   features: {
     filtersessions: false,
     myschedule: false,
-    settings: false
+    settings: false,
+    feedback: false,
   }
 } 
 
@@ -38,7 +40,8 @@ const devConfig: Config = {
   features: {
     filtersessions: true,
     myschedule: true,
-    settings: true
+    settings: true,
+    feedback: true
   }
 }
 
