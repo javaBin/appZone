@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { View, Text, StyleSheet, TextInput, Button, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
 import Toast, { DURATION } from 'react-native-easy-toast'
@@ -103,10 +103,10 @@ class Feedback extends Component {
             ref={(c) => { this.feedbackToast = c }} 
             style={{ backgroundColor: style.colors.color4 }}
             position='top'/>
-          <Button
-            color={ style.colors.color4 }
+          <TouchableOpacity
             style={ styles.submitBtn }
             title='Submit feedback'
+            accessibilityLabel="Send feedback for this session"
             onPress={()=> {
               let comment = this.state.text
               let feedback = feedbackData.feedback.filter((f) => {
@@ -117,7 +117,8 @@ class Feedback extends Component {
               submitFeedback(Object.assign({}, { ...feedback, feedback: Object.assign({}, { ...feedback.feedback }, { comment }), uuid }))
             }}
           >
-          </Button>
+            <Text style={styles.submitBtnText}>Submit feedback</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     )
@@ -159,25 +160,19 @@ const styles = StyleSheet.create({
       paddingLeft: 30,
       paddingRight: 30,
       borderColor: style.colors.color4,
-      color: 'white',
-      marginBottom: 10,
+      margin: 10,
     },
     submitBtnText: {
-      color: 'white',
+      color: style.colors.color4,
       marginTop: 10,
-      backgroundColor: style.colors.color4
+      fontSize: 20
     },
     h1 : {
-       fontSize: 18,
+       fontSize: style.fontSizes.heading3,
        color: style.colors.color1,
        width: 300,
        alignSelf: 'center', 
        
-    },
-    h2: {
-        fontSize: 20,
-        textAlign: 'center',
-        color: '#666666'    
     },
     scoreContainer: {
         flexDirection: 'row', 
