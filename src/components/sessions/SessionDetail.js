@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as firebase from '../../actions/firebase'
 
-import { Text, StyleSheet, View, ScrollView, Button } from 'react-native'
+import { Text, StyleSheet, View, ScrollView, TouchableOpacity } from 'react-native'
 
 import moment from 'moment'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -55,6 +55,29 @@ const styles = StyleSheet.create({
     fontFamily: style.fonts.headerLight,
     padding: 3,
     margin: 5,
+  },
+  feedbackBtnContainer: {
+    margin: 10,
+    padding: 10,
+    borderWidth: 1,
+    borderRadius: 2,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
+    borderBottomWidth: 0,
+    shadowColor: 'rgba(255, 255, 255, 0.5)',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1
+  },
+  feedbackQuestionText : {
+    color: style.colors.primary
+  },
+  feedbackBtn: {
+    margin: 5,
+    alignItems: 'center' 
+  },
+  feedbackBtnText: {
+    color: style.colors.color1
   }
 })
 
@@ -90,10 +113,16 @@ class SessionDetail extends React.Component {
         </View>
         <View style={styles.container}>
         { config.features.feedback &&
-          <View>
-          <Button title="Feedback" 
-            {...this.props} 
-            onPress={() => this.props.navigation.navigate('Feedback', { sessionData: params.sessionData })}></Button>  
+          <View style={styles.feedbackBtnContainer}>
+            <Text style={styles.feedbackQuestionText}>How was this session? Would you like to send feedback?</Text>
+            <TouchableOpacity 
+              title="Send feedback"
+              style={styles.feedbackBtn}
+              accessibilityLabel="Go to feedback for this session" 
+              {...this.props} 
+              onPress={() => this.props.navigation.navigate('Feedback', { sessionData: params.sessionData })}>
+              <Text style={styles.feedbackBtnText}>Send feedback</Text>
+              </TouchableOpacity>  
           </View>
           } 
           <Text style={styles.textStyle}>{params.sessionData.abstract}</Text>
