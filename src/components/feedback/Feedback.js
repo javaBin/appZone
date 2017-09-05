@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, TouchableHighlight, ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
 import Toast, { DURATION } from 'react-native-easy-toast'
@@ -49,8 +49,8 @@ class Feedback extends Component {
       let msg = message
       if(message.error) {
         msg = 'Ops! Something happend while sending feedback'
-      } else if(message.feedbackId) {
-        msg = 'Feedback sendt'
+      } else if(message.message) {
+        msg = message.message
       }
       this.feedbackToast.show(msg, DURATION.LENGTH_LONG)  
       this.props.removeError(message)
@@ -64,7 +64,7 @@ class Feedback extends Component {
     const { params } = this.props.navigation.state
     let { submitFeedback, feedbackData, navigation, feedbackCriteria, uuid } = this.props
     const feedbackCriteriaList = feedbackCriteria.map(criteria => {
-      if(criteria.id === 'Comment') {
+      if(criteria.id === 'Comments') {
         return (
         <View style={ styles.commentContainer } key={ criteria.id }>   
           <TextInput 
@@ -89,7 +89,8 @@ class Feedback extends Component {
     })
 
     return (
-      <ScrollView style={{ backgroundColor: style.colors.background }}> 
+      <View style={styles.scrollViewContainer}>
+      <ScrollView contentContainerStyle = {styles.homeContainerScroll}> 
         <View style={ styles.container }>
           <View style={{ flexDirection: 'row', marginBottom: 10 }}>
             <Icon name="arrow-left" style={{ padding: 15 }} size={ 40 } color={ style.colors.color4 }
@@ -103,41 +104,47 @@ class Feedback extends Component {
             ref={(c) => { this.feedbackToast = c }} 
             style={{ backgroundColor: style.colors.color4 }}
             position='top'/>
-          <TouchableOpacity
+          <TouchableHighlight
             style={ styles.submitBtn }
             title='Submit feedback'
             accessibilityLabel="Send feedback for this session"
             onPress={()=> {
-              let comment = this.state.text
+              let comments = this.state.text
               let feedback = feedbackData.feedback.filter((f) => {
                 return f.sessionId=== params.sessionData.sessionId
               }).reduce((acc, curr)=>{ 
                     return Object.assign(acc, { ...curr })
               }, {})
-              submitFeedback(Object.assign({}, { ...feedback, feedback: Object.assign({}, { ...feedback.feedback }, { comment }), uuid }))
+              submitFeedback(Object.assign({}, { ...feedback, feedback: Object.assign({}, { ...feedback.feedback }, { comments }), uuid }))
             }}
           >
             <Text style={styles.submitBtnText}>Submit feedback</Text>
-          </TouchableOpacity>
+          </TouchableHighlight>
         </View>
       </ScrollView>
+      </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  scrollViewContainer : {
+    flex: 1,
+  },
+  homeContainerScroll: {
+    flexGrow: 1,
+  },
   container: {
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        alignSelf: 'stretch',
         backgroundColor: style.colors.background,
     },
     commentContainer: {
       flexDirection: 'row',
       alignSelf: 'stretch',
-      marginTop: 10,
+      marginTop: 5,
       marginLeft: 10,
       marginRight: 10
     },
@@ -147,25 +154,23 @@ const styles = StyleSheet.create({
       borderBottomColor: style.colors.color1, 
       borderBottomWidth: 1, 
       color: style.colors.primary, 
-      fontSize: 13
+      fontSize: 16
     },
     backBtn : {
       alignSelf: 'flex-start',
       margin: 10
     },
     submitBtn: {
-      height: 30,
-      paddingTop: 5,
+      height: 50,
+      paddingTop: 10,
       paddingBottom: 5,
       paddingLeft: 30,
       paddingRight: 30,
-      borderColor: style.colors.color4,
       margin: 10,
     },
     submitBtnText: {
       color: style.colors.color4,
-      marginTop: 10,
-      fontSize: 20
+      fontSize: 24
     },
     h1 : {
        fontSize: style.fontSizes.heading3,

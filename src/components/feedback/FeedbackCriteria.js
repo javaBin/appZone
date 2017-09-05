@@ -51,7 +51,7 @@ export class FeedbackCriteria extends Component {
 
     return (
         <View style={ styles.container }>
-          <Text style={ styles.h2 }>{ criteria.title }</Text>
+          <Text style={ styles.h2 }>{ criteria.title }:</Text>
           <View style={ styles.scoreContainer }>
              { scoreButtons }
           </View>
@@ -71,10 +71,11 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
         marginLeft: 10,
         marginRight: 10,
-        marginBottom: 20
+        marginBottom: 10,
+        paddingBottom: 10,
     },
     h2: {
-        fontSize: 13,
+        fontSize: 16,
         color: style.colors.primary,
         marginBottom: 10    
     },

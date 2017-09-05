@@ -69,17 +69,20 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
-    elevation: 1
+    elevation: 1,
+    alignItems: 'center'
   },
   feedbackQuestionText : {
     color: style.colors.primary
   },
   feedbackBtn: {
     margin: 5,
-    alignItems: 'center' 
+    alignSelf: 'center' 
   },
   feedbackBtnText: {
-    color: style.colors.color1
+    color: style.colors.color1,
+    fontSize: 20,
+    marginTop:5
   }
 })
 
@@ -130,17 +133,15 @@ class SessionDetail extends React.Component {
         </View>
         <View style={styles.container}>
         { config.features.feedback &&
-          <View style={styles.feedbackBtnContainer}>
-            <Text style={styles.feedbackQuestionText}>How was this session? Would you like to send feedback?</Text>
             <TouchableOpacity 
               title="Send feedback"
-              style={styles.feedbackBtn}
+              style={styles.feedbackBtnContainer}
               accessibilityLabel="Go to feedback for this session" 
               {...this.props} 
               onPress={() => this.props.navigation.navigate('Feedback', { sessionData: params.sessionData })}>
+              <Text style={styles.feedbackQuestionText}>How was this session? Would you like to send feedback?</Text>
               <Text style={styles.feedbackBtnText}>Send feedback</Text>
-              </TouchableOpacity>  
-          </View>
+            </TouchableOpacity>  
           } 
           <Text style={styles.textStyle}>{params.sessionData.abstract}</Text>
           <Text style={styles.heading2}>INTENDED AUDIENCE:</Text>
