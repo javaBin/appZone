@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as firebase from '../../actions/firebase'
 
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View, BackHandler } from 'react-native'
 
 import moment from 'moment'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -60,10 +60,25 @@ const styles = StyleSheet.create({
 class SessionDetail extends React.Component {
   static propTypes = {
     logScreen: PropTypes.func,
+    navigationState: PropTypes.object
   }
 
   componentWillMount() {
     this.props.logScreen()
+
+    BackHandler.addEventListener("hardwareBackPress", () => {
+      let routeIndex = this.props.navigationState.index
+      let nestedNavigation = this.props.navigationState.routes[routeIndex].routes.length > 1
+      if(nestedNavigation) {
+        this.props.navigation.goBack()
+        return true
+      }
+      return false
+    })
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress')
   }
 
   render() {
@@ -130,4 +145,10 @@ SessionDetail.defaultProps = {
 const mapDispatchToProps = (dispatch: Dispatch) =>
 ({ logScreen: () => { dispatch(firebase.setCurrentScreen('session_detail', 'SessionDetail')) } })
 
-export default connect(null, mapDispatchToProps)(SessionDetail)
+const mapStateToProps = (state) => {
+  return {
+    navigationState: state.tabBar,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SessionDetail)
