@@ -1,7 +1,6 @@
 package com.appzone17;
 
 import android.app.Application;
-
 import com.cboy.rn.splashscreen.SplashScreenReactPackage;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;

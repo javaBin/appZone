@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 import * as firebase from '../../actions/firebase'
-
-import { ScrollView, StyleSheet, Text, View, BackHandler } from 'react-native'
+import { Text, StyleSheet, View, ScrollView, TouchableOpacity, BackHandler } from 'react-native'
 
 import moment from 'moment'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
 import type { Dispatch } from '../../../types/Actions'
+import config from '../../config'
 
 const styles = StyleSheet.create({
   sessionScrollview: {
@@ -57,6 +57,29 @@ const styles = StyleSheet.create({
     fontFamily: style.fonts.headerLight,
     padding: 3,
     margin: 5,
+  },
+  feedbackBtnContainer: {
+    margin: 10,
+    padding: 10,
+    borderWidth: 1,
+    borderRadius: 2,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
+    borderBottomWidth: 0,
+    shadowColor: 'rgba(255, 255, 255, 0.5)',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1
+  },
+  feedbackQuestionText : {
+    color: style.colors.primary
+  },
+  feedbackBtn: {
+    margin: 5,
+    alignItems: 'center' 
+  },
+  feedbackBtnText: {
+    color: style.colors.color1
   }
 })
 
@@ -103,9 +126,22 @@ class SessionDetail extends React.Component {
               <Text style={styles.textStyleHeder}>{fromTime} - {toTime}</Text>
               <Text style={styles.textStyleHeder}>{params.sessionData.room} - {params.sessionData.format}</Text>
             </View>
-          </View>
+          </View>       
         </View>
         <View style={styles.container}>
+        { config.features.feedback &&
+          <View style={styles.feedbackBtnContainer}>
+            <Text style={styles.feedbackQuestionText}>How was this session? Would you like to send feedback?</Text>
+            <TouchableOpacity 
+              title="Send feedback"
+              style={styles.feedbackBtn}
+              accessibilityLabel="Go to feedback for this session" 
+              {...this.props} 
+              onPress={() => this.props.navigation.navigate('Feedback', { sessionData: params.sessionData })}>
+              <Text style={styles.feedbackBtnText}>Send feedback</Text>
+              </TouchableOpacity>  
+          </View>
+          } 
           <Text style={styles.textStyle}>{params.sessionData.abstract}</Text>
           <Text style={styles.heading2}>INTENDED AUDIENCE:</Text>
           <Text style={styles.textStyle}>{params.sessionData.intendedAudience}</Text>
@@ -143,7 +179,6 @@ SessionDetail.propTypes = {
 SessionDetail.defaultProps = {
   navigation: null
 }
-
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
 ({ logScreen: () => { dispatch(firebase.setCurrentScreen('session_detail', 'SessionDetail')) } })

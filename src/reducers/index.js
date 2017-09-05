@@ -4,15 +4,18 @@ import { combineReducers } from 'redux'
 
 import settings from './settings'
 import sessions from './sessions'
+import uuid from './uuid'
 import conferences from './conferences'
 import { FIREBASE_EVENT } from '../actions/firebase'
 import filter from './filter'
+import feedback from './feedback'
 import { tabBarReducer } from '../components/tab-bar-navigation/navigationConfiguration'
 
 import type { SessionState } from './sessions'
 import type { ConferencesState } from './conferences'
 import type { FilterState } from './filter'
 import type { SettingsState } from './settings'
+import type { FeedbackState } from './feedback'
 
 import firebase from '../components/firebase/Firebase'
 
@@ -27,10 +30,12 @@ import firebase from '../components/firebase/Firebase'
 
 export type StoreState = {
   conferences: ConferencesState,
+  feedback: FeedbackState,
   session: SessionState,
   filter: FilterState,
   settings: SettingsState,
-  tabBar: any
+  tabBar: any,
+  uuid: string
 }
 
 const firebaseInit = { analytics: null, }
@@ -66,7 +71,9 @@ const firebaseEvents = (state = firebaseInit, action) => {
 
 const reducers = combineReducers({
   conferences, 
+  feedback,
   sessions,
+  uuid,
   settings,
   filter,
   firebaseEvents,
