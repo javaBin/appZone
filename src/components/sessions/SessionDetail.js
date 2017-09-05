@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 import * as firebase from '../../actions/firebase'
-
-import { Text, StyleSheet, View, ScrollView, TouchableOpacity } from 'react-native'
+import { Text, StyleSheet, View, ScrollView, TouchableOpacity, BackHandler } from 'react-native'
 
 import moment from 'moment'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -13,6 +12,9 @@ import type { Dispatch } from '../../../types/Actions'
 import config from '../../config'
 
 const styles = StyleSheet.create({
+  sessionScrollview: {
+    backgroundColor: style.colors.background
+  },
   sessionHeaderWrapper: {
     flex: 1,
     padding: 5,
@@ -38,7 +40,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   textStyleHeder: {
-    color: style.colors.color1,
+    color: style.colors.primary,
   },
   textStyle: {
     color: style.colors.primary,
@@ -84,30 +86,45 @@ const styles = StyleSheet.create({
 class SessionDetail extends React.Component {
   static propTypes = {
     logScreen: PropTypes.func,
+    navigationState: PropTypes.object
   }
 
   componentWillMount() {
     this.props.logScreen()
+
+    BackHandler.addEventListener("hardwareBackPress", () => {
+      let routeIndex = this.props.navigationState.index
+      let nestedNavigation = this.props.navigationState.routes[routeIndex].routes.length > 1
+      if(nestedNavigation) {
+        this.props.navigation.goBack()
+        return true
+      }
+      return false
+    })
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress')
   }
 
   render() {
     const { navigation, } = this.props
     const { params } = navigation.state
 
-    let fromTime = moment(new Date(params.sessionData.startTime)).format('dddd, MMMM DD HH:mm')
-    let toTime = moment(new Date(params.sessionData.endTime)).format('HH:mm')
+    let fromTime = moment(new Date(params.sessionData.startTimeZulu)).format('HH:mm')
+    let toTime = moment(new Date(params.sessionData.endTimeZulu)).format('HH:mm, dddd, MMMM DD ')
     return (
-      <ScrollView>
+      <ScrollView style={styles.sessionScrollview}>
         <View style={styles.sessionHeaderWrapper}>
           <View style={{ flex: 1, flexDirection: 'row' }}>
-            <Icon name="arrow-left" style={{ padding: 15 }} size={40} color={style.colors.color4}
+            <Icon name="arrow-left" style={{ padding: 0 }} size={40} color={style.colors.color4}
               onPress={() => navigation.goBack()} />
           </View>
           <Text style={styles.heading1}>{(params.sessionData.title).toUpperCase()}</Text>
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <View>
-              <Text style={styles.textStyleHeder}>{params.sessionData.room} {params.sessionData.format}</Text>
-              <Text style={{ color: style.colors.color1 }}>{fromTime} - {toTime}</Text>
+              <Text style={styles.textStyleHeder}>{fromTime} - {toTime}</Text>
+              <Text style={styles.textStyleHeder}>{params.sessionData.room} - {params.sessionData.format}</Text>
             </View>
           </View>       
         </View>
@@ -166,4 +183,10 @@ SessionDetail.defaultProps = {
 const mapDispatchToProps = (dispatch: Dispatch) =>
 ({ logScreen: () => { dispatch(firebase.setCurrentScreen('session_detail', 'SessionDetail')) } })
 
-export default connect(null, mapDispatchToProps)(SessionDetail)
+const mapStateToProps = (state) => {
+  return {
+    navigationState: state.tabBar,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SessionDetail)
