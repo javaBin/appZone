@@ -18,7 +18,7 @@ const feedbackCriteria = [
     { id: 'Relevance', title: 'How relevant was this session to your projects', low: 'Not at all', high: 'Extremly' }, 
     { id: 'Content', title: 'Based on the decription/my expectaions, the content was', low: 'Too basic', high: 'Too advanced' },
     { id: 'Quality', title: 'Speaker quality', low: 'Poor', high: 'Outstanding' }, 
-    { id: 'Comment', title: 'Any other comments' }
+    { id: 'Comments', title: 'Any other comments' }
 ]
 const feedbackInit = ():FeedbackState => ({ feedback :[], feedbackCriteria: feedbackCriteria })
 
