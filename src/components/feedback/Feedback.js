@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, TouchableHighlight, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
 import Toast, { DURATION } from 'react-native-easy-toast'
@@ -104,7 +104,7 @@ class Feedback extends Component {
             ref={(c) => { this.feedbackToast = c }} 
             style={{ backgroundColor: style.colors.color4 }}
             position='top'/>
-          <TouchableHighlight
+          <TouchableOpacity
             style={ styles.submitBtn }
             title='Submit feedback'
             accessibilityLabel="Send feedback for this session"
@@ -119,7 +119,7 @@ class Feedback extends Component {
             }}
           >
             <Text style={styles.submitBtnText}>Submit feedback</Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
       </ScrollView>
       </View>
