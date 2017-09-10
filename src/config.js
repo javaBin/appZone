@@ -24,7 +24,7 @@ const prodConfig: Config = {
     filtersessions: false,
     myschedule: false,
     settings: false,
-    feedback: false,
+    feedback: true,
   }
 } 
 
