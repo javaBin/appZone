@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-<<<<<<< HEAD
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, BackHandler } from 'react-native'
-=======
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, BackHandler} from 'react-native'
->>>>>>> develop
 import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
 import Toast, { DURATION } from 'react-native-easy-toast'
