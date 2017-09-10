@@ -103,7 +103,7 @@ class Feedback extends Component {
           <Toast 
             ref={(c) => { this.feedbackToast = c }} 
             style={{ backgroundColor: style.colors.color4 }}
-            position='top'/>
+            position='center'/>
           <TouchableOpacity
             style={ styles.submitBtn }
             title='Submit feedback'
