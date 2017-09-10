@@ -52,8 +52,8 @@ const getSessionFormat = (room, format) =>  {
 
 const getTimeSpan = (fromTime: ?string, endTime: ?string): ?string => {
   if (fromTime && endTime ) {
-    const from = (moment(fromTime).format('HH:mm'))
-    const end = (moment (endTime).format('HH:mm dddd, DD MMM '))
+    const from = (moment.utc(fromTime).format('HH:mm'))
+    const end = (moment.utc(endTime).format('HH:mm dddd, DD MMM '))
   return (from + ' - ' + end)
   } else {
     return null
@@ -80,7 +80,7 @@ const SessionListItem = (props: Props) => (
       <Text style={ styles.sessionTitle }>{props.session.title}</Text>
       { getSessionFormat(props.session.room, props.session.format) }
       <Text style={ styles.textStyle }>
-        { getTimeSpan(props.session.startTimeZulu, props.session.endTimeZulu) }
+        { getTimeSpan(props.session.startTime, props.session.endTime) }
       </Text>
     </TouchableOpacity>
   </View>
