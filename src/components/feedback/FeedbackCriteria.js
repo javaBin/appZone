@@ -81,7 +81,8 @@ const styles = StyleSheet.create({
     },
     scoreContainer: {
         flexDirection: 'row',
-        alignSelf: 'stretch'
+        alignSelf: 'stretch',
+        justifyContent: 'space-between'
     },
     gradingContainer: {
       marginTop: 5,
