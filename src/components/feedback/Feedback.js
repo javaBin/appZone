@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, BackHandler} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
 import Toast, { DURATION } from 'react-native-easy-toast'
@@ -38,6 +38,15 @@ class Feedback extends Component {
         eventId: this.props.navigation.state.params.sessionData.conferenceId
       })
     this.props.getUUID()
+    BackHandler.addEventListener("hardwareBackPress", () => {
+      let routeIndex = this.props.navigationState.index
+      let nestedNavigation = this.props.navigationState.routes[routeIndex].routes.length > 1
+      if(nestedNavigation) {
+        this.props.navigation.goBack()
+        return true
+      }
+      return false
+    })
   }
     
   componentDidUpdate() {
@@ -196,7 +205,8 @@ const mapStateToProps = (state) => {
     feedbackData: state.feedback,
     message : state.feedback.message,
     feedbackCriteria: state.feedback.feedbackCriteria,
-    uuid: state.uuid.uuid
+    uuid: state.uuid.uuid,
+    navigationState: state.tabBar
   }
 }
 
