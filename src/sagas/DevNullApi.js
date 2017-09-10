@@ -17,7 +17,7 @@ export const feedback: (feedback) => any =
         } else if(res.status === 403) {
           return { message : 'Please try again. Feedback opens 10 min before session ends.' }  
         } else {
-          return res.status  
+          return { message: 'Ops somthing went wrong.' }
         }
       }
       )
