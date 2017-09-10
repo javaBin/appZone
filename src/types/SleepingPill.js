@@ -30,6 +30,8 @@ export type Session = {
 
   startTimeZulu: ?string,
   endTimeZulu: ?string,
+  endTime: ?string,
+  startTime: ?string,
   room: ?string,
 
   video: ?string
