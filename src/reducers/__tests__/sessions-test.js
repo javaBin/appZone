@@ -123,6 +123,8 @@ const session3: Session =     {
 
   startTimeZulu: "2016-09-08T15:00Z",
   endTimeZulu: "2016-09-08T16:00Z",
+  startTime: "2016-09-08T15:00",
+  endTime: "2016-09-08T16:00",
   room: "Room 4",
 
   video: null
