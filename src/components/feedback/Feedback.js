@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, BackHandler} from 'react-native'
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, BackHandler } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import style from '../../common/style'
 import Toast, { DURATION } from 'react-native-easy-toast'
@@ -22,7 +22,8 @@ class Feedback extends Component {
     message: PropTypes.object,
     feedbackData: PropTypes.object,
     feedbackCriteria: PropTypes.array,
-    navigation: PropTypes.object
+    navigation: PropTypes.object,
+    navigationState: PropTypes.object
   }
 
   constructor(props) {
@@ -68,10 +69,27 @@ class Feedback extends Component {
   onChangeText(text) {
     this.setState({ text })
   }
-  
+  sumbitFeedbackPressed({ params, props }) {
+    const { feedbackData, submitFeedback, uuid, messageToUser } = props
+    let comments = this.state.text
+    let feedback = feedbackData.feedback.filter((f) => {
+      return f.sessionId=== params.sessionData.sessionId
+    }).reduce((acc, curr)=>{ 
+          return Object.assign(acc, { ...curr })
+    }, {})
+
+    const tempFeedback = Object.assign({}, { ...feedback.feedback }, { comments })  
+
+    if(!(tempFeedback.content && tempFeedback.overall && tempFeedback.quality && tempFeedback.relevance)) {
+      messageToUser({ message: 'Please provide a score to all qustions' })
+    } else {
+      submitFeedback(Object.assign({}, { ...feedback, feedback: tempFeedback, uuid }))
+    }
+  }
+
   render() {
     const { params } = this.props.navigation.state
-    let { submitFeedback, feedbackData, navigation, feedbackCriteria, uuid } = this.props
+    let { feedbackData, navigation, feedbackCriteria } = this.props
     const feedbackCriteriaList = feedbackCriteria.map(criteria => {
       if(criteria.id === 'Comments') {
         return (
@@ -91,7 +109,8 @@ class Feedback extends Component {
             criteria={ criteria }
             feedbackData={ feedbackData }
             sessionData={ params.sessionData }
-            selectedScore={ (score) => this.props.updateFeedback(score) }
+            selectedScore={ (score) => {
+              this.props.updateFeedback(score) }}
           />
         )
       }
@@ -118,13 +137,7 @@ class Feedback extends Component {
             title='Submit feedback'
             accessibilityLabel="Send feedback for this session"
             onPress={()=> {
-              let comments = this.state.text
-              let feedback = feedbackData.feedback.filter((f) => {
-                return f.sessionId=== params.sessionData.sessionId
-              }).reduce((acc, curr)=>{ 
-                    return Object.assign(acc, { ...curr })
-              }, {})
-              submitFeedback(Object.assign({}, { ...feedback, feedback: Object.assign({}, { ...feedback.feedback }, { comments }), uuid }))
+              this.sumbitFeedbackPressed({ params, props: this.props })
             }}
           >
             <Text style={styles.submitBtnText}>Submit feedback</Text>
@@ -220,6 +233,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     submitFeedback : (feedback) => {
       dispatch(feedbackAction.submitFeedback(feedback))  
+    },
+    messageToUser : (message) => {
+      dispatch(feedbackAction.feedbackMessageToUser(message))
     },
     removeError: (error) => {
       dispatch(feedbackAction.removeError(error))

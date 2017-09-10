@@ -7,6 +7,7 @@ import type {
   FeedbackSubmitAction, 
   FeedbackFetchSuccessAction, 
   FeedbackFetchErrorAction, 
+  FeedbackMessageToUserAction,
   ReomoveErrorAction } from '../actions/feedback'
 
 export type FeedbackState = {
@@ -27,6 +28,7 @@ UpdateFeedbackAction |
 FeedbackSubmitAction | 
 FeedbackFetchSuccessAction | 
 FeedbackFetchErrorAction | 
+FeedbackMessageToUserAction |
 ReomoveErrorAction
 
 const feedback = (state: FeedbackState = feedbackInit(), action: FeedbackActions) => {
@@ -35,6 +37,8 @@ const feedback = (state: FeedbackState = feedbackInit(), action: FeedbackActions
         return insertItem(state, action)
       case FEEDBACK.UPDATE:
         return updateItem(state, action)
+      case FEEDBACK.MESSAGE_TO_USER:
+        return { ...state, message: action.payload }
       case FEEDBACK.FETCH_SUCCESS:
         return { ...state, message: action.payload }
       case FEEDBACK.FETCH_ERROR: 
@@ -49,8 +53,8 @@ const feedback = (state: FeedbackState = feedbackInit(), action: FeedbackActions
 
 
 function insertItem(state, action) {
-    let itemExist = state.feedback.filter(a => a.sessionId === action.payload.sessionID)
-    if(itemExist > 0) {
+    let itemExist = state.feedback.filter(f => f.sessionId === action.payload.sessionId)
+    if(itemExist.length > 0) {
       return state
     } else {
       return { feedbackCriteria: [...state.feedbackCriteria], feedback: [...state.feedback, action.payload] }
