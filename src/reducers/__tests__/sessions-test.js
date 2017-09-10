@@ -79,6 +79,8 @@ const session1: Session =  {
 
   startTimeZulu: "2016-09-08T07:00Z",
   endTimeZulu: "2016-09-08T08:00Z",
+  startTime: "2016-09-08T07:00",
+  endTime: "2016-09-08T08:00",
   room: "Room 5",
 
   video: null
@@ -101,6 +103,8 @@ const session2: Session =  {
 
   startTimeZulu: "2016-09-08T07:00Z",
   endTimeZulu: "2016-09-08T08:00Z",
+  startTime: "2016-09-08T07:00",
+  endTime: "2016-09-08T07:00",
   room: "Room 1",
 
   video: null
