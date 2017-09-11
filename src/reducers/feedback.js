@@ -15,9 +15,9 @@ export type FeedbackState = {
   feedbackCriteria:any
 }
 const feedbackCriteria = [
-    { id: 'Overall', title: 'Session rating', low: 'Not so awesome', high: 'Awsome' }, 
-    { id: 'Relevance', title: 'How relevant was this session to your projects', low: 'Not at all', high: 'Extremly' }, 
-    { id: 'Content', title: 'Based on the decription/my expectaions, the content was', low: 'Too basic', high: 'Too advanced' },
+    { id: 'Overall', title: 'Session rating', low: 'Not so awesome', high: 'Awesome' }, 
+    { id: 'Relevance', title: 'How relevant was this session to your projects', low: 'Not at all', high: 'Extremely' }, 
+    { id: 'Content', title: 'Based on the decription/my expectations, the content was', low: 'Too basic', high: 'Too advanced' },
     { id: 'Quality', title: 'Speaker quality', low: 'Poor', high: 'Outstanding' }, 
     { id: 'Comments', title: 'Any other comments' }
 ]
