@@ -81,7 +81,7 @@ class Feedback extends Component {
     const tempFeedback = Object.assign({}, { ...feedback.feedback }, { comments })  
 
     if(!(tempFeedback.content && tempFeedback.overall && tempFeedback.quality && tempFeedback.relevance)) {
-      messageToUser({ message: 'Please provide a score to all qustions' })
+      messageToUser({ message: 'Please provide a score to all questions' })
     } else {
       submitFeedback(Object.assign({}, { ...feedback, feedback: tempFeedback, uuid }))
     }
