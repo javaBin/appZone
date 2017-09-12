@@ -58,7 +58,7 @@ class Feedback extends Component {
     if(message) {
       let msg = message
       if(message.error) {
-        msg = 'Ops! Something happend while sending feedback'
+        msg = 'Ops! Something happened while sending feedback'
       } else if(message.message) {
         msg = message.message
       }
@@ -81,7 +81,7 @@ class Feedback extends Component {
     const tempFeedback = Object.assign({}, { ...feedback.feedback }, { comments })  
 
     if(!(tempFeedback.content && tempFeedback.overall && tempFeedback.quality && tempFeedback.relevance)) {
-      messageToUser({ message: 'Please provide a score to all qustions' })
+      messageToUser({ message: 'Please provide a score to all questions' })
     } else {
       submitFeedback(Object.assign({}, { ...feedback, feedback: tempFeedback, uuid }))
     }
